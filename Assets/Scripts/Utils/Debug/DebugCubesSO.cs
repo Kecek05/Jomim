@@ -1,4 +1,3 @@
-using KeceK.Plugins.EditableAssetAttribute;
 using UnityEngine;
 
 namespace KeceK.Utils

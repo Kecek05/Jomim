@@ -20,6 +20,7 @@ MonoBehaviour:
     - 74d5456ead4aad047b8d9eb0edf13209
     - 7b0b480ebd9e5cc4c81b31db78a2923b
     - 0383b728eda270c45a64b97e94acd89a
+    - 41bc8ba28a416c445903f334a2ae3a76
     values:
     - iconNameOrGuid: cs Script Icon
       colorIndex: 4
@@ -42,6 +43,10 @@ MonoBehaviour:
       isIconRecursive: 0
       isColorRecursive: 0
     - iconNameOrGuid: PhysicsMaterial Icon
+      colorIndex: 0
+      isIconRecursive: 0
+      isColorRecursive: 0
+    - iconNameOrGuid: AnimationClip Icon
       colorIndex: 0
       isIconRecursive: 0
       isColorRecursive: 0

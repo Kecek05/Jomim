@@ -1,11 +1,7 @@
 {
-    "name": "Game",
-    "rootNamespace": "KeceK.Game",
-    "references": [
-        "GUID:20f6c2b57e1a4f942b0f096f4ce04928",
-        "GUID:75469ad4d38634e559750d17036d5f7c",
-        "GUID:72351534616ffef4eb95c54ab2fe23d0"
-    ],
+    "name": "KeceK.Utils.Components",
+    "rootNamespace": "KeceK.Utils.Components",
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

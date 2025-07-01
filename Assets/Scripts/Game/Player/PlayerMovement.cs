@@ -1,8 +1,9 @@
 using System;
+using System.Collections;
 using DG.Tweening;
 using KeceK.Input;
 using KeceK.Plugins.EditableAssetAttribute;
-using KeceK.Utils;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,29 +11,33 @@ namespace KeceK.Game
 {
     public class PlayerMovement : MonoBehaviour
     {
-        [Header("References")]
-        [SerializeField] private Transform _playerFeet;
-        [CreateEditableAsset] [SerializeField] private PlayerMovementSO _playerMovementSO;
-        [SerializeField] private InputReader _inputReader;
-        [SerializeField] private Rigidbody2D _rigidbody2D;
-        [CreateEditableAsset][SerializeField] private DebugCubesSO _debugCubesSO;
-        [Space(5)]
-        [Header("Settings")]
-        [SerializeField] [Tooltip("Layers that is possible to jump")]
+        [SerializeField] [FoldoutGroup("References")] [Required]
+        private Transform _playerFeet;
+        [CreateEditableAsset] [SerializeField] [FoldoutGroup("References")] [Required]
+        private PlayerMovementSO _playerMovementSO;
+        [SerializeField] [FoldoutGroup("References")] [Required]
+        private InputReader _inputReader;
+        [SerializeField] [FoldoutGroup("References")] [Required]
+        private Rigidbody2D _rigidbody2D;
+        [Space(10)]
+        
+        [SerializeField] [FoldoutGroup("Settings")] [Tooltip("Layers that is possible to jump")] 
         private LayerMask _jumpableLayers;
-        [SerializeField] [Tooltip("Radius to check if the player is on ground")]
+        [SerializeField] [FoldoutGroup("Settings")] [Tooltip("Radius to check if the player is on ground")]
         private float _isGroundedRadius = 0.5f;
-        [Space(5)]
+        [Space(10)]
         
-        [Header("Jump Settings")]
-        [SerializeField] private float jumpDuration = 0.2f;
-        [SerializeField] private Ease jumpEase = Ease.OutQuad;
-        
+
+        [SerializeField] [FoldoutGroup("Jump Settings")]
+        private float jumpDuration = 0.2f;
+        [SerializeField] [FoldoutGroup("Jump Settings")]
+        private Ease jumpEase = Ease.OutQuad;
+        [Space(10)]
         
         private Tween jumpTween;
         private Vector2 moveInput;
         private bool _jumpButtonHeld = false;
-        private bool _canJump = false;
+        private bool _canJump = true;
         
         //Coyote Time
         private float _coyoteTime = 0.15f;
@@ -42,6 +47,22 @@ namespace KeceK.Game
         private float _jumpBufferTime = 0.05f;
         private float _jumpBufferCounter;
         
+        //Jump Cooldown
+        private float _cooldownBetweenJumps = 0.2f;
+        private WaitForSeconds _waitForJump;
+        private Coroutine _jumpCoroutine;
+        
+        //Debugs
+        public bool CanJump => _canJump;
+        public float CoyoteTimeCounter => _coyoteTimeCounter;
+        public float JumpBufferCounter => _jumpBufferCounter;
+        public float CooldownBetweenJumps => _cooldownBetweenJumps;
+
+        private void Awake()
+        {
+            _waitForJump = new WaitForSeconds(_cooldownBetweenJumps);
+        }
+
         private void OnEnable()
         {
             _inputReader.OnMoveEvent += InputReaderOnOnMoveEvent;
@@ -79,7 +100,7 @@ namespace KeceK.Game
             if (IsGrounded())
             {
                 _coyoteTimeCounter = _coyoteTime;
-                _canJump = true;
+                // _canJump = true;
             }
             else if(_coyoteTimeCounter > 0f)
             {
@@ -111,16 +132,19 @@ namespace KeceK.Game
             
             _rigidbody2D.AddForceX(velocity.x);
             _rigidbody2D.linearVelocityX = Mathf.Clamp(_rigidbody2D.linearVelocityX, -_playerMovementSO.maxSpeed, _playerMovementSO.maxSpeed);
-            Debug.Log(_rigidbody2D.linearVelocity);
+            // Debug.Log(_rigidbody2D.linearVelocity);
         }
 
         private void DoJump(float jumpForce)
         {
             if (_coyoteTimeCounter > 0f && _jumpBufferCounter > 0f && _canJump)
             {
-                DebugCubeSpawner.SpawnDebugCube(_debugCubesSO.DebugCubePrefabs[0],_playerFeet.position, Quaternion.identity, 1f);
-                // _rigidbody2D.linearVelocityY = jumpForce;
                 _canJump = false;
+                // _rigidbody2D.linearVelocityY = jumpForce;
+                if(_jumpCoroutine != null)
+                    StopCoroutine(_jumpCoroutine);
+                _jumpCoroutine = StartCoroutine(JumpCooldown());
+                
                 // _rigidbody2D.AddForceY(jumpForce, ForceMode2D.Force);
                 _jumpBufferCounter = 0f;
                 _coyoteTimeCounter = 0f;
@@ -148,6 +172,13 @@ namespace KeceK.Game
                 _isGroundedRadius,
                 _jumpableLayers
             ) != null;
+        }
+
+        private IEnumerator JumpCooldown()
+        {
+            yield return _waitForJump;
+            _canJump = true;
+            _jumpCoroutine = null;
         }
         
         #if UNITY_EDITOR
