@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1200
   maxSpeed: 4.5
-  jumpForce: 50
+  jumpForce: 60

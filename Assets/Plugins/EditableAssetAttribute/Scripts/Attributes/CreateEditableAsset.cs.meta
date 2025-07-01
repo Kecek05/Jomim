@@ -14,5 +14,5 @@ AssetOrigin:
   productId: 301503
   packageName: Editable Asset Attribute
   packageVersion: 1.0
-  assetPath: Assets/EditableAssetAttribute/Scripts/Attributes/CreateEditableAsset.cs
+  assetPath: Assets/Plugins/EditableAssetAttribute/Scripts/Attributes/CreateEditableAsset.cs
   uploadId: 705477

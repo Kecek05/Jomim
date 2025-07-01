@@ -1,5 +1,7 @@
 using System;
+using DG.Tweening;
 using KeceK.Input;
+using KeceK.Plugins.EditableAssetAttribute;
 using KeceK.Utils;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,35 +12,45 @@ namespace KeceK.Game
     {
         [Header("References")]
         [SerializeField] private Transform _playerFeet;
-        [SerializeField] private PlayerMovementSO _playerMovementSO;
+        [CreateEditableAsset] [SerializeField] private PlayerMovementSO _playerMovementSO;
         [SerializeField] private InputReader _inputReader;
         [SerializeField] private Rigidbody2D _rigidbody2D;
-        [SerializeField] private DebugCubesSO _debugCubesSO;
+        [CreateEditableAsset][SerializeField] private DebugCubesSO _debugCubesSO;
         [Space(5)]
         [Header("Settings")]
-        
         [SerializeField] [Tooltip("Layers that is possible to jump")]
         private LayerMask _jumpableLayers;
-
-        [SerializeField] [Tooltip("Distance to check if the player is on ground")]
-        private float _groundDistance = 0.2f;
-
+        [SerializeField] [Tooltip("Radius to check if the player is on ground")]
+        private float _isGroundedRadius = 0.5f;
+        [Space(5)]
+        
+        [Header("Jump Settings")]
+        [SerializeField] private float jumpDuration = 0.2f;
+        [SerializeField] private Ease jumpEase = Ease.OutQuad;
+        
+        
+        private Tween jumpTween;
         private Vector2 moveInput;
         private bool _jumpButtonHeld = false;
         private bool _canJump = false;
         
         //Coyote Time
-        private float _coyoteTime = 0.2f;
+        private float _coyoteTime = 0.15f;
         private float _coyoteTimeCounter;
         
         //Jump buffer
-        private float _jumpBufferTime = 0.2f;
+        private float _jumpBufferTime = 0.05f;
         private float _jumpBufferCounter;
         
         private void OnEnable()
         {
-            _inputReader.OnMove += InputReaderOnOnMove;
+            _inputReader.OnMoveEvent += InputReaderOnOnMoveEvent;
             _inputReader.OnJumpEvent += InputReaderOnOnJumpEvent;
+        }
+        private void OnDisable()
+        {
+            _inputReader.OnMoveEvent -= InputReaderOnOnMoveEvent;
+            _inputReader.OnJumpEvent -= InputReaderOnOnJumpEvent;
         }
 
         private void InputReaderOnOnJumpEvent(InputAction.CallbackContext context)
@@ -54,12 +66,7 @@ namespace KeceK.Game
             }
         }
 
-        private void OnDisable()
-        {
-            _inputReader.OnMove -= InputReaderOnOnMove;
-        }
-
-        private void InputReaderOnOnMove(InputAction.CallbackContext context)
+        private void InputReaderOnOnMoveEvent(InputAction.CallbackContext context)
         {
             if (context.performed)
                 moveInput = context.ReadValue<Vector2>();
@@ -104,33 +111,56 @@ namespace KeceK.Game
             
             _rigidbody2D.AddForceX(velocity.x);
             _rigidbody2D.linearVelocityX = Mathf.Clamp(_rigidbody2D.linearVelocityX, -_playerMovementSO.maxSpeed, _playerMovementSO.maxSpeed);
+            Debug.Log(_rigidbody2D.linearVelocity);
         }
 
         private void DoJump(float jumpForce)
         {
             if (_coyoteTimeCounter > 0f && _jumpBufferCounter > 0f && _canJump)
             {
+                DebugCubeSpawner.SpawnDebugCube(_debugCubesSO.DebugCubePrefabs[0],_playerFeet.position, Quaternion.identity, 1f);
+                // _rigidbody2D.linearVelocityY = jumpForce;
                 _canJump = false;
                 // _rigidbody2D.AddForceY(jumpForce, ForceMode2D.Force);
-                _rigidbody2D.linearVelocityY = jumpForce;
                 _jumpBufferCounter = 0f;
-                DebugCubeSpawner.SpawnDebugCube(_debugCubesSO.DebugCubePrefabs[0],transform.position, Quaternion.identity, 1f);
+                _coyoteTimeCounter = 0f;
+                
+                // Cancel existing jump tweens
+                jumpTween?.Kill();
+
+                // Start new tween on velocity.y
+                float startY = _rigidbody2D.linearVelocity.y;
+
+                jumpTween = DOTween.To(
+                        () => _rigidbody2D.linearVelocity.y,
+                        y => _rigidbody2D.linearVelocity = new Vector2(_rigidbody2D.linearVelocity.x, y),
+                        jumpForce,
+                        jumpDuration
+                    )
+                    .SetEase(jumpEase);
             }
         }
         
         private bool IsGrounded()
         {
-            RaycastHit2D hit = Physics2D.Raycast(
+            return Physics2D.OverlapCircle(
                 _playerFeet.position,
-                Vector2.down,
-                _groundDistance,
+                _isGroundedRadius,
                 _jumpableLayers
-            );
-            Debug.DrawRay(_playerFeet.position, Vector2.down * _groundDistance, hit ? Color.green : Color.red);
-            // Debug.Log($"Is Grounded: {hit.collider != null}");
-            return hit.collider != null;
+            ) != null;
         }
-
+        
+        #if UNITY_EDITOR
+        void OnDrawGizmosSelected()
+        {
+            if (_playerFeet != null)
+            {
+                Gizmos.color = IsGrounded() ? Color.green : Color.red;
+                Gizmos.DrawWireSphere(_playerFeet.position, _isGroundedRadius);
+            }
+        }
+        #endif
+        
         private void StopMove()
         {
             moveInput = Vector2.zero;

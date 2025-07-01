@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Core.Attributes
+namespace KeceK.Plugins.EditableAssetAttribute
 {
     /// <summary>
     /// Attribute to mark fields as editable assets, allowing quick creation and cloning of ScriptableObjects from the Unity inspector.

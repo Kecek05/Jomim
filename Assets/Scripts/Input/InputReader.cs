@@ -8,7 +8,7 @@ namespace KeceK.Input
     public class InputReader : MonoBehaviour, PlayerControls.IPlayer1Actions, PlayerControls.IPlayer2Actions
     {
         public event Action<InputAction.CallbackContext> OnJumpEvent;
-        public event Action<InputAction.CallbackContext> OnMove;
+        public event Action<InputAction.CallbackContext> OnMoveEvent;
         
         private PlayerControls _controls;
         private PlayerType _thisPlayerType = PlayerType.None;
@@ -29,12 +29,12 @@ namespace KeceK.Input
         
         void PlayerControls.IPlayer1Actions.OnMove(InputAction.CallbackContext context)
         {
-            OnMove?.Invoke(context);
+            OnMoveEvent?.Invoke(context);
         }
 
         void PlayerControls.IPlayer2Actions.OnMove(InputAction.CallbackContext context)
         {
-            OnMove?.Invoke(context);
+            OnMoveEvent?.Invoke(context);
         }
         
         private void UpdateInput()

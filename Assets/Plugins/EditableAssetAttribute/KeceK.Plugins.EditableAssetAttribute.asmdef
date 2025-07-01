@@ -1,9 +1,7 @@
 {
-    "name": "KeceK.Utils",
-    "rootNamespace": "KeceK.Utils",
-    "references": [
-        "KeceK.Plugins.EditableAssetAttribute"
-    ],
+    "name": "KeceK.Plugins.EditableAssetAttribute",
+    "rootNamespace": "KeceK.Plugins.EditableAssetAttribute",
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
