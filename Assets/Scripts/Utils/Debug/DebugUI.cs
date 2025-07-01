@@ -15,7 +15,10 @@ namespace KeceK.Utils.Debug
         [SerializeField] [Required]
         private Rigidbody2D _rigidbody2D;
 
-        [SerializeField] [Required] private PlayerMovement _playerMovement;
+        [SerializeField] [Required] 
+        private PlayerMovement _playerMovement;
+        [SerializeField] [Required] 
+        private PlayerManager _playerManager;
 
         private void Update()
         {
@@ -24,6 +27,7 @@ namespace KeceK.Utils.Debug
             _texts[2].text = $"Coyote: {_playerMovement.CoyoteTimeCounter}";
             _texts[3].text = $"Jump Buffer: {_playerMovement.JumpBufferCounter}";
             _texts[4].text = $"Jump Cooldown: {_playerMovement.CooldownBetweenJumps}";
+            _texts[5].text = $"State: {_playerManager?.PlayerStateMachine?.CurrentState.ToString() ?? "Null"}";
         }
     }
 }

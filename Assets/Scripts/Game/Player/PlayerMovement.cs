@@ -11,6 +11,8 @@ namespace KeceK.Game
 {
     public class PlayerMovement : MonoBehaviour
     {
+        public event Action OnJump;
+        
         [SerializeField] [FoldoutGroup("References")] [Required]
         private Transform _playerFeet;
         [CreateEditableAsset] [SerializeField] [FoldoutGroup("References")] [Required]
@@ -132,29 +134,22 @@ namespace KeceK.Game
             
             _rigidbody2D.AddForceX(velocity.x);
             _rigidbody2D.linearVelocityX = Mathf.Clamp(_rigidbody2D.linearVelocityX, -_playerMovementSO.maxSpeed, _playerMovementSO.maxSpeed);
-            // Debug.Log(_rigidbody2D.linearVelocity);
         }
 
         private void DoJump(float jumpForce)
         {
             if (_coyoteTimeCounter > 0f && _jumpBufferCounter > 0f && _canJump)
             {
+                OnJump?.Invoke();
                 _canJump = false;
-                // _rigidbody2D.linearVelocityY = jumpForce;
                 if(_jumpCoroutine != null)
                     StopCoroutine(_jumpCoroutine);
                 _jumpCoroutine = StartCoroutine(JumpCooldown());
-                
-                // _rigidbody2D.AddForceY(jumpForce, ForceMode2D.Force);
                 _jumpBufferCounter = 0f;
                 _coyoteTimeCounter = 0f;
-                
-                // Cancel existing jump tweens
+
                 jumpTween?.Kill();
-
-                // Start new tween on velocity.y
-                float startY = _rigidbody2D.linearVelocity.y;
-
+                
                 jumpTween = DOTween.To(
                         () => _rigidbody2D.linearVelocity.y,
                         y => _rigidbody2D.linearVelocity = new Vector2(_rigidbody2D.linearVelocity.x, y),
