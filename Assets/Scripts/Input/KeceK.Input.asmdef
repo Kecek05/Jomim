@@ -1,0 +1,18 @@
+{
+    "name": "KeceK.Input",
+    "rootNamespace": "KeceK.Input",
+    "references": [
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:b9318f8905863c641b65985ce31a5190",
+        "GUID:fb24642277b1db2449da7ac148ce939d"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
