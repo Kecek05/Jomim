@@ -1,7 +1,7 @@
 {
     "name": "KeceK.Utils.Components",
     "rootNamespace": "KeceK.Utils.Components",
-    "references": [],
+    "references": ["GUID:b9318f8905863c641b65985ce31a5190"],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
