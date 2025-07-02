@@ -424,7 +424,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &41095373165803673
 Transform:
   m_ObjectHideFlags: 0
@@ -1238,6 +1238,7 @@ GameObject:
   - component: {fileID: 4573992353011905451}
   - component: {fileID: 5527048053034744811}
   - component: {fileID: 6417180801744308330}
+  - component: {fileID: 115557198301174350}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1277,7 +1278,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 10
-  m_LinearDamping: 3
+  m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 5
   m_Material: {fileID: 6200000, guid: 26b37f3056c4e3d47a3cd27c4d96efe4, type: 2}
@@ -1343,6 +1344,7 @@ MonoBehaviour:
   _playerMovement: {fileID: 3446716044663588114}
   _playerAnimator: {fileID: 4019127634057080511}
   _rigidbody2D: {fileID: 6944335272430101092}
+  _groundCheck: {fileID: 115557198301174350}
 --- !u!114 &3446716044663588114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1355,16 +1357,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d54ad7ab762cfa54796791531cf8c99a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerFeet: {fileID: 1614156225182088807}
   _playerMovementSO: {fileID: 11400000, guid: ca2904104e91c5147947f6f535e2ac81, type: 2}
   _inputReader: {fileID: 4573992353011905451}
   _rigidbody2D: {fileID: 6944335272430101092}
-  _jumpableLayers:
-    serializedVersion: 2
-    m_Bits: 64
-  _isGroundedRadius: 0.5
-  jumpDuration: 0.05
-  jumpEase: 6
+  _groundCheck: {fileID: 115557198301174350}
+  _stopMovingDuration: 0.2
+  _stopMovingEase: 6
+  jumpDuration: 0.1
+  jumpEase: 18
 --- !u!114 &4573992353011905451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1405,7 +1405,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody2D: {fileID: 6944335272430101092}
   _isEnabled: 1
-  _fallForce: 500
+  _haveStoppingDistance: 1
+  _fallForce: 350
+  velocityYThreshold: 0.1
+  _stoppingDistanceStartTransform: {fileID: 1614156225182088807}
+  _stoppingDistanceLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  _rayLength: 2.5
+--- !u!114 &115557198301174350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4249180659763508056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d99d6fd7c0313cf44a5d0b965547ec9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _jumpableLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  _isGroundedRadius: 0.5
+  _checkTransform: {fileID: 1614156225182088807}
 --- !u!1 &4295846149139841422
 GameObject:
   m_ObjectHideFlags: 0
@@ -1741,6 +1765,7 @@ MonoBehaviour:
   _animator: {fileID: 1274717571907165449}
   _rigidbody2D: {fileID: 6944335272430101092}
   _spriteRenderer: {fileID: 4505489441829493959}
+  flipSpriteThreshold: 1
 --- !u!1 &5430379238531445813
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,6 @@ namespace KeceK.Game
     {
         public float speed;
         public float maxSpeed;
-        public float jumpForce;
+        public float jumpHigh;
     }
 }

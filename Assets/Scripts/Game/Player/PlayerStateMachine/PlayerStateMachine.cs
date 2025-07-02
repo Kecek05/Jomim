@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using KeceK.General;
+using KeceK.Utils.Components;
 using UnityEngine;
 
 namespace KeceK.Game
@@ -23,9 +24,9 @@ namespace KeceK.Game
         //Publics
         public PlayerState CurrentState => _currentPlayerState;
         
-        public PlayerStateMachine(Rigidbody2D rigidbody2D)
+        public PlayerStateMachine(Rigidbody2D rigidbody2D, GroundCheck groundCheck)
         {
-            var stateFactory = new PlayerStateFactory(rigidbody2D, this);
+            var stateFactory = new PlayerStateFactory(rigidbody2D, this, groundCheck);
             _stateMap = stateFactory.CreateStates();
         }
         

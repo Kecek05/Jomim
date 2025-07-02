@@ -25,6 +25,9 @@ namespace KeceK.Game
         [SerializeField] [FoldoutGroup("References")] [Required]
         private SpriteRenderer _spriteRenderer;
 
+        [SerializeField] [FoldoutGroup("Settings")] [Tooltip("Minimum speed value to flip the sprite")]
+        private float flipSpriteThreshold = 1f;
+
         private Animations _currentAnimation;
 
         private readonly int[] animations =
@@ -37,11 +40,11 @@ namespace KeceK.Game
 
         private void Update()
         {
-            _animator.SetFloat(ANIMATION_SPEED, _rigidbody2D.linearVelocity.magnitude * 2f);
+            // _animator.SetFloat(ANIMATION_SPEED, _rigidbody2D.linearVelocity.magnitude * 2f);
 
-            if (_rigidbody2D.linearVelocity.magnitude > 0f)
+            if (_rigidbody2D.linearVelocityX > flipSpriteThreshold)
                 _spriteRenderer.flipX = false;
-            else
+            else if(_rigidbody2D.linearVelocityX < -flipSpriteThreshold)
                 _spriteRenderer.flipX = true;
         }
         

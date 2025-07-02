@@ -3,6 +3,7 @@ using System.Collections;
 using DG.Tweening;
 using KeceK.Input;
 using KeceK.Plugins.EditableAssetAttribute;
+using KeceK.Utils.Components;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -13,46 +14,50 @@ namespace KeceK.Game
     {
         public event Action OnJump;
         
-        [SerializeField] [FoldoutGroup("References")] [Required]
-        private Transform _playerFeet;
+
         [CreateEditableAsset] [SerializeField] [FoldoutGroup("References")] [Required]
         private PlayerMovementSO _playerMovementSO;
         [SerializeField] [FoldoutGroup("References")] [Required]
         private InputReader _inputReader;
         [SerializeField] [FoldoutGroup("References")] [Required]
         private Rigidbody2D _rigidbody2D;
+        [SerializeField] [FoldoutGroup("References")] [Required]
+        private GroundCheck _groundCheck;
         [Space(10)]
         
-        [SerializeField] [FoldoutGroup("Settings")] [Tooltip("Layers that is possible to jump")] 
-        private LayerMask _jumpableLayers;
-        [SerializeField] [FoldoutGroup("Settings")] [Tooltip("Radius to check if the player is on ground")]
-        private float _isGroundedRadius = 0.5f;
+        //Stop Moving 
+        [SerializeField] [FoldoutGroup("Stop Moving Settings")]
+        private float _stopMovingDuration = 0.2f;
+        [SerializeField] [FoldoutGroup("Stop Moving Settings")]
+        private Ease _stopMovingEase = Ease.OutQuad;
+        private Tween _stopMovingTween;
         [Space(10)]
         
 
         [SerializeField] [FoldoutGroup("Jump Settings")]
-        private float jumpDuration = 0.2f;
+        private float jumpDuration = 0.1f;
         [SerializeField] [FoldoutGroup("Jump Settings")]
         private Ease jumpEase = Ease.OutQuad;
+        private Tween _jumpTween;
+        private Vector2 _moveInput;
+        private bool _jumpButtonHeld;
+        private bool _canJump = true;
         [Space(10)]
         
-        private Tween jumpTween;
-        private Vector2 moveInput;
-        private bool _jumpButtonHeld = false;
-        private bool _canJump = true;
         
         //Coyote Time
-        private float _coyoteTime = 0.15f;
+        private float _coyoteTime = 0.08f;
         private float _coyoteTimeCounter;
         
         //Jump buffer
-        private float _jumpBufferTime = 0.05f;
+        private float _jumpBufferTime = 0.07f;
         private float _jumpBufferCounter;
         
         //Jump Cooldown
-        private float _cooldownBetweenJumps = 0.2f;
-        private WaitForSeconds _waitForJump;
-        private Coroutine _jumpCoroutine;
+        private float _cooldownBetweenJumps = 0.25f;
+        private WaitForSeconds _waitForSecondsJumpCooldownCoroutine;
+        private Coroutine _jumpCooldownCoroutine;
+        
         
         //Debugs
         public bool CanJump => _canJump;
@@ -62,7 +67,7 @@ namespace KeceK.Game
 
         private void Awake()
         {
-            _waitForJump = new WaitForSeconds(_cooldownBetweenJumps);
+            _waitForSecondsJumpCooldownCoroutine = new WaitForSeconds(_cooldownBetweenJumps);
         }
 
         private void OnEnable()
@@ -74,6 +79,14 @@ namespace KeceK.Game
         {
             _inputReader.OnMoveEvent -= InputReaderOnOnMoveEvent;
             _inputReader.OnJumpEvent -= InputReaderOnOnJumpEvent;
+        }
+        
+        private void InputReaderOnOnMoveEvent(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+                _moveInput = context.ReadValue<Vector2>();
+            else if (context.canceled)
+                StopMove();
         }
 
         private void InputReaderOnOnJumpEvent(InputAction.CallbackContext context)
@@ -89,17 +102,9 @@ namespace KeceK.Game
             }
         }
 
-        private void InputReaderOnOnMoveEvent(InputAction.CallbackContext context)
-        {
-            if (context.performed)
-                moveInput = context.ReadValue<Vector2>();
-            else if (context.canceled)
-                StopMove();
-        }
-
         private void Update()
         {
-            if (IsGrounded())
+            if (_groundCheck.IsGrounded())
             {
                 _coyoteTimeCounter = _coyoteTime;
                 // _canJump = true;
@@ -122,7 +127,7 @@ namespace KeceK.Game
         private void FixedUpdate()
         {
             DoMove(_playerMovementSO.speed);
-            DoJump(_playerMovementSO.jumpForce);
+            DoJump(_playerMovementSO.jumpHigh);
         }
         
         /// <summary>
@@ -130,66 +135,84 @@ namespace KeceK.Game
         /// </summary>
         private void DoMove(float speed)
         {
-            Vector2 velocity = new Vector2(moveInput.x * speed, _rigidbody2D.linearVelocity.y);
+            if (_moveInput.x == 0)
+            {
+                if (!_stopMovingTween.IsActive())
+                {
+                    _stopMovingTween = DOTween.To(
+                        () => _rigidbody2D.linearVelocityX,
+                        x => _rigidbody2D.linearVelocityX = x,
+                        0f,
+                        _stopMovingDuration
+                    ).SetEase(_stopMovingEase);
+                }
+                return;
+            }
             
-            _rigidbody2D.AddForceX(velocity.x);
+            //Move
+            KillStopTween();
+            
+            float velocityX = _moveInput.x * speed;
+            
+            _rigidbody2D.AddForceX(velocityX);
             _rigidbody2D.linearVelocityX = Mathf.Clamp(_rigidbody2D.linearVelocityX, -_playerMovementSO.maxSpeed, _playerMovementSO.maxSpeed);
         }
 
-        private void DoJump(float jumpForce)
+        /// <summary>
+        /// Jump the player if possible.
+        /// </summary>
+        /// <param name="jumpHigh"> the target Y velocity that the player will be when jumped</param>
+        private void DoJump(float jumpHigh)
         {
             if (_coyoteTimeCounter > 0f && _jumpBufferCounter > 0f && _canJump)
             {
                 OnJump?.Invoke();
                 _canJump = false;
-                if(_jumpCoroutine != null)
-                    StopCoroutine(_jumpCoroutine);
-                _jumpCoroutine = StartCoroutine(JumpCooldown());
+                TriggerJumpCooldown();
                 _jumpBufferCounter = 0f;
                 _coyoteTimeCounter = 0f;
 
-                jumpTween?.Kill();
+                _jumpTween?.Kill();
                 
-                jumpTween = DOTween.To(
+                _jumpTween = DOTween.To(
                         () => _rigidbody2D.linearVelocity.y,
-                        y => _rigidbody2D.linearVelocity = new Vector2(_rigidbody2D.linearVelocity.x, y),
-                        jumpForce,
+                        y => _rigidbody2D.linearVelocityY = y,
+                        jumpHigh,
                         jumpDuration
                     )
                     .SetEase(jumpEase);
             }
         }
-        
-        private bool IsGrounded()
+
+        /// <summary>
+        /// Call this to stop <see cref="_jumpCooldownCoroutine"/> if needed and start <see cref="JumpCooldown"/>
+        /// </summary>
+        private void TriggerJumpCooldown()
         {
-            return Physics2D.OverlapCircle(
-                _playerFeet.position,
-                _isGroundedRadius,
-                _jumpableLayers
-            ) != null;
+            if(_jumpCooldownCoroutine != null)
+                StopCoroutine(_jumpCooldownCoroutine);
+            _jumpCooldownCoroutine = StartCoroutine(JumpCooldown());
+        }
+
+        /// <summary>
+        /// Called to kill the <see cref="_stopMovingTween"/> if not null or is Active
+        /// </summary>
+        private void KillStopTween()
+        {
+            if (_stopMovingTween != null && _stopMovingTween.IsActive())
+                _stopMovingTween.Kill();
         }
 
         private IEnumerator JumpCooldown()
         {
-            yield return _waitForJump;
+            yield return _waitForSecondsJumpCooldownCoroutine;
             _canJump = true;
-            _jumpCoroutine = null;
+            _jumpCooldownCoroutine = null;
         }
-        
-        #if UNITY_EDITOR
-        void OnDrawGizmosSelected()
-        {
-            if (_playerFeet != null)
-            {
-                Gizmos.color = IsGrounded() ? Color.green : Color.red;
-                Gizmos.DrawWireSphere(_playerFeet.position, _isGroundedRadius);
-            }
-        }
-        #endif
         
         private void StopMove()
         {
-            moveInput = Vector2.zero;
+            _moveInput = Vector2.zero;
         }
     }
 }

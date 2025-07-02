@@ -1,4 +1,5 @@
 using KeceK.General;
+using KeceK.Utils.Components;
 using UnityEngine;
 
 namespace KeceK.Game
@@ -8,13 +9,15 @@ namespace KeceK.Game
         private PlayerState _state = PlayerState.Walk;
         private Rigidbody2D _rigidbody2D;
         private PlayerStateMachine _playerStateMachine;
+        private GroundCheck _groundCheck;
         
         public PlayerState State => _state;
 
-        public PlayerWalkState(Rigidbody2D rigidbody2D, PlayerStateMachine playerStateMachine)
+        public PlayerWalkState(Rigidbody2D rigidbody2D, PlayerStateMachine playerStateMachine, GroundCheck groundCheck)
         {
             _rigidbody2D = rigidbody2D;
             _playerStateMachine = playerStateMachine;
+            _groundCheck = groundCheck;
         }
         
         public void Enter()
@@ -24,15 +27,18 @@ namespace KeceK.Game
 
         public void Execute()
         {
-            if (_rigidbody2D.linearVelocityY < 0f)
+            if (_groundCheck.IsGrounded())
+            {
+                if (Mathf.Abs(_rigidbody2D.linearVelocityX) == 0f)
+                {
+                    //Idle
+                    _playerStateMachine.ChangeState(PlayerState.Idle);
+                }
+            }
+            else
             {
                 //Falling
                 _playerStateMachine.ChangeState(PlayerState.Fall);
-                
-            } else if (_rigidbody2D.linearVelocity == Vector2.zero)
-            {
-                //Idle
-                _playerStateMachine.ChangeState(PlayerState.Idle);
             }
         }
 
@@ -47,12 +53,14 @@ namespace KeceK.Game
         private PlayerState _state = PlayerState.Idle;
         private Rigidbody2D _rigidbody2D;
         private PlayerStateMachine _playerStateMachine;
+        private GroundCheck _groundCheck;
         public PlayerState State => _state;
 
-        public PlayerIdleState(Rigidbody2D rigidbody2D, PlayerStateMachine playerStateMachine)
+        public PlayerIdleState(Rigidbody2D rigidbody2D, PlayerStateMachine playerStateMachine, GroundCheck groundCheck)
         {
             _rigidbody2D = rigidbody2D;
             _playerStateMachine = playerStateMachine;
+            _groundCheck = groundCheck;
         }
         
         public void Enter()
@@ -62,14 +70,18 @@ namespace KeceK.Game
 
         public void Execute()
         {
-            if (_rigidbody2D.linearVelocityY < -1f)
+            if (_groundCheck.IsGrounded())
+            {
+                if (Mathf.Abs(_rigidbody2D.linearVelocityX) > 0f)
+                {
+                    //Walking
+                    _playerStateMachine.ChangeState(PlayerState.Walk);
+                }
+            }
+            else
             {
                 //Falling
                 _playerStateMachine.ChangeState(PlayerState.Fall);
-            } else if (Mathf.Abs(_rigidbody2D.linearVelocityX) > 0f)
-            {
-                //Walking
-                _playerStateMachine.ChangeState(PlayerState.Walk);
             }
         }
 
@@ -100,7 +112,7 @@ namespace KeceK.Game
 
         public void Execute()
         {
-            if (_rigidbody2D.linearVelocityY <= 0f)
+            if (_rigidbody2D.linearVelocityY < 0f)
             {
                 //Falling
                 _playerStateMachine.ChangeState(PlayerState.Fall);
@@ -118,13 +130,15 @@ namespace KeceK.Game
         private PlayerState _state = PlayerState.Fall;
         private Rigidbody2D _rigidbody2D;
         private PlayerStateMachine _playerStateMachine;
+        private GroundCheck _groundCheck;
         
         public PlayerState State => _state;
 
-        public PlayerFallState(Rigidbody2D rigidbody2D, PlayerStateMachine playerStateMachine)
+        public PlayerFallState(Rigidbody2D rigidbody2D, PlayerStateMachine playerStateMachine, GroundCheck groundCheck)
         {
             _rigidbody2D = rigidbody2D;
             _playerStateMachine = playerStateMachine;
+            _groundCheck = groundCheck;
         }
         
         public void Enter()
@@ -134,14 +148,18 @@ namespace KeceK.Game
 
         public void Execute()
         {
-            if (_rigidbody2D.linearVelocity == Vector2.zero)
+            if (_groundCheck.IsGrounded())
             {
-                //Idle
-                _playerStateMachine.ChangeState(PlayerState.Idle);
-            } else if (_rigidbody2D.linearVelocityY == 0f && Mathf.Abs(_rigidbody2D.linearVelocityX) > 0f)
-            {
-                //Walking
-                _playerStateMachine.ChangeState(PlayerState.Walk);
+                if (Mathf.Abs(_rigidbody2D.linearVelocityX) > 0f)
+                {
+                    //Walking
+                    _playerStateMachine.ChangeState(PlayerState.Walk);
+                }
+                else
+                {
+                    //Idle
+                    _playerStateMachine.ChangeState(PlayerState.Idle);
+                }
             }
         }
 

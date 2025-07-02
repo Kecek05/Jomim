@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using KeceK.General;
+using KeceK.Utils.Components;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -13,6 +14,8 @@ namespace KeceK.Game
         private PlayerAnimator _playerAnimator;
         [SerializeField] [FoldoutGroup("References")] [Required]
         private Rigidbody2D _rigidbody2D;
+        [SerializeField] [FoldoutGroup("References")] [Required]
+        private GroundCheck _groundCheck;
         
         private PlayerStateMachine _playerStateMachine;
 
@@ -21,7 +24,7 @@ namespace KeceK.Game
         
         private void Start()
         {
-            _playerStateMachine = new PlayerStateMachine(_rigidbody2D);
+            _playerStateMachine = new PlayerStateMachine(_rigidbody2D, _groundCheck);
             
             _playerStateMachine.OnStateChanged += PlayerStateMachineOnOnStateChanged;
             _playerStateMachine.Initialize(PlayerState.Idle);
