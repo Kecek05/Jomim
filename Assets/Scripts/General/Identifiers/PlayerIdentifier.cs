@@ -1,8 +1,7 @@
 using System;
-using KeceK.General;
 using UnityEngine;
 
-namespace KeceK.Utils.Components
+namespace KeceK.General
 {
     public class PlayerIdentifier : MonoBehaviour
     {

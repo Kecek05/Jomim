@@ -11,4 +11,25 @@ namespace KeceK.General
 
         public void Exit(); // Code that runs when we exit the state
     }
+    
+    public interface IDamageable
+    {
+        public bool IsDead { get; }
+        public void TakeDamage(float damage);
+
+        public void Die();
+    }
+
+    public interface ICollectable
+    {
+        public void Collect();
+    }
+
+    public interface IIdentifier
+    {
+        /// <summary>
+        /// Called to trigger the identification of the component.
+        /// </summary>
+        public void TriggerIdentify(PlayerType playerType);
+    }
 }
