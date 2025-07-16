@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace KeceK.General
@@ -31,5 +32,33 @@ namespace KeceK.General
         /// Called to trigger the identification of the component.
         /// </summary>
         public void TriggerIdentify(PlayerType playerType);
+    }
+
+    public interface IActivator
+    {
+        public IActivatable Activable { get; }
+        /// <summary>
+        /// Try to activate the IActivatable object.
+        /// </summary>
+        public void TriggerActivate();
+        /// <summary>
+        /// Try to deactivate the IActivatable object.
+        /// </summary>
+        public void TriggerDeactivate();
+    }
+    
+    public interface IActivatable
+    {
+        public bool IsActive { get; }
+        /// <summary>
+        /// Call this to try to activate.
+        /// </summary>
+        /// <returns>If it was successfully</returns>
+        public bool TryActivate();
+        /// <summary>
+        /// Call this to try to deactivate.
+        /// </summary>
+        /// <returns>If it was successfully</returns>
+        public bool TryDeactivate();
     }
 }
