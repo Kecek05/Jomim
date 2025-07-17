@@ -114,8 +114,8 @@ MonoBehaviour:
   CurrentPointNameDebug: 
   _target: {fileID: 6400077301621463989}
   _pointsToMoveTo:
-  - {fileID: 2142101806192342151}
   - {fileID: 7018322371607294628}
+  - {fileID: 2142101806192342151}
   _moverDataPointsToMoveTo: []
   _simpleMover: 1
   _durationOfTheMove: 0.3
@@ -147,7 +147,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2142101806192342151}
   m_Layer: 0
-  m_Name: PointA
+  m_Name: PointB
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -162,7 +162,7 @@ Transform:
   m_GameObject: {fileID: 3415650023855010022}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7018322371607294628}
   m_Layer: 0
-  m_Name: PointB
+  m_Name: PointA
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

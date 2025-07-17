@@ -3201,6 +3201,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2142101806192342151, guid: e38f0c2305ab77f44a826eac49454cf9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6007512041036770522, guid: e38f0c2305ab77f44a826eac49454cf9, type: 3}
       propertyPath: _playerType
       value: 2
