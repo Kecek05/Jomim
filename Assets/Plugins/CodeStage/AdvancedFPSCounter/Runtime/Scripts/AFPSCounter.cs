@@ -1120,16 +1120,16 @@ namespace CodeStage.AdvancedFPSCounter
 		{
 			var pointsCount = gesturePoints.Count;
 
-			if (Input.GetMouseButton(0))
+			if (AFPSInputProxy.GetMouseButton(0))
 			{
-				Vector2 mousePosition = Input.mousePosition;
+				Vector2 mousePosition = AFPSInputProxy.mousePosition;
 				if (pointsCount == 0 || (mousePosition - gesturePoints[pointsCount - 1]).magnitude > 10)
 				{
 					gesturePoints.Add(mousePosition);
 					pointsCount++;
 				}
 			}
-			else if (Input.GetMouseButtonUp(0))
+			else if (AFPSInputProxy.GetMouseButtonUp(0))
 			{
 				pointsCount = 0;
 				gestureCount = 0;

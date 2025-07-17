@@ -12,6 +12,11 @@ namespace KeceK.Game
         [ValidateInput(nameof(HasIActivatable), "GameObject must have a component implementing IActivatable.")]
         private GameObject _iActivatableObject;
         
+        [SerializeField] [FoldoutGroup("Settings")] [Tooltip("If true, the pressure plate will be active on start.")]
+        private bool _isInitiallyActive;
+        [SerializeField] [FoldoutGroup("Settings")] [Tooltip("If true, the pressure plate will disable as soon as the colliding object gets out.")]
+        private bool _needToKeepTouchingToKeepActive;
+        
         private IActivatable _activable;
 
         public IActivatable Activable => _activable;
@@ -19,6 +24,12 @@ namespace KeceK.Game
         private void Awake()
         {
             UpdateIActivatableReference();
+        }
+        
+        private void OnEnable()
+        {
+            if (_isInitiallyActive)
+                TriggerActivate();
         }
 
         private bool HasIActivatable(GameObject gameObject)
@@ -39,6 +50,16 @@ namespace KeceK.Game
         public void TriggerDeactivate()
         {
             _activable.TryDeactivate();
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            TriggerActivate();
+        }
+
+        private void HandleCollision()
+        {
+            
         }
     }
 }

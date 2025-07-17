@@ -10,6 +10,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 14656
   packageName: Advanced FPS Counter
-  packageVersion: 1.5.5
+  packageVersion: 1.5.6
   assetPath: Assets/Plugins/CodeStage/AdvancedFPSCounter/Runtime/Scripts/Label/DrawableLabel.cs
-  uploadId: 763786
+  uploadId: 772647

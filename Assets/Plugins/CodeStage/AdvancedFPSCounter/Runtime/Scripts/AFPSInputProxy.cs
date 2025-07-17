@@ -20,12 +20,28 @@ namespace CodeStage.AdvancedFPSCounter
 	
 	public static class AFPSInputProxy
 	{
-		
 #if USING_INPUT_SYSTEM
 		private static Key cachedHotKey;
 		private static KeyCode lastHotKeyLegacy;
 #endif
-		
+
+		public static Vector2 mousePosition
+		{
+			get
+			{
+#if USING_INPUT_SYSTEM
+	#if AFPS_INPUT_SYSTEM_1_14_OR_NEWER
+				return Mouse.current != null ? Mouse.current.position.value : Vector2.zero;
+	#else
+				return Mouse.current != null ? new Vector2(Mouse.current.position.x.ReadValue(), 
+					Mouse.current.position.y.ReadValue()) : Vector2.zero;
+	#endif
+#else
+				return Input.mousePosition;
+#endif
+			}
+		}
+
 		public static bool GetHotKeyDown(KeyCode key)
 		{
 			if (key == KeyCode.None)
@@ -90,5 +106,26 @@ namespace CodeStage.AdvancedFPSCounter
 			return result;
 		}
 #endif
+		public static bool GetMouseButton(int i)
+		{
+#if USING_INPUT_SYSTEM
+			return Mouse.current != null && ((i == 0 && Mouse.current.leftButton.isPressed) || 
+											 (i == 1 && Mouse.current.rightButton.isPressed) ||
+											 (i == 2 && Mouse.current.middleButton.isPressed));
+#else
+			return Input.GetMouseButton(i);
+#endif
+		}
+
+		public static bool GetMouseButtonUp(int i)
+		{
+#if USING_INPUT_SYSTEM
+			return Mouse.current != null && ((i == 0 && Mouse.current.leftButton.wasReleasedThisFrame) || 
+											 (i == 1 && Mouse.current.rightButton.wasReleasedThisFrame) ||
+											 (i == 2 && Mouse.current.middleButton.wasReleasedThisFrame));
+#else
+			return Input.GetMouseButtonUp(i);
+#endif
+		}
 	}
 }

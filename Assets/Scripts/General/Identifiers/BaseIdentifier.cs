@@ -6,7 +6,6 @@ namespace KeceK.General
     {
         public void TriggerIdentify(PlayerType playerType)
         {
-            Debug.Log("BaseIdentifier.TriggerIdentify()");
             Identify(playerType);
         }
 

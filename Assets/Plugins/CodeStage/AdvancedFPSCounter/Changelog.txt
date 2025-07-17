@@ -1,5 +1,8 @@
 Please, always remove previous Advanced FPS Counter version before updating!
 
+1.5.6
+- Fix circle gesture didn't work with new input system (thx Jürgen)
+
 1.5.5
 - Fix new input was used when Both were enabled with no Input System package installed
 

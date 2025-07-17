@@ -1,5 +1,6 @@
 using System;
 using KeceK.General;
+using KeceK.Utils.Components;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -7,6 +8,9 @@ namespace KeceK.Game
 {
     public class Wall : MonoBehaviour, IActivatable
     {
+        [SerializeField] [FoldoutGroup("References")]
+        private Mover _mover;
+        
         [SerializeField] [FoldoutGroup("Settings")] [ReadOnly]
         private bool _isActive;
         [SerializeField] [FoldoutGroup("Settings")]
@@ -19,13 +23,14 @@ namespace KeceK.Game
             if (_isInitiallyActive)
                 TryActivate();
         }
+        
         [Button(ButtonSizes.Large, DrawResult = false)] [HorizontalGroup("Try")] [HideInEditorMode]
         public bool TryActivate()
         {
             if (!IsActive)
             {
                 _isActive = true;
-                //TODO Add TryActivate Logic with Mover
+                _mover.Move();
                 return true;
             }
             return false;
@@ -37,10 +42,7 @@ namespace KeceK.Game
             if (!IsActive) return false;
 
             _isActive = false;
-            Debug.Log("Deactivate Wall");
-            
-            //TODO Add TryDeactivate Logic with Mover
-            
+            _mover.Move();
             return true;
         }
     }
