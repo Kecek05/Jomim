@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace KeceK.General
 {
+    /// <summary>
+    /// Used at the state machine of the player.
+    /// </summary>
     public interface IState
     {
         public PlayerState State { get; } // The state enum that this state represents
@@ -13,6 +16,9 @@ namespace KeceK.General
         public void Exit(); // Code that runs when we exit the state
     }
     
+    /// <summary>
+    /// Interface for components that can take damage and potentially die.
+    /// </summary>
     public interface IDamageable
     {
         public bool IsDead { get; }
@@ -21,11 +27,17 @@ namespace KeceK.General
         public void Die();
     }
 
+    /// <summary>
+    /// Interface for components that can be collected.
+    /// </summary>
     public interface ICollectable
     {
         public void Collect();
     }
 
+    /// <summary>
+    /// Interface for components that can be identified based on the PlayerType.
+    /// </summary>
     public interface IIdentifier
     {
         /// <summary>
@@ -33,7 +45,10 @@ namespace KeceK.General
         /// </summary>
         public void TriggerIdentify(PlayerType playerType);
     }
-
+    
+    /// <summary>
+    /// Interface for components that can activate or deactivate Activatables. Always need a ref of <see cref="IActivatable"/>.
+    /// </summary>
     public interface IActivator
     {
         public IActivatable Activable { get; }
@@ -47,6 +62,9 @@ namespace KeceK.General
         public void TriggerDeactivate();
     }
     
+    /// <summary>
+    /// Interface for components that can be activated or deactivated.
+    /// </summary>
     public interface IActivatable
     {
         public bool IsActive { get; }
@@ -60,5 +78,21 @@ namespace KeceK.General
         /// </summary>
         /// <returns>If it was successfully</returns>
         public bool TryDeactivate();
+    }
+
+    /// <summary>
+    /// Interface for components that can be touched by other GameObjects.
+    /// </summary>
+    public interface ITouchable
+    {
+        public void Touch(GameObject whoTouchedMe);
+    }
+
+    /// <summary>
+    /// Interface for components that can be untouched by other GameObjects.
+    /// </summary>
+    public interface IUnTouchable
+    {
+        public void Untouch(GameObject whoUntouchedMe);
     }
 }

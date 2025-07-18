@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2384122085656129863}
   - component: {fileID: -1488806788134329999}
   m_Layer: 0
-  m_Name: Wall
+  m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,7 +118,8 @@ MonoBehaviour:
   - {fileID: 2142101806192342151}
   _moverDataPointsToMoveTo: []
   _simpleMover: 1
-  _durationOfTheMove: 0.3
+  _teleportToStartingPoint: 0
+  _durationOfTheMove: 0.7
   _ease: 8
   _stopMoverIfReachedLastPoint: 1
   _isCiclic: 1
@@ -210,7 +211,7 @@ GameObject:
   - component: {fileID: 6400077301621463989}
   - component: {fileID: 6572407060464667335}
   m_Layer: 0
-  m_Name: WallObject
+  m_Name: DoorObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

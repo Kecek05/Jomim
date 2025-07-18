@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace KeceK.Utils.Components
 {
-    public class CollectOnContact : MonoBehaviour
+    public class CollectOnTrigger : MonoBehaviour
     {
         private void OnTriggerEnter2D(Collider2D other)
         {

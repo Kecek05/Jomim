@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace KeceK.Game
 {
-    public class Wall : MonoBehaviour, IActivatable
+    public class Door : MonoBehaviour, IActivatable
     {
         [SerializeField] [FoldoutGroup("References")]
         private Mover _mover;

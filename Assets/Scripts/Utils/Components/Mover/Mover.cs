@@ -37,6 +37,8 @@ namespace KeceK.Utils.Components
         
         [SerializeField] [FoldoutGroup("Settings")] [Tooltip("If true, points will have a general settings, if false, each point will have its own settings")]
         private bool _simpleMover = true;
+        [SerializeField] [FoldoutGroup("Settings")] [Tooltip("If true, the Target will teleport to the starting point before moving. If false, it will start moving from its current position.")]
+        private bool _teleportToStartingPoint = true;
         [SerializeField] [Tooltip("Speed of the mover")] [FoldoutGroup("Settings")] [Unit(Units.Second)] [ShowIf(nameof(_simpleMover))]
         private float _durationOfTheMove = 0.3f;
         [SerializeField] [FoldoutGroup("Settings")] [ShowIf(nameof(_simpleMover))]
@@ -115,7 +117,8 @@ namespace KeceK.Utils.Components
             if(_isDebug)
                 CurrentPointNameDebug = _pointsToMoveTo[indexToMoveTo].name; 
             
-            _target.position = currentPosition;
+            if(_teleportToStartingPoint)
+                _target.position = currentPosition;
             
             _moveTween = _target.DOMove(positionToGo, _durationOfTheMove).SetEase(_ease).OnComplete(() =>
             {
@@ -177,7 +180,8 @@ namespace KeceK.Utils.Components
             if(_isDebug)
                 CurrentPointNameDebug = _moverDataPointsToMoveTo[indexToMoveTo].TargetPoint.name;
             
-            _target.position = currentPosition;
+            if(_teleportToStartingPoint)
+                _target.position = currentPosition;
             
             _moveTween = _target.DOMove(_moverDataPointsToMoveTo[indexToMoveTo].TargetPoint.position, _moverDataPointsToMoveTo[indexToMoveTo].ThisPointDurationOfTheMove).SetEase(_moverDataPointsToMoveTo[indexToMoveTo].ThisPointEase).OnComplete(() =>
             {

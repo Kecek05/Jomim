@@ -5,14 +5,14 @@ using UnityEngine;
 
 namespace KeceK.Utils.Components
 {
-    public class DamageOnContact : MonoBehaviour
+    public class DamageOnTouch : MonoBehaviour, ITouchable
     {
         [SerializeField] [FoldoutGroup("Settings")]
         private float _damageOnContact;
 
-        private void OnCollisionEnter2D(Collision2D other)
+        public void Touch(GameObject whoTouchedMe)
         {
-            if (other.rigidbody.TryGetComponent(out IDamageable damageable))
+            if (whoTouchedMe.TryGetComponent(out IDamageable damageable))
             {
                 damageable.TakeDamage(_damageOnContact);
             }
