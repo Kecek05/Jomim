@@ -1,4 +1,5 @@
 using KeceK.General;
+using LayerLab.ArtMaker;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -10,7 +11,7 @@ namespace KeceK.Game
         Idle,
         Fall,
         Jump,
-        Walk,
+        Run,
         None, //At the bottom!
     }
     
@@ -25,17 +26,27 @@ namespace KeceK.Game
         [SerializeField] [FoldoutGroup("References")] [Required]
         private SpriteRenderer _spriteRenderer;
 
+        [SerializeField] private PartsManager _partsManager;
+        [SerializeField] private Transform _modelTransform;
         [SerializeField] [FoldoutGroup("Settings")] [Tooltip("Minimum speed value to flip the sprite")]
         private float flipSpriteThreshold = 1f;
 
         private Animations _currentAnimation;
 
-        private readonly int[] animations =
+        // private readonly int[] animations =
+        // {
+        //     Animator.StringToHash("Idle"),
+        //     Animator.StringToHash("Fall"),
+        //     Animator.StringToHash("Jump"),
+        //     Animator.StringToHash("Run"),
+        // };
+
+        private readonly string[] animations =
         {
-            Animator.StringToHash("Idle"),
-            Animator.StringToHash("Fall"),
-            Animator.StringToHash("Jump"),
-            Animator.StringToHash("Walk"),
+            "Idle",
+            "Fall",
+            "Jump",
+            "Run",
         };
 
         private void Update()
@@ -43,9 +54,10 @@ namespace KeceK.Game
             // _animator.SetFloat(ANIMATION_SPEED, _rigidbody2D.linearVelocity.magnitude * 2f);
 
             if (_rigidbody2D.linearVelocityX > flipSpriteThreshold)
-                _spriteRenderer.flipX = false;
-            else if(_rigidbody2D.linearVelocityX < -flipSpriteThreshold)
-                _spriteRenderer.flipX = true;
+                _modelTransform.localScale = new Vector3(-1f, _modelTransform.localScale.y, _modelTransform.localScale.z);
+            else if (_rigidbody2D.linearVelocityX < -flipSpriteThreshold)
+                _modelTransform.localScale = new Vector3(1f, _modelTransform.localScale.y,
+                    _modelTransform.localScale.z);
         }
         
         public void PlayerStateMachineOnOnStateChanged(PlayerState newState)
@@ -62,7 +74,7 @@ namespace KeceK.Game
                     PlayAnimation(Animations.Jump);
                     break;
                 case PlayerState.Walk:
-                    PlayAnimation(Animations.Walk);
+                    PlayAnimation(Animations.Run);
                     break;
             }
         }
@@ -73,7 +85,8 @@ namespace KeceK.Game
 
             _currentAnimation = animation;
             
-            _animator.CrossFade(animations[(int)_currentAnimation], 0f);
+            _partsManager.PlayAnimation(animations[(int)_currentAnimation]);
+            // _animator.CrossFade(animations[(int)_currentAnimation], 0f);
         }
     }
 }
