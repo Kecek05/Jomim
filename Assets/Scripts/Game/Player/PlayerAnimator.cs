@@ -33,21 +33,21 @@ namespace KeceK.Game
 
         private Animations _currentAnimation;
 
-        // private readonly int[] animations =
-        // {
-        //     Animator.StringToHash("Idle"),
-        //     Animator.StringToHash("Fall"),
-        //     Animator.StringToHash("Jump"),
-        //     Animator.StringToHash("Run"),
-        // };
-
-        private readonly string[] animations =
+        private readonly int[] animations =
         {
-            "Idle",
-            "Fall",
-            "Jump",
-            "Run",
+            Animator.StringToHash("Idle"),
+            Animator.StringToHash("Fall"),
+            Animator.StringToHash("Jump"),
+            Animator.StringToHash("Walk"),
         };
+
+        // private readonly string[] animations =
+        // {
+        //     "Idle",
+        //     "Fall",
+        //     "Jump",
+        //     "Run",
+        // };
 
         private void Update()
         {
@@ -85,8 +85,8 @@ namespace KeceK.Game
 
             _currentAnimation = animation;
             
-            _partsManager.PlayAnimation(animations[(int)_currentAnimation]);
-            // _animator.CrossFade(animations[(int)_currentAnimation], 0f);
+            // _partsManager.PlayAnimation(animations[(int)_currentAnimation]);
+            _animator.CrossFade(animations[(int)_currentAnimation], 0f);
         }
     }
 }
