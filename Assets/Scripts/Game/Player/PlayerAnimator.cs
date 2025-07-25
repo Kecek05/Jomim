@@ -86,7 +86,7 @@ namespace KeceK.Game
             _currentAnimation = animation;
             
             // _partsManager.PlayAnimation(animations[(int)_currentAnimation]);
-            _animator.CrossFade(animations[(int)_currentAnimation], 0f);
+            _animator.CrossFade(animations[(int)_currentAnimation], 0.1f);
         }
     }
 }
