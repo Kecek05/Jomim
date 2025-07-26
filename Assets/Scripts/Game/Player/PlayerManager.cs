@@ -7,6 +7,7 @@ namespace KeceK.Game
 {
     public class PlayerManager : MonoBehaviour
     {
+        
         [SerializeField] [FoldoutGroup("References")] [Required]
         private PlayerMovement _playerMovement;
         [SerializeField] [FoldoutGroup("References")] [Required]

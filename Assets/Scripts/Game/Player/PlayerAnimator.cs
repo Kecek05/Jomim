@@ -17,7 +17,7 @@ namespace KeceK.Game
     
     public class PlayerAnimator : MonoBehaviour
     {
-        private const string ANIMATION_SPEED = "speed";
+        private const float ANIMATION_NORMALIZED_TRANSITION_DURATION = 0.1f;
         
         [SerializeField] [FoldoutGroup("References")] [Required]
         private Animator _animator;
@@ -32,6 +32,7 @@ namespace KeceK.Game
         private float flipSpriteThreshold = 1f;
 
         private Animations _currentAnimation;
+        private PlayerState _currentPlayerState;
 
         private readonly int[] animations =
         {
@@ -41,28 +42,15 @@ namespace KeceK.Game
             Animator.StringToHash("Walk"),
         };
 
-        // private readonly string[] animations =
-        // {
-        //     "Idle",
-        //     "Fall",
-        //     "Jump",
-        //     "Run",
-        // };
-
         private void Update()
         {
-            // _animator.SetFloat(ANIMATION_SPEED, _rigidbody2D.linearVelocity.magnitude * 2f);
-
-            if (_rigidbody2D.linearVelocityX > flipSpriteThreshold)
-                _modelTransform.localScale = new Vector3(-1f, _modelTransform.localScale.y, _modelTransform.localScale.z);
-            else if (_rigidbody2D.linearVelocityX < -flipSpriteThreshold)
-                _modelTransform.localScale = new Vector3(1f, _modelTransform.localScale.y,
-                    _modelTransform.localScale.z);
+            RotatePlayerGFX();
         }
         
         public void PlayerStateMachineOnOnStateChanged(PlayerState newState)
         {
-            switch (newState)
+            _currentPlayerState = newState;
+            switch (_currentPlayerState)
             {
                 case PlayerState.Idle:
                     PlayAnimation(Animations.Idle);
@@ -79,14 +67,22 @@ namespace KeceK.Game
             }
         }
 
+        private void RotatePlayerGFX()
+        {
+            if (_rigidbody2D.linearVelocityX > flipSpriteThreshold)
+                _modelTransform.localScale = new Vector3(-1f, _modelTransform.localScale.y, _modelTransform.localScale.z);
+            else if (_rigidbody2D.linearVelocityX < -flipSpriteThreshold)
+                _modelTransform.localScale = new Vector3(1f, _modelTransform.localScale.y,
+                    _modelTransform.localScale.z);
+        }
+
         private void PlayAnimation(Animations animation)
         {
             if(animation == _currentAnimation) return;
 
             _currentAnimation = animation;
             
-            // _partsManager.PlayAnimation(animations[(int)_currentAnimation]);
-            _animator.CrossFade(animations[(int)_currentAnimation], 0.1f);
+            _animator.CrossFade(animations[(int)_currentAnimation], ANIMATION_NORMALIZED_TRANSITION_DURATION);
         }
     }
 }
