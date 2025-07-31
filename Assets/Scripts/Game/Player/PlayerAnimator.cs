@@ -23,11 +23,9 @@ namespace KeceK.Game
         private Animator _animator;
         [SerializeField] [FoldoutGroup("References")] [Required]
         private Rigidbody2D _rigidbody2D;
-        [SerializeField] [FoldoutGroup("References")] [Required]
-        private SpriteRenderer _spriteRenderer;
-
-        [SerializeField] private PartsManager _partsManager;
-        [SerializeField] private Transform _modelTransform;
+        [SerializeField] [FoldoutGroup("References")] [Required] 
+        private Transform _modelTransform;
+        
         [SerializeField] [FoldoutGroup("Settings")] [Tooltip("Minimum speed value to flip the sprite")]
         private float flipSpriteThreshold = 1f;
 
