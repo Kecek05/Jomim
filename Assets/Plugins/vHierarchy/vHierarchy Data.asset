@@ -40,4 +40,6 @@ MonoBehaviour:
           isIconRecursive: 0
           isColorRecursive: 1
   bookmarks: []
-  bookmarkedScenePaths: []
+  bookmarkedScenePaths:
+  - Assets/Plugins/Layer Lab/2D Art Maker/AMCasual Character/Demo/Scenes/Demo_Casual.unity
+  - Assets/Scenes/Game.unity
