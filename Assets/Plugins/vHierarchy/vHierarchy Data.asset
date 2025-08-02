@@ -27,19 +27,19 @@ MonoBehaviour:
         - colorIndex: 5
           iconNameOrGuid: Folder Icon
           isIconRecursive: 0
-          isColorRecursive: 1
-        - colorIndex: 7
+          isColorRecursive: 0
+        - colorIndex: 8
           iconNameOrGuid: Folder Icon
           isIconRecursive: 0
-          isColorRecursive: 1
+          isColorRecursive: 0
         - colorIndex: 1
           iconNameOrGuid: Folder Icon
           isIconRecursive: 1
-          isColorRecursive: 1
-        - colorIndex: 2
+          isColorRecursive: 0
+        - colorIndex: 7
           iconNameOrGuid: Folder Icon
           isIconRecursive: 0
-          isColorRecursive: 1
+          isColorRecursive: 0
     - goDatas_byGlobalId:
         keys: []
         values: []
