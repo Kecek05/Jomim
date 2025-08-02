@@ -29,7 +29,7 @@ namespace KeceK.Game
         {
             if (_groundCheck.IsGrounded())
             {
-                if (Mathf.Abs(_rigidbody2D.linearVelocityX) == 0f)
+                if (!MathK.IsVelocityAboveThreshold(_rigidbody2D.linearVelocityX))
                 {
                     //Idle
                     _playerStateMachine.ChangeState(PlayerState.Idle);
@@ -72,7 +72,7 @@ namespace KeceK.Game
         {
             if (_groundCheck.IsGrounded())
             {
-                if (Mathf.Abs(_rigidbody2D.linearVelocityX) > 0f)
+                if (MathK.IsVelocityAboveThreshold(_rigidbody2D.linearVelocityX))
                 {
                     //Walking
                     _playerStateMachine.ChangeState(PlayerState.Walk);
@@ -112,7 +112,7 @@ namespace KeceK.Game
 
         public void Execute()
         {
-            if (_rigidbody2D.linearVelocityY < 0f)
+            if (_rigidbody2D.linearVelocityY < MathK.VelocityThreshold)
             {
                 //Falling
                 _playerStateMachine.ChangeState(PlayerState.Fall);
@@ -150,7 +150,7 @@ namespace KeceK.Game
         {
             if (_groundCheck.IsGrounded())
             {
-                if (Mathf.Abs(_rigidbody2D.linearVelocityX) > 0f)
+                if (MathK.IsVelocityAboveThreshold(_rigidbody2D.linearVelocityX))
                 {
                     //Walking
                     _playerStateMachine.ChangeState(PlayerState.Walk);
