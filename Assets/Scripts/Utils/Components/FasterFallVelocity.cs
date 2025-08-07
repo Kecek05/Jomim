@@ -18,8 +18,10 @@ namespace KeceK.Utils.Components
         [SerializeField] [FoldoutGroup("Settings")] [ShowIf(nameof(_isEnabled))]
         private bool _haveStoppingDistance;
         [Space(2f)]
-        [SerializeField] [FoldoutGroup("Settings")] [Tooltip("Force that will be applied to the RB when starts falling")] [ShowIf(nameof(_isEnabled))]
+        [SerializeField] [FoldoutGroup("Settings")] [Tooltip("Force that will be applied to the RB when starts falling every tick")] [ShowIf(nameof(_isEnabled))]
         private float _fallForce = 300f;
+        [SerializeField] [FoldoutGroup("Settings")] [Tooltip("The max force that the RB can get added by the fall force")] [ShowIf(nameof(_isEnabled))]
+        private float _maxFallForce = 10f;
         [SerializeField] [FoldoutGroup("Settings")] [Tooltip("Minimum force to start adding negative force to Y")] [ShowIf(nameof(_isEnabled))]
         private float velocityYThreshold = 0.1f;
         [Space(1f)]
@@ -36,7 +38,9 @@ namespace KeceK.Utils.Components
         [ShowIf(nameof(_isEnabled))] [ShowIf(nameof(_haveStoppingDistance))]
         private float _rayLength = 2.5f;
         
-        private RaycastHit2D _raycastHit; //cache
+        //Cache
+        private RaycastHit2D _raycastHit; 
+        private bool _shouldStopAddingForce = false;
         
         private void OnValidate()
         {
@@ -74,13 +78,17 @@ namespace KeceK.Utils.Components
         {
             if (!_haveStoppingDistance) return false;
             
-            _raycastHit = Physics2D.Raycast(_stoppingDistanceStartTransform.position, Vector2.down, _rayLength, _stoppingDistanceLayerMask);
+            _shouldStopAddingForce = Mathf.Abs(_rigidbody2D.linearVelocityY) >= _maxFallForce 
+                                     || Physics2D.Raycast(
+                                         _stoppingDistanceStartTransform.position, 
+                                         Vector2.down, _rayLength, 
+                                         _stoppingDistanceLayerMask).collider != null;
             // Debug.DrawRay(
             //     _stoppingDistanceStartTransform.position,
             //     Vector2.down * _rayLength,
             //     Color.red
             // );   
-            return _raycastHit.collider != null;
+            return _shouldStopAddingForce;
         }
 
         /// <summary>
