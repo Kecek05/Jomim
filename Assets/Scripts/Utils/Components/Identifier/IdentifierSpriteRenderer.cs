@@ -6,16 +6,18 @@ namespace KeceK.Utils.Components
 {
     public class IdentifierSpriteRenderer : BaseIdentifier
     {
+        [SerializeField] [FoldoutGroup("References")] [Required]
+        private SpriteIdentifierDataSO _spriteIdentifierData;
         [SerializeField] [FoldoutGroup("References")]
-        private SpriteRenderer[] _spriteRenderersToChangeColorBasedOnPlayer;
+        private SpriteRenderer[] _spriteRenderersToChangeBasedOnPlayer;
         
         protected override void Identify(PlayerType playerType)
         {
-            foreach (SpriteRenderer spriteRenderer in _spriteRenderersToChangeColorBasedOnPlayer)
+            foreach (SpriteRenderer spriteRenderer in _spriteRenderersToChangeBasedOnPlayer)
             {
-                spriteRenderer.color = playerType == PlayerType.Player1 
-                    ? PlayersInfo.Player1Color 
-                    : PlayersInfo.Player2Color;
+                spriteRenderer.sprite = playerType == PlayerType.Player1 
+                    ? _spriteIdentifierData.player1Sprite 
+                    : _spriteIdentifierData.player2Sprite;
             }
         }
     }

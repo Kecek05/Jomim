@@ -44,9 +44,9 @@ namespace KeceK.Utils.Components
         [SerializeField] [FoldoutGroup("Settings")] [ShowIf(nameof(_simpleMover))]
         private Ease _ease = Ease.Linear;
         
-        [SerializeField] [FoldoutGroup("Settings")] [HideIf(nameof(_isCiclic))]
+        [SerializeField] [FoldoutGroup("Settings")] [HideIf(nameof(_isCiclic))] [OnValueChanged(nameof(ValidateIsStopMoverIfReachedLastPoint))]
         [Tooltip("If true, the mover will stop when it reaches the last point. If false, it will continue its behavior based on the _isCiclic setting.")]
-        private bool _stopMoverIfReachedLastPoint = true;
+        private bool _stopMoverIfReachedLastPoint = false;
         [SerializeField] [FoldoutGroup("Settings")] [HideIf(nameof(_stopMoverIfReachedLastPoint))] [OnValueChanged(nameof(ValidateIsCiclic))]
         [Tooltip("If true, when the mover reaches the last point, it will return to the first point and continue moving in a loop. If false, it will tries to go back in the list of points")]
         private bool _isCiclic = true;
@@ -57,6 +57,11 @@ namespace KeceK.Utils.Components
         private bool _goingFowardInTheList = true;
         
 
+        private void ValidateIsStopMoverIfReachedLastPoint()
+        {
+            if (_stopMoverIfReachedLastPoint)
+                _isCiclic = false;
+        }
         
         private void ValidateIsCiclic()
         {

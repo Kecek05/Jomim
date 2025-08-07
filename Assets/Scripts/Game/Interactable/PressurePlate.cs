@@ -60,11 +60,7 @@ namespace KeceK.Game
             {
                 _collidingObjects.Add(gameObject);
             }
-            
-            if (!_activable.IsActive)
-            {
-                TriggerActivate();
-            }
+            TriggerActivate();
         }
 
         private void RemoveTouchingObject(GameObject gameObject)
@@ -74,7 +70,7 @@ namespace KeceK.Game
                 _collidingObjects.Remove(gameObject);
             }
             
-            if (_needToKeepTouchingToKeepActive && _collidingObjects.Count == 0 && _activable.IsActive)
+            if (_needToKeepTouchingToKeepActive && _collidingObjects.Count == 0)
             {
                 TriggerDeactivate();
             }

@@ -54,7 +54,7 @@ namespace KeceK.Game
         private float _jumpBufferCounter;
         
         //Jump Cooldown
-        private float _cooldownBetweenJumps = 0.25f;
+        private float _cooldownBetweenJumps = 0.5f;
         private WaitForSeconds _waitForSecondsJumpCooldownCoroutine;
         private Coroutine _jumpCooldownCoroutine;
         

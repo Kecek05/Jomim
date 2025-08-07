@@ -112,7 +112,7 @@ namespace KeceK.Game
 
         public void Execute()
         {
-            if (_rigidbody2D.linearVelocityY < MathK.VelocityThreshold)
+            if (_rigidbody2D.linearVelocityY < -MathK.VelocityThreshold)
             {
                 //Falling
                 _playerStateMachine.ChangeState(PlayerState.Fall);

@@ -16,6 +16,7 @@ MonoBehaviour:
     keys:
     - 8c9cfa26abfee488c85f1582747f6a02
     - 9942a9da466db1e478b680e473723ab7
+    - 8c38d4e62a3be2a46af350ccdfbdeca6
     values:
     - goDatas_byGlobalId:
         keys:
@@ -43,7 +44,66 @@ MonoBehaviour:
     - goDatas_byGlobalId:
         keys: []
         values: []
+    - goDatas_byGlobalId:
+        keys:
+        - globalObjectIdString: GlobalObjectId_V1-2-8c38d4e62a3be2a46af350ccdfbdeca6-1703692191-0
+        - globalObjectIdString: GlobalObjectId_V1-2-8c38d4e62a3be2a46af350ccdfbdeca6-1859489391-0
+        - globalObjectIdString: GlobalObjectId_V1-2-8c38d4e62a3be2a46af350ccdfbdeca6-770642714-0
+        - globalObjectIdString: GlobalObjectId_V1-2-8c38d4e62a3be2a46af350ccdfbdeca6-2067396686-0
+        - globalObjectIdString: GlobalObjectId_V1-2-8c38d4e62a3be2a46af350ccdfbdeca6-152323921-0
+        - globalObjectIdString: GlobalObjectId_V1-2-8c38d4e62a3be2a46af350ccdfbdeca6-1216525481-0
+        - globalObjectIdString: GlobalObjectId_V1-2-8c38d4e62a3be2a46af350ccdfbdeca6-1114622036-0
+        - globalObjectIdString: GlobalObjectId_V1-2-8c38d4e62a3be2a46af350ccdfbdeca6-1839230368-0
+        - globalObjectIdString: GlobalObjectId_V1-2-8c38d4e62a3be2a46af350ccdfbdeca6-415049511-0
+        - globalObjectIdString: GlobalObjectId_V1-2-8c38d4e62a3be2a46af350ccdfbdeca6-372634135-0
+        - globalObjectIdString: GlobalObjectId_V1-2-8c38d4e62a3be2a46af350ccdfbdeca6-1082506032-0
+        values:
+        - colorIndex: 5
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 8
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 1
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 7
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Terrain Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Terrain Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
   bookmarks: []
   bookmarkedScenePaths:
   - Assets/Plugins/Layer Lab/2D Art Maker/AMCasual Character/Demo/Scenes/Demo_Casual.unity
   - Assets/Scenes/Game.unity
+  - Assets/Scenes/Levels/Level1.unity
