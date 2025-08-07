@@ -4654,12 +4654,12 @@ TextureImporter:
       name: TX Village Props - Obstacle Platform Large 01
       rect:
         serializedVersion: 2
-        x: 416
-        y: 351
-        width: 64
-        height: 44
+        x: 414
+        y: 349
+        width: 68
+        height: 48
       alignment: 9
-      pivot: {x: 0.5, y: 0.022727273}
+      pivot: {x: 0.5, y: 0.875}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []

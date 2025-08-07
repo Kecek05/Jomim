@@ -22,14 +22,12 @@ namespace KeceK.Game
         {
             _isTouching = true;
             OnLevelExitTouched?.Invoke(_isTouching);
-            Debug.Log($"Exit touched by {whoTouchedMe.name}. Is touching: {_isTouching} - Me: {gameObject.name}");
         }
 
         public void Untouch(GameObject whoUntouchedMe)
         {
             _isTouching = false;
             OnLevelExitTouched?.Invoke(_isTouching);
-            Debug.Log($"Exit untouch by {whoUntouchedMe.name}. Is touching: {_isTouching} - Me: {gameObject.name}");
         }
     }
 }

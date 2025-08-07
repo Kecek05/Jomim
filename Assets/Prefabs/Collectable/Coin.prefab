@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4307047566802455783, guid: 1eaa4ce633ed86f40bd0e185149c7ee8, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e47082a20ec31ce4989df54d5e2d8ef5, type: 2}
     - target: {fileID: 4703034207160149011, guid: 1eaa4ce633ed86f40bd0e185149c7ee8, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.5
@@ -93,6 +97,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1798883251293020414, guid: 1eaa4ce633ed86f40bd0e185149c7ee8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 852718157419565348}
+    - targetCorrespondingSourceObject: {fileID: 1798883251293020414, guid: 1eaa4ce633ed86f40bd0e185149c7ee8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6302840080982587997}
   m_SourcePrefab: {fileID: 100100000, guid: 1eaa4ce633ed86f40bd0e185149c7ee8, type: 3}
 --- !u!212 &6079749430206117082 stripped
 SpriteRenderer:
@@ -145,9 +152,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8507cbf0e104ce4bac06da255ef65f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _simpleIdentifier: 1
   _spriteIdentifierData: {fileID: 11400000, guid: 9e4c5bf2f31f25a46ab57c8e34192c26, type: 2}
   _spriteRenderersToChangeBasedOnPlayer:
   - {fileID: 6079749430206117082}
+  _advancedIdentifierDatas: []
 --- !u!114 &3454630944608724020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,3 +248,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6302840080982587997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8605470542831638723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc88c326ef523234da3f64afed18a89d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 6079749430206117082}
+  _shineEase: 6
+  _shineDuration: 6
