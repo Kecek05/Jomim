@@ -87,5 +87,5 @@ MonoBehaviour:
     m_Foldout: 0
     m_RenderingOverrides: 
   m_GoogleSheetsImporters: []
-  m_WindowSessionStates: '[{"InstanceId":-190454,"Title":"Scriptable Sheets","Position":"(x:605.00,
-    y:201.00, width:1244.00, height:787.00)","SelectableSheetAssets":1,"SelectedSheetAsset":1,"SelectedTypeIndex":31,"PinnedIndexSets":{"Default":[],"ScriptableObject":[31,32],"AnimationClip":[],"AnimatorController":[],"AudioClip":[],"AudioMixer":[],"AvatarMask":[],"Flare":[],"Font":[],"Material":[],"Mesh":[],"PhysicsMaterial":[],"PhysicsMaterial2D":[],"Prefab":[],"Scene":[],"Shader":[],"Sprite":[],"TerrainData":[],"TextAsset":[],"Texture":[],"VideoClip":[]},"NewAmount":1,"SearchInput":"","TableLayouts":{}}]'
+  m_WindowSessionStates: '[{"InstanceId":-404190,"Title":"Scriptable Sheets","Position":"(x:570.00,
+    y:169.00, width:1244.00, height:617.00)","SelectableSheetAssets":1,"SelectedSheetAsset":1,"SelectedTypeIndex":31,"PinnedIndexSets":{"Default":[],"ScriptableObject":[31,32,33],"AnimationClip":[],"AnimatorController":[],"AudioClip":[],"AudioMixer":[],"AvatarMask":[],"Flare":[],"Font":[],"Material":[],"Mesh":[],"PhysicsMaterial":[],"PhysicsMaterial2D":[],"Prefab":[],"Scene":[],"Shader":[],"Sprite":[],"TerrainData":[],"TextAsset":[],"Texture":[],"VideoClip":[]},"NewAmount":1,"SearchInput":"","TableLayouts":{}}]'

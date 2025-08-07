@@ -1,3 +1,4 @@
+using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -10,7 +11,12 @@ namespace KeceK.General
         protected PlayerIdentifier _playerIdentifier;
         [SerializeField] [FoldoutGroup("Identifiers")]
         private BaseIdentifier[] _baseIdentifiers;
-        
+
+        private void OnValidate()
+        {
+            GetPlayerIdentifier();
+        }
+
         protected void OnEnable()
         {
             Initialize();
@@ -23,6 +29,25 @@ namespace KeceK.General
             {
                 baseIdentifier.TriggerIdentify(_playerIdentifier.ThisPlayerType);
             }
+        }
+        
+        [ContextMenu("Get All Identifiers In This Object")]
+        private void GetAllIdentifiersInThisObject()
+        {
+            _baseIdentifiers = GetComponents<BaseIdentifier>();
+            GetPlayerIdentifier();
+        }
+        
+        [ContextMenu("Get All Identifiers In Children")]
+        private void GetAllIdentifiersInChildren()
+        {
+            _baseIdentifiers = GetComponentsInChildren<BaseIdentifier>();
+            GetPlayerIdentifier();
+        }
+
+        private void GetPlayerIdentifier()
+        {
+            _playerIdentifier = GetComponent<PlayerIdentifier>();
         }
     }
 }

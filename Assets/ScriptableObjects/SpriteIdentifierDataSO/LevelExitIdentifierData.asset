@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c98dd029cb79a564492ff2a1cf619b63, type: 3}
-  m_Name: CoinIdentifierData
+  m_Name: LevelExitIdentifierData
   m_EditorClassIdentifier: 
-  player1Sprite: {fileID: 21300182, guid: 7810966f0f690954c87305933cabf2b0, type: 3}
-  player2Sprite: {fileID: 21300178, guid: 7810966f0f690954c87305933cabf2b0, type: 3}
+  player1Sprite: {fileID: 0}
+  player2Sprite: {fileID: 0}
