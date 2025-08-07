@@ -231,10 +231,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8507cbf0e104ce4bac06da255ef65f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _simpleIdentifier: 0
-  _spriteIdentifierData: {fileID: 11400000, guid: 93bbdafdc8d9fef4d8695becb35fa7a2, type: 2}
+  _simpleIdentifier: 1
+  _spriteIdentifierData: {fileID: 11400000, guid: 9e4c5bf2f31f25a46ab57c8e34192c26, type: 2}
   _spriteRenderersToChangeBasedOnPlayer:
-  - {fileID: 0}
+  - {fileID: 2314669566772808447}
   _advancedIdentifierDatas:
   - AdvancedSpriteRenderersToChangeBasedOnPlayer:
     - {fileID: 2304155551900639934}
