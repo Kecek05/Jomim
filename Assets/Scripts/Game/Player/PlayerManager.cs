@@ -1,4 +1,5 @@
 using KeceK.General;
+using KeceK.Input;
 using KeceK.Utils.Components;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -16,6 +17,8 @@ namespace KeceK.Game
         private Rigidbody2D _rigidbody2D;
         [SerializeField] [FoldoutGroup("References")] [Required]
         private GroundCheck _groundCheck;
+        [SerializeField] [FoldoutGroup("References")] [Required]
+        private InputEnabler _inputEnabler;
         
         private PlayerStateMachine _playerStateMachine;
 
@@ -30,12 +33,19 @@ namespace KeceK.Game
             _playerStateMachine.Initialize(PlayerState.Idle);
             
             _playerMovement.OnJump += PlayerMovementOnOnJump;
+            GameManager.OnChangingLevel += GameManagerOnOnChangingLevel;
+        }
+
+        private void GameManagerOnOnChangingLevel()
+        {
+            _inputEnabler.LockInput();
         }
 
         private void OnDestroy()
         {
             _playerStateMachine.OnStateChanged -= PlayerStateMachineOnOnStateChanged;
             _playerMovement.OnJump -= PlayerMovementOnOnJump;
+            GameManager.OnChangingLevel -= GameManagerOnOnChangingLevel;
         }
 
         private void Update()

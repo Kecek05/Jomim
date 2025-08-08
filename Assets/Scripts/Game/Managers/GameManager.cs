@@ -7,6 +7,8 @@ namespace KeceK.Game
     public class GameManager : MonoBehaviour
     {
         public static GameManager instance;
+        
+        public static event Action OnChangingLevel;
 
         [SerializeField] [Required] [FoldoutGroup("Exits")]
         private LevelExit levelExitP1;
@@ -15,6 +17,7 @@ namespace KeceK.Game
         
         private bool _isP1AtExit;
         private bool _isP2AtExit;
+        private bool _onChangingLevel = false;
         
         private void Awake()
         {
@@ -54,7 +57,11 @@ namespace KeceK.Game
         
         private void CheckBothPlayersAtExit()
         {
-            Debug.Log("Both players at the exit");
+            if (_isP1AtExit && _isP2AtExit && !_onChangingLevel)
+            {
+                _onChangingLevel = true;
+                OnChangingLevel?.Invoke();
+            }
         }
     }
 }

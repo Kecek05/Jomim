@@ -37,25 +37,6 @@ namespace KeceK.Input
             OnMoveEvent?.Invoke(context);
         }
         
-        private void UpdateInput()
-        {
-            switch (_thisPlayerType)
-            {
-                case PlayerType.Player1:
-                    _controls.Player1.Enable();
-                    _controls.Player2.Disable();
-                    break;
-                case PlayerType.Player2:
-                    _controls.Player1.Disable();
-                    _controls.Player2.Enable();
-                    break;
-            }
-        }
-        
-        public void SetPlayerType(PlayerType playerType)
-        {
-            _thisPlayerType = playerType;
-            UpdateInput();
-        }
+        public PlayerControls GetPlayerControls() => _controls;
     }
 }
