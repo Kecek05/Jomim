@@ -1,0 +1,24 @@
+.playerBackground {
+    background-color: rgba(255, 255, 255, 0);
+    align-self: flex-start;
+    align-content: auto;
+    flex-grow: 0;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-basis: 50%;
+    flex-shrink: 1;
+    width: 50%;
+    -unity-background-scale-mode: stretch-to-fill;
+    flex-direction: row;
+}
+
+.coinImg {
+    width: 200px;
+    height: 100px;
+}
+
+.text {
+    -unity-font-definition: url("project://database/Assets/Plugins/Feel/MMTools/Demos/MMTween/Fonts/Lato/TTF/Lato-Black.ttf?fileID=12800000&guid=462a5605cd4f4de48821603c760ce4a6&type=3#Lato-Black");
+    font-size: 70px;
+    text-overflow: clip;
+}
