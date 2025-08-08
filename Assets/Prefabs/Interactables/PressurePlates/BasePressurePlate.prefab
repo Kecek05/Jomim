@@ -68,7 +68,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.050608784}
+  m_Offset: {x: -0.02980423, y: 0.18583438}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -78,7 +78,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.9304218, y: 0.29547197}
+  m_Size: {x: 2.144177, y: 0.5201847}
   m_EdgeRadius: 0
 --- !u!114 &7499345841556239369
 MonoBehaviour:
@@ -175,7 +175,7 @@ SpriteRenderer:
   m_SortingLayerID: 48584935
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -283455303, guid: 7810966f0f690954c87305933cabf2b0, type: 3}
+  m_Sprite: {fileID: 1702573737, guid: 7810966f0f690954c87305933cabf2b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -251,5 +251,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 9100052321242316870}
-  _shineEase: 11
-  _shineDuration: 2
+  _shouldLoop: 1
+  _shineEase: 2
+  _shineDuration: {x: 2.6941748, y: 6.334952}
+  _shineLoopDelay: {x: 1.0436894, y: 2.1359224}
+  _startShineOnStart: 1
+  _startDelay: {x: 0, y: 1.9174757}

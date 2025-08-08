@@ -4676,12 +4676,12 @@ TextureImporter:
       name: TX Village Props - Bounding Platform 01 Base
       rect:
         serializedVersion: 2
-        x: 830
-        y: 287
-        width: 68
-        height: 7
+        x: 828
+        y: 285
+        width: 72
+        height: 11
       alignment: 9
-      pivot: {x: 0.5, y: 0.14285715}
+      pivot: {x: 0.5138889, y: 0.18181819}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4698,10 +4698,10 @@ TextureImporter:
       name: TX Village Props - Bounding Platform 01
       rect:
         serializedVersion: 2
-        x: 913
+        x: 911
         y: 287
-        width: 62
-        height: 39
+        width: 66
+        height: 41
       alignment: 9
       pivot: {x: 0.5, y: 0.025641026}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -13,5 +13,15 @@ namespace KeceK.General
         {
             return Mathf.Abs(velocity) > _velocityThreshold;
         }
+
+        /// <summary>
+        /// Used to get a random float value between the given range.
+        /// </summary>
+        /// <param name="range"> Vector 2 with the range. X min, Y Max</param>
+        /// <returns> Retuns a random float between X and Y values</returns>
+        public static float GetRandomFloatByRange(Vector2 range)
+        {
+            return Random.Range(range.x, range.y);
+        }
     }
 }

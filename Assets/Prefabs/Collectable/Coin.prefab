@@ -261,5 +261,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 6079749430206117082}
-  _shineEase: 6
-  _shineDuration: 6
+  _shouldLoop: 1
+  _shineEase: 2
+  _shineDuration: {x: 6.0436893, y: 13.54369}
+  _shineLoopDelay: {x: 1.1650486, y: 3.6650486}
+  _startShineOnStart: 1
+  _startDelay: {x: 2.475728, y: 7.76699}
