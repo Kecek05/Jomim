@@ -1,9 +1,13 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/HUD_USS.uss?fileID=7433441132597879392&amp;guid=1c08938660199424f959d2716e0cfd20&amp;type=3#HUD_USS" />
-    <engine:VisualElement name="Container" style="flex-grow: 1;">
+    <engine:VisualElement name="Container" style="flex-grow: 1; flex-direction: column; align-items: flex-end; justify-content: flex-start; align-content: stretch; align-self: flex-end;">
         <engine:VisualElement name="Player1UI" class="playerBackground">
             <engine:VisualElement name="Player1CoinImg" class="CoinImg coinImg" style="background-image: url(&quot;project://database/Assets/Sprites/Map/Cainos/Pixel%20Art%20Platformer%20-%20Village%20Props/Texture/TX%20Village%20Props.png?fileID=21300182&amp;guid=7810966f0f690954c87305933cabf2b0&amp;type=3#TX Village Props - Bread&quot;);" />
-            <engine:Label text="0" name="Player1CoinsLbl" class="text" style="color: rgb(255, 255, 255);" />
+            <engine:Label text="0" name="Player1CoinsLbl" class="text" />
+        </engine:VisualElement>
+        <engine:VisualElement name="Player2UI" class="playerBackground" style="flex-direction: row-reverse;">
+            <engine:VisualElement name="Player2CoinImg" class="CoinImg coinImg" style="background-image: url(&quot;project://database/Assets/Sprites/Map/Cainos/Pixel%20Art%20Platformer%20-%20Village%20Props/Texture/TX%20Village%20Props.png?fileID=21300178&amp;guid=7810966f0f690954c87305933cabf2b0&amp;type=3#TX Village Props - Apple&quot;); flex-grow: 0; flex-shrink: 0; flex-basis: initial; height: 120px; width: 100px;" />
+            <engine:Label text="0" name="Player2CoinsLbl" class="text" />
         </engine:VisualElement>
     </engine:VisualElement>
 </engine:UXML>

@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pelvis_0: -9041549213186513739
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
