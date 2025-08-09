@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using KeceK.General;
@@ -19,7 +20,7 @@ namespace KeceK.Utils.Components
         }
         
         [Serializable]
-        private class ShaderAnimationData
+        public class ShaderAnimationData
         {
             /// <summary>
             /// Called when the animation loop state changes. True = Starts, False = Stops.
@@ -76,15 +77,18 @@ namespace KeceK.Utils.Components
             [ShowIf(nameof(IsRandomStartAnimationOnStart))]
             [MinMaxSlider(0, 10)] [InfoBox("This value should be changed out of play mode")]
             public Vector2 RandomStartDelay = new Vector2();
-            [HideIf(nameof(IsRandomStartAnimationOnStart))] [ShowIf(nameof(StartAnimationOnStart))]
+            [HideIf(nameof(IsRandomStartAnimationOnStart))] [ShowIf(nameof(StartAnimationOnStart))] [FoldoutGroup("$PropertyName")]
             public float StartDelay = 0f;
             
-            private float _shaderPropertyValue = 0f;
-            private bool _loopFinished = true;
-            private Tween _animationTween;
+            [FoldoutGroup("$PropertyName")]
+            public float PropertyInitialValue = 0f;
             
-            private List<Material> _materials = new();
-            private WaitForSeconds _animationLoopWait => new WaitForSeconds(StartAnimationOnStart ? MathK.GetRandomFloatByRange(RandomStartDelay) : StartDelay);
+            public float ShaderPropertyValue = 0f;
+            public bool LoopFinished = true;
+            public Tween AnimationTween;
+            public Coroutine AnimationLoopCoroutine;
+            public List<Material> _materials = new();
+            public WaitForSeconds _animationLoopWait => new WaitForSeconds(StartAnimationOnStart ? MathK.GetRandomFloatByRange(RandomStartDelay) : StartDelay);
 
             private void StartAnimationOnStartValidate()
             {
@@ -98,11 +102,113 @@ namespace KeceK.Utils.Components
                 _spriteRenderers.ForEach(spriteRenderer => _materials.Add(spriteRenderer.material));
             }
             
+            /// <summary>
+            /// Do the shine animation once.
+            /// </summary>
+            [Button] [HideInEditorMode]
+            private void DoShine()
+            {
+                LoopFinished = false;
+                AnimationTween?.Kill(false);
+                ShaderPropertyValue = 0f;
+                AnimationTween = DOTween.To(
+                        () => ShaderPropertyValue, 
+                        x => ShaderPropertyValue = x, 
+                        1f, IsRandomDuration ? MathK.GetRandomFloatByRange(RandomDuration) : Duration)
+                    .SetEase(Ease)
+                    .OnUpdate(() =>
+                    {
+                        _materials.ForEach(material => material.SetFloat(PropertyName, ShaderPropertyValue));
+                    }).OnComplete(() =>
+                    {
+                        ResetShineValue();
+                        LoopFinished = true;
+                    });
+            }
             
+            /// <summary>
+            /// Reset all materials shine value to 0 and the _shineLocationValue value to 0.
+            /// </summary>
+            public void ResetShineValue()
+            {
+                _materials.ForEach(material => material.SetFloat(PropertyName, PropertyInitialValue));
+                ShaderPropertyValue = PropertyInitialValue;
+            }
+            
+            /// <summary>
+            /// Do the shine loop while _shouldLoop is true.
+            /// </summary>
+            /// <returns></returns>
+            public IEnumerator AnimationLoop()
+            {
+                while (ShouldLoop)
+                {
+                    if (LoopFinished)
+                    {
+                        yield return  _animationLoopWait;
+                        DoShine();
+                    }
+                    else
+                        yield return null;
+                
+                }
+            }
+            
+            public void TriggerOnAnimationLoopChanged(bool isLooping)
+            {
+                AnimationEventData eventData = new AnimationEventData
+                {
+                    AnimationID = AnimationID,
+                    IsLooping = isLooping
+                };
+                OnAnimationLoopChanged?.Invoke(eventData);
+            }
         }
         
         [SerializeField] [Title("Settings")]
         private List<ShaderAnimationData> _shaderAnimations = new();
+        
+        
+        /// <summary>
+        /// Call this to start the shine loop. If the loop is already running, it will restart it.
+        /// </summary>
+        public void StartAnimationLoop(ShaderAnimationData animationData)
+        {
+            animationData.ShouldLoop = true;
+            CancelAnimationCoroutine(animationData);
+            animationData.LoopFinished = true;
+            animationData.AnimationLoopCoroutine = StartCoroutine(animationData.AnimationLoop());
+            animationData.TriggerOnAnimationLoopChanged(true);
+        }
+        
+        /// <summary>
+        /// Call this to stop the shine loop. This will also reset the shine value to 0.
+        /// </summary>
+        public void StopShineLoop(ShaderAnimationData animationData)
+        {
+            animationData.ShouldLoop = false;
+            CancelAnimationCoroutine(animationData);
+            animationData.ResetShineValue();
+            animationData.TriggerOnAnimationLoopChanged(false);
+        }
+            
+        /// <summary>
+        /// Called by <see cref="StartShineLoop"/> and <see cref="StopShineLoop"/> to cancel the current shine coroutine and reset the shine value.
+        /// </summary>
+        private void CancelAnimationCoroutine(ShaderAnimationData animationData)
+        {
+            if (animationData.AnimationLoopCoroutine != null)
+                StopCoroutine(animationData.AnimationLoopCoroutine);
+            
+            animationData.AnimationLoopCoroutine = null;
+            animationData.AnimationTween?.Kill(false);
+            animationData.ResetShineValue();
+        }
+        
+        public ShaderAnimationData GetAnimationDataByID(int animationID)
+        {
+            return _shaderAnimations.Find(animation => animation.AnimationID == animationID);
+        }
         
     }
 }
