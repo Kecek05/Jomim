@@ -9,9 +9,9 @@ namespace KeceK.Utils.Components
     {
         public event Action<Collider2D> OnTriggerEnterEvent;
         
-        [SerializeField] [FoldoutGroup("Settings")]
+        [SerializeField] [Title("Settings")]
         private bool _onTrigger = true;
-        [SerializeField] [FoldoutGroup("Settings")]
+        [SerializeField]
         private bool _onCollision = true;
 
         private void OnCollisionEnter2D(Collision2D other)

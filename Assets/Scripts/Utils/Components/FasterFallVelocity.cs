@@ -9,20 +9,21 @@ namespace KeceK.Utils.Components
     [RequireComponent(typeof(Rigidbody2D))]
     public class FasterFallVelocity : MonoBehaviour
     {
-        [SerializeField] [Required] [FoldoutGroup("References")]
+        [SerializeField] [Required] [Title("References")]
         private Rigidbody2D _rigidbody2D;
         [Space(5f)]
         
-        [SerializeField] [FoldoutGroup("Settings")] [OnValueChanged(nameof(ResetHaveStoppingDistance))]
+        [Title("Settings")]
+        [SerializeField] [OnValueChanged(nameof(ResetHaveStoppingDistance))]
         private bool _isEnabled = true;
-        [SerializeField] [FoldoutGroup("Settings")] [ShowIf(nameof(_isEnabled))]
+        [SerializeField] [ShowIf(nameof(_isEnabled))]
         private bool _haveStoppingDistance;
         [Space(2f)]
-        [SerializeField] [FoldoutGroup("Settings")] [Tooltip("Force that will be applied to the RB when starts falling every tick")] [ShowIf(nameof(_isEnabled))]
+        [SerializeField] [Tooltip("Force that will be applied to the RB when starts falling every tick")] [ShowIf(nameof(_isEnabled))]
         private float _fallForce = 300f;
-        [SerializeField] [FoldoutGroup("Settings")] [Tooltip("The max force that the RB can get added by the fall force")] [ShowIf(nameof(_isEnabled))]
+        [SerializeField] [Tooltip("The max force that the RB can get added by the fall force")] [ShowIf(nameof(_isEnabled))]
         private float _maxFallForce = 10f;
-        [SerializeField] [FoldoutGroup("Settings")] [Tooltip("Minimum force to start adding negative force to Y")] [ShowIf(nameof(_isEnabled))]
+        [SerializeField] [Tooltip("Minimum force to start adding negative force to Y")] [ShowIf(nameof(_isEnabled))]
         private float velocityYThreshold = 0.1f;
         [Space(1f)]
 

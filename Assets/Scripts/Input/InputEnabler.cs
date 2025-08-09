@@ -6,9 +6,9 @@ namespace KeceK.Input
 {
     public class InputEnabler : MonoBehaviour
     {
-        [SerializeField] [Required] [FoldoutGroup("References")]
+        [SerializeField] [Required] [Title("References")]
         private PlayerIdentifier _playerIdentifier;
-        [SerializeField] [Required] [FoldoutGroup("References")]
+        [SerializeField] [Required]
         private InputReader _inputReader;
         
         private PlayerControls _playerControls => _inputReader.GetPlayerControls();

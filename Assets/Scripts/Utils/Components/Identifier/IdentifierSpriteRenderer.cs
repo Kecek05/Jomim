@@ -14,13 +14,13 @@ namespace KeceK.Utils.Components
             public SpriteIdentifierDataSO SpriteIdentifierData;
         }
         
-        [SerializeField] [FoldoutGroup("References")]
+        [SerializeField] [Title("References")]
         private bool _simpleIdentifier = true;
-        [SerializeField] [FoldoutGroup("References")] [ShowIf(nameof(_simpleIdentifier))]
+        [SerializeField] [ShowIf(nameof(_simpleIdentifier))]
         private SpriteIdentifierDataSO _spriteIdentifierData;
-        [SerializeField] [FoldoutGroup("References")] [ShowIf(nameof(_simpleIdentifier))]
+        [SerializeField] [ShowIf(nameof(_simpleIdentifier))]
         private SpriteRenderer[] _spriteRenderersToChangeBasedOnPlayer;
-        [SerializeField] [FoldoutGroup("References")] [HideIf(nameof(_simpleIdentifier))]
+        [SerializeField] [HideIf(nameof(_simpleIdentifier))]
         private AdvancedIdentifierData[] _advancedIdentifierDatas;
         
         protected override void Identify(PlayerType playerType)

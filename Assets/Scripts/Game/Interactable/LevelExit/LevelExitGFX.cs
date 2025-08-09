@@ -1,0 +1,67 @@
+using System;
+using System.Collections.Generic;
+using KeceK.Utils.Components;
+using Sirenix.OdinInspector;
+using UnityEngine;
+
+namespace KeceK.Game
+{
+    public class LevelExitGFX : MonoBehaviour
+    {
+        [Title("References")] 
+        [SerializeField] [Tooltip("List of sprite that will change the color based on the exit state.")]
+        private List<SpriteRenderer> _spriteRenderers;
+
+        [SerializeField] private List<ShineAnimator> _shineAnimators;
+
+        [Title("Color Settings")]
+        [SerializeField]
+        private Color _disabledColor = Color.gray;
+        [SerializeField]
+        private Color _enabledColor = Color.white;
+        
+        private void Start()
+        {
+            //Always start with the exit disabled
+            ChangeColor(false);
+            ChangeShine(false);
+            GameManager.OnCanExit += GameManagerOnOnCanExit;
+        }
+
+        private void OnDestroy()
+        {
+            GameManager.OnCanExit -= GameManagerOnOnCanExit;
+        }
+
+        private void GameManagerOnOnCanExit()
+        {
+            ChangeColor(true);
+            ChangeShine(true);
+        }
+
+        /// <summary>
+        /// Call this to change the color of the exit based on whether it is enabled or not.
+        /// </summary>
+        /// <param name="enabled"> If true, will change the color to _enabledColor. If false, to _disabledColor</param>
+        private void ChangeColor(bool enabled)
+        {
+            _spriteRenderers.ForEach(spriteRenderer => spriteRenderer.color = enabled ? _enabledColor : _disabledColor);
+        }
+
+        /// <summary>
+        /// Call this to change the shine state of the exit. This should be enabled when the exit is active and ready to be used.
+        /// </summary>
+        /// <param name="enabled"> If true, will enable the Shine Components</param>
+        private void ChangeShine(bool enabled)
+        {
+            _shineAnimators.ForEach(shineAnimator =>
+            {
+                if(enabled)
+                    shineAnimator.StartShineLoop();
+                else
+                    shineAnimator.StopShineLoop();
+            });
+        }
+
+    }
+}

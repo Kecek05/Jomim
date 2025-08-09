@@ -12,9 +12,9 @@ namespace KeceK.Game
         /// </summary>
         public static event Action<int> OnCoinCollected;
         
-        [SerializeField] [FoldoutGroup("References")]
+        [SerializeField] [Title("References")]
         private GameObject _particleSystemPrefab;
-        [SerializeField] [FoldoutGroup("References")] [Required]
+        [SerializeField] [Required]
         private PlayerIdentifier _playerIdentifier;
         public void Collect()
         {

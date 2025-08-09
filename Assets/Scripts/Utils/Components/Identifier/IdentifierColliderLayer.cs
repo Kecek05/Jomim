@@ -6,10 +6,11 @@ namespace KeceK.Utils.Components
 {
     public class IdentifierColliderLayer : BaseIdentifier
     {
-        [SerializeField] [FoldoutGroup("References")]
+        [SerializeField] [Title("References")]
         private Collider2D[] _collidersToChangeCollisionLayer;
 
-        [SerializeField] [FoldoutGroup("Settings")] [Tooltip("If true, the layer will be inverted, meaning Player1 will not touch Player2 Layer, will touch only Player1 Layer and vice versa.")]
+        [SerializeField] [Title("Settings")]
+        [Tooltip("If true, the layer will be inverted, meaning Player1 will not touch Player2 Layer, will touch only Player1 Layer and vice versa.")]
         private bool _thisPlayerTypeCanCollideWithThisObject;
         
         protected override void Identify(PlayerType playerType)

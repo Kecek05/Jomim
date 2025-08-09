@@ -19,14 +19,15 @@ namespace KeceK.Game
     {
         private const float ANIMATION_NORMALIZED_TRANSITION_DURATION = 0.1f;
         
-        [SerializeField] [FoldoutGroup("References")] [Required]
+        [SerializeField] [Title("References")] [Required]
         private Animator _animator;
-        [SerializeField] [FoldoutGroup("References")] [Required]
+        [SerializeField] [Required]
         private Rigidbody2D _rigidbody2D;
-        [SerializeField] [FoldoutGroup("References")] [Required] 
+        [SerializeField] [Required] 
         private Transform _modelTransform;
         
-        [SerializeField] [FoldoutGroup("Settings")] [Tooltip("Minimum speed value to flip the sprite")]
+        [SerializeField] [Title("Settings")] 
+        [Tooltip("Minimum speed value to flip the sprite")]
         private float flipSpriteThreshold = 1f;
 
         private Animations _currentAnimation;

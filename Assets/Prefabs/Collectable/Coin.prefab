@@ -221,6 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _particleSystemPrefab: {fileID: 2523401304208193019, guid: dbb08d9f8daea494caa9de2d6b979345, type: 3}
+  _playerIdentifier: {fileID: 7193066850535941705}
 --- !u!1 &8605470542831638723 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1798883251293020414, guid: 1eaa4ce633ed86f40bd0e185149c7ee8, type: 3}

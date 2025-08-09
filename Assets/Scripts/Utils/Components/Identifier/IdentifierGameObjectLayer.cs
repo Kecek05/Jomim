@@ -6,7 +6,7 @@ namespace KeceK.Utils.Components
 {
     public class IdentifierGameObjectLayer : BaseIdentifier
     {
-        [SerializeField] [FoldoutGroup("Layers")] [Required]
+        [SerializeField] [Title("Layers")] [Required]
         protected GameObject[] _objectsToChangePlayerLayer;
         protected override void Identify(PlayerType playerType)
         {

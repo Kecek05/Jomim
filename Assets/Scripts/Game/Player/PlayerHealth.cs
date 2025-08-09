@@ -7,7 +7,7 @@ namespace KeceK.Game
 {
     public class PlayerHealth : MonoBehaviour, IDamageable
     {
-        [SerializeField] [FoldoutGroup("Settings")]
+        [SerializeField] [Title("Settings")]
         private float _maxHealth = 100f;
         
         

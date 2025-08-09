@@ -7,9 +7,9 @@ namespace KeceK.General
     [RequireComponent(typeof(PlayerIdentifier))]
     public class IdentifierHandler : MonoBehaviour
     {
-        [SerializeField] [FoldoutGroup("References")] [Required]
+        [SerializeField] [Title("References")] [Required]
         protected PlayerIdentifier _playerIdentifier;
-        [SerializeField] [FoldoutGroup("Identifiers")]
+        [SerializeField]
         private BaseIdentifier[] _baseIdentifiers;
 
         private void OnValidate()

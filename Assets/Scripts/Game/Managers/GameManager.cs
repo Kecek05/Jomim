@@ -9,6 +9,7 @@ namespace KeceK.Game
         public static GameManager instance;
         
         public static event Action OnChangingLevel;
+        public static event Action OnCanExit;
 
         [SerializeField] [Required] [FoldoutGroup("Exits")]
         private LevelExit levelExitP1;
@@ -18,6 +19,7 @@ namespace KeceK.Game
         private bool _isP1AtExit;
         private bool _isP2AtExit;
         private bool _onChangingLevel = false;
+        private bool _canExit = false;
         
         private void Awake()
         {
@@ -35,12 +37,14 @@ namespace KeceK.Game
         {
             levelExitP1.OnLevelExitTouched += HandleExitTouchedP1;
             levelExitP2.OnLevelExitTouched += HandleExitTouchedP2;
+            CollectablesManager.OnCollectedAllCoins += CollectablesManagerOnOnCollectedAllCoins;
         }
 
         private void OnDestroy()
         {
             levelExitP1.OnLevelExitTouched -= HandleExitTouchedP1;
             levelExitP2.OnLevelExitTouched -= HandleExitTouchedP2;
+            CollectablesManager.OnCollectedAllCoins -= CollectablesManagerOnOnCollectedAllCoins;
         }
 
         private void HandleExitTouchedP1(bool isTouching)
@@ -57,11 +61,17 @@ namespace KeceK.Game
         
         private void CheckBothPlayersAtExit()
         {
-            if (_isP1AtExit && _isP2AtExit && !_onChangingLevel)
+            if (_isP1AtExit && _isP2AtExit && !_onChangingLevel && _canExit)
             {
                 _onChangingLevel = true;
                 OnChangingLevel?.Invoke();
             }
+        }
+        
+        private void CollectablesManagerOnOnCollectedAllCoins()
+        {
+            _canExit = true;
+            OnCanExit?.Invoke();
         }
     }
 }

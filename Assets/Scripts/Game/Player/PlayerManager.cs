@@ -9,15 +9,15 @@ namespace KeceK.Game
     public class PlayerManager : MonoBehaviour
     {
         
-        [SerializeField] [FoldoutGroup("References")] [Required]
+        [SerializeField] [Title("References")] [Required]
         private PlayerMovement _playerMovement;
-        [SerializeField] [FoldoutGroup("References")] [Required]
+        [SerializeField] [Required]
         private PlayerAnimator _playerAnimator;
-        [SerializeField] [FoldoutGroup("References")] [Required]
+        [SerializeField] [Required]
         private Rigidbody2D _rigidbody2D;
-        [SerializeField] [FoldoutGroup("References")] [Required]
+        [SerializeField] [Required]
         private GroundCheck _groundCheck;
-        [SerializeField] [FoldoutGroup("References")] [Required]
+        [SerializeField] [Required]
         private InputEnabler _inputEnabler;
         
         private PlayerStateMachine _playerStateMachine;

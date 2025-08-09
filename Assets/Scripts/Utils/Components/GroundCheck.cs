@@ -5,12 +5,12 @@ namespace KeceK.Utils.Components
 {
     public class GroundCheck : MonoBehaviour
     {
-        [SerializeField] [FoldoutGroup("Settings")] [Tooltip("Layers that is possible to jump")] 
-        private LayerMask _jumpableLayers;
-        [SerializeField] [FoldoutGroup("Settings")] [Tooltip("Radius to check if the player is on ground")]
-        private float _isGroundedRadius = 0.5f;
-        [SerializeField] [FoldoutGroup("References")] [Required]
+        [SerializeField] [Title("References")] [Required]
         private Transform _checkTransform;
+        [SerializeField] [Title("Settings")] [Tooltip("Layers that is possible to jump")] 
+        private LayerMask _jumpableLayers;
+        [SerializeField] [Tooltip("Radius to check if the player is on ground")]
+        private float _isGroundedRadius = 0.5f;
         
         public bool IsGrounded()
         {

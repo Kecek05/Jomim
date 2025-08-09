@@ -12,9 +12,12 @@ namespace KeceK.Game
         public static event Action OnCoinCollectedAllP1;
         public static event Action OnCoinCollectedAllP2;
         
-        [SerializeField] [FoldoutGroup("Settings")]
+        public static event Action OnCollectedAllCoins;
+        
+        [Title("Settings")]
+        [SerializeField] 
         private int _collectablesToWinP1 = 5;
-        [SerializeField] [FoldoutGroup("Settings")]
+        [SerializeField]
         private int _collectablesToWinP2 = 5;
 
         private int _collectedCoinsP1, _collectedCoinsP2;

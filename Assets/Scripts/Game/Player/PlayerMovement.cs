@@ -15,23 +15,23 @@ namespace KeceK.Game
         public event Action OnJump;
         
 
-        [CreateEditableAsset] [SerializeField] [FoldoutGroup("References")] [Required]
+        [CreateEditableAsset] [SerializeField] [Title("References")] [Required]
         private PlayerMovementSO _playerMovementSO;
-        [SerializeField] [FoldoutGroup("References")] [Required]
+        [SerializeField] [Required]
         private InputReader _inputReader;
-        [SerializeField] [FoldoutGroup("References")] [Required]
+        [SerializeField] [Required]
         private Rigidbody2D _rigidbody2D;
-        [SerializeField] [FoldoutGroup("References")] [Required]
+        [SerializeField] [Required]
         private GroundCheck _groundCheck;
         [Space(10)]
         
         //Stop Moving 
-        [SerializeField] [FoldoutGroup("Stop Moving Settings")]
+        [Title("Settings")]
+        [SerializeField]
         private float _stopMovingDuration = 0.2f;
-        [SerializeField] [FoldoutGroup("Stop Moving Settings")]
+        [SerializeField]
         private Ease _stopMovingEase = Ease.OutQuad;
         private Tween _stopMovingTween;
-        [Space(10)]
         
 
         [SerializeField] [FoldoutGroup("Jump Settings")]
@@ -42,7 +42,6 @@ namespace KeceK.Game
         private Vector2 _moveInput;
         private bool _jumpButtonHeld;
         private bool _canJump = true;
-        [Space(10)]
         
         
         //Coyote Time
