@@ -261,7 +261,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc88c326ef523234da3f64afed18a89d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteRenderer: {fileID: 6079749430206117082}
+  _spriteRenderers:
+  - {fileID: 6079749430206117082}
   _shouldLoop: 1
   _shineEase: 2
   _shineDuration: {x: 6.0436893, y: 13.54369}

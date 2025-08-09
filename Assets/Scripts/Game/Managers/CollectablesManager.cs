@@ -8,10 +8,6 @@ namespace KeceK.Game
     {
         public static event Action OnCoinCollectedP1;
         public static event Action OnCoinCollectedP2;
-        
-        public static event Action OnCoinCollectedAllP1;
-        public static event Action OnCoinCollectedAllP2;
-        
         public static event Action OnCollectedAllCoins;
         
         [Title("Settings")]
@@ -38,18 +34,30 @@ namespace KeceK.Game
             {
                 case 1:
                     _collectedCoinsP1++;
+                    OnCoinCollectedP1?.Invoke();
                     break;
                 case 2:
                     _collectedCoinsP2++;
+                    OnCoinCollectedP2?.Invoke();
                     break;
             }
 
             CheckCollectedAllCoins();
         }
 
+
         private void CheckCollectedAllCoins()
         {
-            //Check if collected all coins to trigger events and unlock the exit
+            if(_collectedCoinsP1 >= _collectablesToWinP1 && _collectedCoinsP2 >= _collectablesToWinP2)
+                OnCollectedAllCoins?.Invoke();
+        }
+        
+        [Button] [HideInEditorMode]
+        private void ForceCollectAllCoins()
+        {
+            _collectedCoinsP1 = _collectablesToWinP1;
+            _collectedCoinsP2 = _collectablesToWinP2;
+            OnCollectedAllCoins?.Invoke();
         }
     }
 }

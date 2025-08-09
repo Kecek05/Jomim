@@ -1487,8 +1487,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.000000059604645, y: -0.31531215}
-  m_Size: {x: 1.0190552, y: 1.2386651}
+  m_Offset: {x: 0.000000059604645, y: -0.044356823}
+  m_Size: {x: 1.0190552, y: 1.7805758}
   m_Direction: 0
 --- !u!114 &5099536535357924031
 MonoBehaviour:
@@ -1588,11 +1588,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99d6fd7c0313cf44a5d0b965547ec9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _checkTransform: {fileID: 1614156225182088807}
   _jumpableLayers:
     serializedVersion: 2
     m_Bits: 576
   _isGroundedRadius: 0.5
-  _checkTransform: {fileID: 1614156225182088807}
 --- !u!114 &1700947322508143019
 MonoBehaviour:
   m_ObjectHideFlags: 0

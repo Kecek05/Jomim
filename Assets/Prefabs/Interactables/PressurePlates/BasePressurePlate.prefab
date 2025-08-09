@@ -105,7 +105,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3830491898732071254}
   - component: {fileID: 9100052321242316870}
-  - component: {fileID: 499240896473860386}
   - component: {fileID: 6974762373119062858}
   - component: {fileID: 8350124146956386740}
   - component: {fileID: 968975224960276763}
@@ -186,22 +185,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &499240896473860386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6398924471667108394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentShaderType: 0
-  normalStrength: 5
-  normalSmoothing: 1
-  computingNormal: 0
 --- !u!95 &6974762373119062858
 Animator:
   serializedVersion: 7
@@ -250,7 +233,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc88c326ef523234da3f64afed18a89d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteRenderer: {fileID: 9100052321242316870}
+  _spriteRenderers:
+  - {fileID: 9100052321242316870}
   _shouldLoop: 1
   _shineEase: 2
   _shineDuration: {x: 2.6941748, y: 6.334952}

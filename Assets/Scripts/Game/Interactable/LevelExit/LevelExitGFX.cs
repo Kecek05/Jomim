@@ -9,10 +9,10 @@ namespace KeceK.Game
     public class LevelExitGFX : MonoBehaviour
     {
         [Title("References")] 
+        [SerializeField] private ShineAnimator _shineAnimator;
         [SerializeField] [Tooltip("List of sprite that will change the color based on the exit state.")]
         private List<SpriteRenderer> _spriteRenderers;
 
-        [SerializeField] private List<ShineAnimator> _shineAnimators;
 
         [Title("Color Settings")]
         [SerializeField]
@@ -54,13 +54,10 @@ namespace KeceK.Game
         /// <param name="enabled"> If true, will enable the Shine Components</param>
         private void ChangeShine(bool enabled)
         {
-            _shineAnimators.ForEach(shineAnimator =>
-            {
-                if(enabled)
-                    shineAnimator.StartShineLoop();
-                else
-                    shineAnimator.StopShineLoop();
-            });
+            if(enabled)
+                _shineAnimator.StartShineLoop();
+            else
+                _shineAnimator.StopShineLoop();
         }
 
     }
