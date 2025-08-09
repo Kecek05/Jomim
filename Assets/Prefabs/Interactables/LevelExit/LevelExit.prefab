@@ -51,8 +51,10 @@ MonoBehaviour:
   _spriteRenderers:
   - {fileID: 2304155551900639934}
   - {fileID: 2314669566772808447}
-  _disabledColor: {r: 0.30980393, g: 0.30980393, b: 0.30980393, a: 1}
+  _disabledColor: {r: 0.4745098, g: 0.4745098, b: 0.4745098, a: 1}
   _enabledColor: {r: 1, g: 1, b: 1, a: 1}
+  _colorChangeEase: 7
+  _colorChangeDuration: 1.2
 --- !u!114 &8613664934731787715
 MonoBehaviour:
   m_ObjectHideFlags: 0

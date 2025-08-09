@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using DG.Tweening;
 using KeceK.Utils.Components;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -19,11 +20,17 @@ namespace KeceK.Game
         private Color _disabledColor = Color.gray;
         [SerializeField]
         private Color _enabledColor = Color.white;
+        [SerializeField]
+        private Ease _colorChangeEase = Ease.Linear;
+        [SerializeField]
+        private float _colorChangeDuration = 0.5f;
+        
+        private Tween _colorChangeTween;
         
         private void Start()
         {
             //Always start with the exit disabled
-            ChangeColor(false);
+            ChangeColor(false, false);
             ChangeShine(false);
             GameManager.OnCanExit += GameManagerOnOnCanExit;
         }
@@ -35,17 +42,29 @@ namespace KeceK.Game
 
         private void GameManagerOnOnCanExit()
         {
-            ChangeColor(true);
+            ChangeColor(true, true);
             ChangeShine(true);
         }
 
         /// <summary>
         /// Call this to change the color of the exit based on whether it is enabled or not.
         /// </summary>
-        /// <param name="enabled"> If true, will change the color to _enabledColor. If false, to _disabledColor</param>
-        private void ChangeColor(bool enabled)
+        /// <param name="enabled"> If should display the enabled or disabled color</param>
+        /// <param name="tween"> If should tween the changing of colors</param>
+        private void ChangeColor(bool enabled, bool tween)
         {
-            _spriteRenderers.ForEach(spriteRenderer => spriteRenderer.color = enabled ? _enabledColor : _disabledColor);
+            if (tween)
+            {
+                _colorChangeTween?.Kill();
+            
+                _colorChangeTween = DOVirtual.Color(enabled ? _disabledColor : _enabledColor, enabled ? _enabledColor : _disabledColor, _colorChangeDuration, (
+                    value =>
+                    {
+                        _spriteRenderers.ForEach(spriteRenderer => spriteRenderer.color = value);
+                    }));
+
+            } else
+                _spriteRenderers.ForEach(spriteRenderer => spriteRenderer.color = enabled ? _enabledColor : _disabledColor);
         }
 
         /// <summary>
