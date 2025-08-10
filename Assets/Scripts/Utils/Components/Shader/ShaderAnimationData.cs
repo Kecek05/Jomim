@@ -22,7 +22,7 @@ namespace KeceK.Utils.Components
         [InfoBox("All random values should be changed out of play mode")]
         [SerializeField] [FoldoutGroup("$_shaderProperty")] 
         [Tooltip("Name of the shader property to animate. This should match the name in the shader. This is UNIQUE for each component.")]
-        private UtilsK.ShaderProperty _shaderProperty;
+        private ShaderProperty _shaderProperty;
         [Space(10f)]
         
         [FoldoutGroup("$_shaderProperty")] [Title("References")]
@@ -120,7 +120,7 @@ namespace KeceK.Utils.Components
         public Coroutine AnimationLoopCoroutine => _animationLoopCoroutine;
         public Tween AnimationTween => _animationTween;
         
-        public UtilsK.ShaderProperty ShaderProperty => _shaderProperty;
+        public ShaderProperty ShaderProperty => _shaderProperty;
         
         public bool IsALoop => _isALoop;
 

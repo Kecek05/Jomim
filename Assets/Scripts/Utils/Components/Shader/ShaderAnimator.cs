@@ -75,7 +75,7 @@ namespace KeceK.Utils.Components
                 StopCoroutine(animationData.AnimationLoopCoroutine);
         }
         
-        public ShaderAnimationData GetAnimationDataByProperty(UtilsK.ShaderProperty property)
+        public ShaderAnimationData GetAnimationDataByProperty(ShaderProperty property)
         {
             return _shaderAnimations.Find(animation => animation.ShaderProperty == property);
         }

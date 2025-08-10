@@ -74,9 +74,9 @@ namespace KeceK.Game
         private void ChangeShine(bool enabled)
         {
             if(enabled)
-                _shaderAnimatorTrigger.StartAnimation(UtilsK.ShaderProperty._ShineLocation);
+                _shaderAnimatorTrigger.StartAnimation(ShaderProperty._ShineLocation);
             else 
-                _shaderAnimatorTrigger.StopAnimation(UtilsK.ShaderProperty._ShineLocation);
+                _shaderAnimatorTrigger.StopAnimation(ShaderProperty._ShineLocation);
         }
 
     }

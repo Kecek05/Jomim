@@ -9,7 +9,7 @@ namespace KeceK.Utils.Components
         private ShaderAnimator _shaderAnimator;
 
         [Button] [HideInEditorMode]
-        public void StartAnimation(UtilsK.ShaderProperty property)
+        public void StartAnimation(ShaderProperty property)
         {
             if (_shaderAnimator == null)
             {
@@ -20,7 +20,7 @@ namespace KeceK.Utils.Components
         }
         
         [Button] [HideInEditorMode]
-        public void StopAnimation(UtilsK.ShaderProperty property)
+        public void StopAnimation(ShaderProperty property)
         {
             if (_shaderAnimator == null)
             {

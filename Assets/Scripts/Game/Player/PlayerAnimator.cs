@@ -58,8 +58,8 @@ namespace KeceK.Game
 
         private void GameManagerOnOnChangingLevel()
         {
-            _shaderAnimatorTrigger.StartAnimation(UtilsK.ShaderProperty._FadeAmount);
-            _shaderAnimatorTrigger.StartAnimation(UtilsK.ShaderProperty._HologramBlend);
+            _shaderAnimatorTrigger.StartAnimation(ShaderProperty._FadeAmount);
+            _shaderAnimatorTrigger.StartAnimation(ShaderProperty._HologramBlend);
         }
 
         private void Update()

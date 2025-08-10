@@ -2,7 +2,10 @@ using UnityEngine;
 
 namespace KeceK.Utils
 {
-    [CreateAssetMenu(fileName = "SpriteIdentifierData", menuName = "Scriptable Objects/SpriteIdentifierData")]
+    /// <summary>
+    /// This ScriptableObject holds references to sprites relative to each player type.
+    /// </summary>
+    [CreateAssetMenu(fileName = "SpriteIdentifierData", menuName = "Scriptable Objects/Identifiers/SpriteIdentifierData")]
     public class SpriteIdentifierDataSO : ScriptableObject
     {
         public Sprite player1Sprite;
