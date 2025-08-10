@@ -1,6 +1,6 @@
-using System;
 using System.Collections.Generic;
 using DG.Tweening;
+using KeceK.Utils;
 using KeceK.Utils.Components;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -10,7 +10,7 @@ namespace KeceK.Game
     public class LevelExitGFX : MonoBehaviour
     {
         [Title("References")] 
-        [SerializeField] private ShineAnimator _shineAnimator;
+        [SerializeField] private ShaderAnimatorTrigger _shaderAnimatorTrigger;
         [SerializeField] [Tooltip("List of sprite that will change the color based on the exit state.")]
         private List<SpriteRenderer> _spriteRenderers;
 
@@ -74,9 +74,9 @@ namespace KeceK.Game
         private void ChangeShine(bool enabled)
         {
             if(enabled)
-                _shineAnimator.StartShineLoop();
-            else
-                _shineAnimator.StopShineLoop();
+                _shaderAnimatorTrigger.StartAnimation(UtilsK.ShaderProperty._ShineLocation);
+            else 
+                _shaderAnimatorTrigger.StopAnimation(UtilsK.ShaderProperty._ShineLocation);
         }
 
     }

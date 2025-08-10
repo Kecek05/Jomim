@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4722564054064752857}
   - component: {fileID: 326152766044912766}
-  - component: {fileID: 8613664934731787715}
+  - component: {fileID: 6948412802851169101}
+  - component: {fileID: 61676252076250758}
   m_Layer: 0
   m_Name: GFX_Root
   m_TagString: Untagged
@@ -47,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73f5f97669ad6b045ad8bfcd5172803f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shineAnimator: {fileID: 8613664934731787715}
+  _shaderAnimatorTrigger: {fileID: 6948412802851169101}
   _spriteRenderers:
   - {fileID: 2304155551900639934}
   - {fileID: 2314669566772808447}
@@ -55,7 +56,7 @@ MonoBehaviour:
   _enabledColor: {r: 1, g: 1, b: 1, a: 1}
   _colorChangeEase: 7
   _colorChangeDuration: 1.2
---- !u!114 &8613664934731787715
+--- !u!114 &6948412802851169101
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,18 +65,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 1543943859224895384}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc88c326ef523234da3f64afed18a89d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e6327d0b6eae074e8159dcc215b4719, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteRenderers:
-  - {fileID: 2314669566772808447}
-  - {fileID: 2304155551900639934}
-  _shouldLoop: 1
-  _shineEase: 4
-  _shineDuration: {x: 4.751773, y: 8.723404}
-  _shineLoopDelay: {x: 1.536643, y: 3.0260048}
-  _startShineOnStart: 0
-  _startDelay: {x: 0, y: 0}
+  _shaderAnimator: {fileID: 61676252076250758}
+--- !u!114 &61676252076250758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543943859224895384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff5590e400c9e814a97c202086869705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shaderAnimations:
+  - _shaderProperty: 0
+    _spriteRenderers:
+    - {fileID: 2304155551900639934}
+    - {fileID: 2314669566772808447}
+    _isALoop: 1
+    _shaderEase: 4
+    _isRandomDelayBetweenLoops: 1
+    _delayBetweenLoops: 0
+    _randomDelayBetweenLoops: {x: 1.536643, y: 3.0260048}
+    _isRandomDuration: 1
+    _animationDuration: 1
+    _randomAnimationDuration: {x: 4.751773, y: 8.723404}
+    _isRandomStartValue: 0
+    _startValue: 0
+    _randomStartValue: {x: 0, y: 0.5}
+    _isRandomEndValue: 0
+    _endValue: 1
+    _randomEndValue: {x: 0, y: 0.7}
+    _startAnimationOnStart: 0
+    _isRandomStartAnimationOnStart: 0
+    _randomStartDelay: {x: 0, y: 0}
+    _startDelay: 0
 --- !u!1 &4752569928470112178
 GameObject:
   m_ObjectHideFlags: 0

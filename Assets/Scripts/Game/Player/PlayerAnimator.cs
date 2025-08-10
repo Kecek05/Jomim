@@ -1,4 +1,7 @@
+using System;
 using KeceK.General;
+using KeceK.Utils;
+using KeceK.Utils.Components;
 using LayerLab.ArtMaker;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -25,6 +28,8 @@ namespace KeceK.Game
         private Rigidbody2D _rigidbody2D;
         [SerializeField] [Required] 
         private Transform _modelTransform;
+        [SerializeField] [Required] 
+        private ShaderAnimatorTrigger _shaderAnimatorTrigger;
         
         [SerializeField] [Title("Settings")] 
         [Tooltip("Minimum speed value to flip the sprite")]
@@ -40,6 +45,22 @@ namespace KeceK.Game
             Animator.StringToHash("Jump"),
             Animator.StringToHash("Walk"),
         };
+
+        private void OnEnable()
+        {
+            GameManager.OnChangingLevel += GameManagerOnOnChangingLevel;
+        }
+
+        private void OnDisable()
+        {
+            GameManager.OnChangingLevel -= GameManagerOnOnChangingLevel;
+        }
+
+        private void GameManagerOnOnChangingLevel()
+        {
+            _shaderAnimatorTrigger.StartAnimation(UtilsK.ShaderProperty._FadeAmount);
+            _shaderAnimatorTrigger.StartAnimation(UtilsK.ShaderProperty._HologramBlend);
+        }
 
         private void Update()
         {

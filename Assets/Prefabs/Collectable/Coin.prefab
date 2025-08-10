@@ -99,7 +99,7 @@ PrefabInstance:
       addedObject: {fileID: 852718157419565348}
     - targetCorrespondingSourceObject: {fileID: 1798883251293020414, guid: 1eaa4ce633ed86f40bd0e185149c7ee8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6302840080982587997}
+      addedObject: {fileID: 6446343305940674810}
   m_SourcePrefab: {fileID: 100100000, guid: 1eaa4ce633ed86f40bd0e185149c7ee8, type: 3}
 --- !u!212 &6079749430206117082 stripped
 SpriteRenderer:
@@ -238,7 +238,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 69a3de226101d8d42b84c3e157e86cf1, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -249,7 +249,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6302840080982587997
+--- !u!114 &6446343305940674810
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -258,14 +258,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 8605470542831638723}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc88c326ef523234da3f64afed18a89d, type: 3}
+  m_Script: {fileID: 11500000, guid: ff5590e400c9e814a97c202086869705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteRenderers:
-  - {fileID: 6079749430206117082}
-  _shouldLoop: 1
-  _shineEase: 2
-  _shineDuration: {x: 6.0436893, y: 13.54369}
-  _shineLoopDelay: {x: 1.1650486, y: 3.6650486}
-  _startShineOnStart: 1
-  _startDelay: {x: 2.475728, y: 7.76699}
+  _shaderAnimations:
+  - _propertyName: _ShineLocation
+    _spriteRenderers:
+    - {fileID: 6079749430206117082}
+    _animationID: 0
+    _isALoop: 1
+    _shaderEase: 2
+    _isRandomDelayBetweenLoops: 1
+    _delayBetweenLoops: 0
+    _randomDelayBetweenLoops: {x: 1.1650486, y: 3.6650486}
+    _isRandomDuration: 1
+    _animationDuration: 1
+    _randomAnimationDuration: {x: 6.0436893, y: 13.54369}
+    _isRandomStartValue: 0
+    _startValue: 0
+    _randomStartValue: {x: 0, y: 0.5}
+    _isRandomEndValue: 0
+    _endValue: 1
+    _randomEndValue: {x: 0, y: 0.7}
+    _startAnimationOnStart: 1
+    _isRandomStartAnimationOnStart: 1
+    _randomStartDelay: {x: 2.475728, y: 7.76699}
+    _startDelay: 0

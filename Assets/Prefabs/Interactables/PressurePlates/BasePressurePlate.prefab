@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 9100052321242316870}
   - component: {fileID: 6974762373119062858}
   - component: {fileID: 8350124146956386740}
-  - component: {fileID: 968975224960276763}
+  - component: {fileID: 5246379811537228347}
   m_Layer: 0
   m_Name: GFX
   m_TagString: Untagged
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 6974762373119062858}
   _pressurePlate: {fileID: 7499345841556239369}
---- !u!114 &968975224960276763
+--- !u!114 &5246379811537228347
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -230,14 +230,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 6398924471667108394}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc88c326ef523234da3f64afed18a89d, type: 3}
+  m_Script: {fileID: 11500000, guid: ff5590e400c9e814a97c202086869705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteRenderers:
-  - {fileID: 9100052321242316870}
-  _shouldLoop: 1
-  _shineEase: 2
-  _shineDuration: {x: 2.6941748, y: 6.334952}
-  _shineLoopDelay: {x: 1.0436894, y: 2.1359224}
-  _startShineOnStart: 1
-  _startDelay: {x: 0, y: 1.9174757}
+  _shaderAnimations:
+  - _shaderProperty: 0
+    _spriteRenderers:
+    - {fileID: 9100052321242316870}
+    _animationID: 0
+    _isALoop: 1
+    _shaderEase: 2
+    _isRandomDelayBetweenLoops: 1
+    _delayBetweenLoops: 0
+    _randomDelayBetweenLoops: {x: 1.0436894, y: 2.1359224}
+    _isRandomDuration: 1
+    _animationDuration: 1
+    _randomAnimationDuration: {x: 2.6941748, y: 6.334952}
+    _isRandomStartValue: 0
+    _startValue: 0
+    _randomStartValue: {x: 0, y: 0.5}
+    _isRandomEndValue: 0
+    _endValue: 1
+    _randomEndValue: {x: 0, y: 0.7}
+    _startAnimationOnStart: 1
+    _isRandomStartAnimationOnStart: 1
+    _randomStartDelay: {x: 0, y: 1.9174757}
+    _startDelay: 0
