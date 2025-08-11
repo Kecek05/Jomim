@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f23e1f8d98f8f8d419255d6a1deacfd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _particleSystemPrefab: {fileID: 2523401304208193019, guid: dbb08d9f8daea494caa9de2d6b979345, type: 3}
+  _coinParticle: {fileID: 11400000, guid: e46adcafcb4e8624da5cc353d2464434, type: 2}
   _playerIdentifier: {fileID: 7193066850535941705}
 --- !u!1 &8605470542831638723 stripped
 GameObject:
@@ -262,10 +262,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shaderAnimations:
-  - _propertyName: _ShineLocation
+  - _shaderProperty: 0
     _spriteRenderers:
     - {fileID: 6079749430206117082}
-    _animationID: 0
     _isALoop: 1
     _shaderEase: 2
     _isRandomDelayBetweenLoops: 1

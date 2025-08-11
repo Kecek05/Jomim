@@ -2,6 +2,7 @@ using System;
 using KeceK.General;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using KeceK.Utils.ScriptableObjects;
 
 namespace KeceK.Game
 {
@@ -13,12 +14,14 @@ namespace KeceK.Game
         public static event Action<int> OnCoinCollected;
         
         [SerializeField] [Title("References")]
-        private GameObject _particleSystemPrefab;
+        private GameObjectIdentifierDataSO _coinParticle;
         [SerializeField] [Required]
         private PlayerIdentifier _playerIdentifier;
+        
         public void Collect()
         {
-            Instantiate(_particleSystemPrefab, transform.position, Quaternion.identity);
+            Instantiate(_playerIdentifier.ThisPlayerType == PlayerType.Player1 ? _coinParticle.player1GameObject : _coinParticle.player2GameObject,
+                transform.position, Quaternion.identity);
             OnCoinCollected?.Invoke(_playerIdentifier.ThisPlayerType == PlayerType.Player1 ? 1 : 2);
             Destroy(gameObject);
         }

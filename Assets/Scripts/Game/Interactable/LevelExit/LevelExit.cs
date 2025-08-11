@@ -12,7 +12,7 @@ namespace KeceK.Game
         /// </summary>
         public event Action<bool> OnLevelExitTouched; 
         
-        [SerializeField] [FoldoutGroup("Settings")]
+        [SerializeField] [Title("Settings")]
         [Tooltip("If true, the pressure plate will disable as soon as the colliding object gets out.")]
         private bool _needToKeepTouchingToKeepActive = true;
         private bool _isTouching;
