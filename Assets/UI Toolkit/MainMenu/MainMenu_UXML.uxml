@@ -1,10 +1,23 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/MainMenu/MainMenu_USS.uss?fileID=7433441132597879392&amp;guid=3ee8eaea57b00134da013a61ee03d642&amp;type=3#MainMenu_USS" />
     <engine:VisualElement name="MainMenu" style="flex-grow: 1;">
-        <engine:VisualElement name="MainMenuBackground" class="background" style="flex-grow: 1;">
+        <engine:VisualElement name="MainMenu" class="background" style="flex-grow: 1; display: none;">
             <engine:VisualElement name="MainMenuButtons" style="flex-grow: 1; justify-content: center; align-self: center; align-items: center;">
                 <engine:Button text="Play" name="PlayButton" class="button" />
                 <engine:Button text="Quit&#10;" name="QuitButton" class="button" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+        <engine:VisualElement name="MainMenuSelector" class="background" style="flex-grow: 1;">
+            <engine:VisualElement name="FerrisWheelBackground" style="flex-grow: 0; background-image: url(&quot;project://database/Assets/Sprites/UI/ferisWheel.png?fileID=2800000&amp;guid=7970067bfbede3d49997fb84e8e313cc&amp;type=3#ferisWheel&quot;); background-color: rgba(255, 255, 255, 0); width: 666px; height: 653px; position: absolute; top: 202px; left: 637px;" />
+            <engine:VisualElement name="LevelSelectorButtons" style="flex-grow: 1; align-items: center; justify-content: center;">
+                <engine:Button text="1" name="Level1Button" class="button" />
+                <engine:Button text="2" name="Level2Button" class="button" />
+                <engine:Button text="3" name="Level3Button" class="button" />
+                <engine:Button text="4" name="Level4Button" class="button" />
+                <engine:Button text="5" name="Level5Button" class="button" />
+                <engine:Button text="6" name="Level6Button" class="button" />
+                <engine:Button text="7" name="Level7Button" class="button" />
+                <engine:Button text="8" name="Level8Button" class="button" />
             </engine:VisualElement>
         </engine:VisualElement>
     </engine:VisualElement>
