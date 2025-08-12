@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c60c9f15ef1c1e48ac02aff020d1f72, type: 3}
   m_Name: CoinParticle_GameObjectIdentifierDataSO
   m_EditorClassIdentifier: 
-  player1GameObject: {fileID: 0}
-  player2GameObject: {fileID: 0}
+  player1GameObject: {fileID: 9159566275262375946, guid: f77a4d09b09ac8a4fa40adfa48e7195a, type: 3}
+  player2GameObject: {fileID: 2523401304208193019, guid: dbb08d9f8daea494caa9de2d6b979345, type: 3}
