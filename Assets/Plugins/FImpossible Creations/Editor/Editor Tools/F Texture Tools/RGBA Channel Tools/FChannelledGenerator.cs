@@ -662,7 +662,7 @@ namespace FIMSpace.FEditor
                     EditorUtility.DisplayProgressBar("Channeling textures...", "Scaling " + texFile.name + " for accurate pixels...", 0.5f);
 
                     sameScalePix = texFile.GetPixels32();
-                    sameScalePix = FTex_ScaleLanczos.ScaleTexture(sameScalePix, texFile.width, texFile.height, newWidth, newHeight, 4);
+                    sameScalePix = FTex_ScaleLanczos.ScaleTexture(sameScalePix, texFile.width, texFile.height, newWidth, newHeight, 4, false);
                 }
             }
             catch (System.Exception exc)

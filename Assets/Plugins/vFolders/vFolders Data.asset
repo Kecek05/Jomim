@@ -57,7 +57,7 @@ MonoBehaviour:
       isIconRecursive: 0
       isColorRecursive: 0
     - iconNameOrGuid: Material Icon
-      colorIndex: 0
+      colorIndex: 1
       isIconRecursive: 0
       isColorRecursive: 0
   bookmarks:

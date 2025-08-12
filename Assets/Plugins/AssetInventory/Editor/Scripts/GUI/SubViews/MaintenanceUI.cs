@@ -30,6 +30,7 @@ namespace AssetInventory
         private void Init()
         {
             _validators.Clear();
+            _validators.Add(new ScheduledPreviewRecreationValidator());
             _validators.Add(new IncorrectPreviewsValidator());
             _validators.Add(new UnindexedSubPackagesValidator());
             _validators.Add(new MissingPreviewFilesValidator());
@@ -45,13 +46,15 @@ namespace AssetInventory
             _validators.Add(new OrphanedCacheFoldersValidator());
             _validators.Add(new OrphanedPreviewFoldersValidator());
             _validators.Add(new OrphanedPreviewFilesValidator());
+            _validators.Add(new SuspiciousBackupsValidator());
             _validators.Add(new CorruptDatabaseValidator());
         }
 
-        private void ScanAll()
+        private void ScanAll(bool fastOnly)
         {
             _validators.ForEach(v =>
             {
+                if (fastOnly && v.Speed != Validator.ValidatorSpeed.Fast) return;
                 if (v.CurrentState == Validator.State.Idle || v.CurrentState == Validator.State.Completed)
                 {
                     v.CancellationRequested = false;
@@ -81,9 +84,13 @@ namespace AssetInventory
 
             EditorGUILayout.Space();
             GUILayout.BeginHorizontal();
-            if (GUILayout.Button("Scan All", GUILayout.ExpandWidth(false), GUILayout.Height(40)))
+            if (GUILayout.Button("Run All", GUILayout.ExpandWidth(false), GUILayout.Height(40)))
             {
-                ScanAll();
+                ScanAll(false);
+            }
+            if (GUILayout.Button("Run Only Fast Scans*", GUILayout.ExpandWidth(false), GUILayout.Height(40)))
+            {
+                ScanAll(true);
             }
             EditorGUI.BeginDisabledGroup(_fixeableItems == 0);
             if (GUILayout.Button("Fix All", GUILayout.ExpandWidth(false), GUILayout.Height(40)))
@@ -98,7 +105,8 @@ namespace AssetInventory
             _checksScrollPos = GUILayout.BeginScrollView(_checksScrollPos, false, false, GUIStyle.none, GUI.skin.verticalScrollbar, GUILayout.ExpandWidth(true));
             foreach (Validator validator in _validators)
             {
-                EditorGUILayout.LabelField(validator.Name, EditorStyles.boldLabel);
+                GUILayout.BeginVertical("box");
+                EditorGUILayout.LabelField(validator.Name + (validator.Speed == Validator.ValidatorSpeed.Fast ? "*" : ""), EditorStyles.boldLabel);
                 EditorGUILayout.LabelField(validator.Description, EditorStyles.wordWrappedMiniLabel);
 
                 EditorGUILayout.BeginHorizontal();
@@ -174,7 +182,8 @@ namespace AssetInventory
                 }
                 GUI.color = oldColor;
                 EditorGUILayout.EndHorizontal();
-                EditorGUILayout.Space(15);
+                GUILayout.EndVertical();
+                EditorGUILayout.Space(2);
             }
             GUILayout.EndScrollView();
 

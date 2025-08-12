@@ -10,8 +10,6 @@ namespace AssetInventory
 {
     public sealed class AssetBackup : ActionProgress
     {
-        private const string SEPARATOR = "-~-";
-
         private Dictionary<int, List<BackupInfo>> _assetVersions;
 
         public AssetBackup()
@@ -21,12 +19,17 @@ namespace AssetInventory
 
         private void Refresh()
         {
-            _assetVersions = new Dictionary<int, List<BackupInfo>>();
+            _assetVersions = GatherState();
+        }
+
+        public static Dictionary<int, List<BackupInfo>> GatherState()
+        {
+            Dictionary<int, List<BackupInfo>> assetVersions = new Dictionary<int, List<BackupInfo>>();
 
             string[] packages = Directory.GetFiles(AI.GetBackupFolder(), "*.unitypackage", SearchOption.AllDirectories);
             string[] sep =
             {
-                SEPARATOR
+                AI.SEPARATOR
             };
             foreach (string package in packages)
             {
@@ -39,10 +42,12 @@ namespace AssetInventory
                 if (!int.TryParse(arr[0], out int id)) continue;
                 string version = arr[1];
 
-                if (!_assetVersions.ContainsKey(id)) _assetVersions.Add(id, new List<BackupInfo>());
-                _assetVersions[id].Add(new BackupInfo(package, version));
-                _assetVersions[id] = _assetVersions[id].OrderByDescending(v => v.semVersion).ToList();
+                if (!assetVersions.ContainsKey(id)) assetVersions.Add(id, new List<BackupInfo>());
+                assetVersions[id].Add(new BackupInfo(package, version));
+                assetVersions[id] = assetVersions[id].OrderByDescending(v => v.semVersion).ToList();
             }
+
+            return assetVersions;
         }
 
         public async Task Run()
@@ -78,7 +83,7 @@ namespace AssetInventory
                     BackupInfo bi = backupInfos.FirstOrDefault(b => b.version == asset.GetSafeVersion());
                     if (bi != null) targetFile = bi.location;
                 }
-                if (targetFile == null) targetFile = Path.Combine(backupFolder, $"{asset.ForeignId}{SEPARATOR}{asset.GetSafeVersion()}{SEPARATOR}{asset.SafeName}.unitypackage");
+                if (targetFile == null) targetFile = Path.Combine(backupFolder, $"{asset.ForeignId}{AI.SEPARATOR}{asset.GetSafeVersion()}{AI.SEPARATOR}{asset.SafeName}.unitypackage");
                 if (!File.Exists(targetFile))
                 {
                     CurrentMain = $"{asset.SafeName} ({EditorUtility.FormatBytes(asset.PackageSize)})";

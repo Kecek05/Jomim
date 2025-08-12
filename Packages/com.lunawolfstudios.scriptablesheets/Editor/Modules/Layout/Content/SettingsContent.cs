@@ -85,7 +85,7 @@ namespace LunaWolfStudiosEditor.ScriptableSheets.Layout
 			public static readonly GUIContent CaseSensitive = new GUIContent("Case Sensitive", "Search for Objects using exact letter casing.");
 			public static readonly GUIContent ConfirmDelete = new GUIContent("Confirm Delete", "Display a warning message before deleting Objects.");
 			public static readonly GUIContent Debug = new GUIContent("Debug", "Display debug log messages in the console.");
-			public static readonly GUIContent Headers = new GUIContent("Headers", "Include header names when transferring flat file data.");
+			public static readonly GUIContent Headers = new GUIContent("Headers", "Include header names when transferring flat file data.\n\nWhen enabled, the first row is discarded on import if it matches the header names (ignoring whitespace and letter casing).");
 			public static readonly GUIContent HighlightSelectedRow = new GUIContent("Highlight Row", "Highlight the selected row.");
 			public static readonly GUIContent HighlightSelectedColumn = new GUIContent("Highlight Column", "Highlight the selected column.");
 			public static readonly GUIContent LockNames = new GUIContent("Lock Names", "Prevents directly editing the Object name field in the table view. Does NOT apply when pasting content or importing files.");

@@ -18,6 +18,7 @@ MonoBehaviour:
     - 9942a9da466db1e478b680e473723ab7
     - 8c38d4e62a3be2a46af350ccdfbdeca6
     - 60c3eab5693642e44b874b3feaf78d52
+    - 5da80781a35e8764ebda55f8ad835e38
     values:
     - goDatas_byGlobalId:
         keys:
@@ -66,6 +67,10 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-8c38d4e62a3be2a46af350ccdfbdeca6-841629890-0
         - globalObjectIdString: GlobalObjectId_V1-2-8c38d4e62a3be2a46af350ccdfbdeca6-1727794424-0
         - globalObjectIdString: GlobalObjectId_V1-2-8c38d4e62a3be2a46af350ccdfbdeca6-806992716-0
+        - globalObjectIdString: GlobalObjectId_V1-2-8c38d4e62a3be2a46af350ccdfbdeca6-1705436892-0
+        - globalObjectIdString: GlobalObjectId_V1-2-8c38d4e62a3be2a46af350ccdfbdeca6-109740-1558919763
+        - globalObjectIdString: GlobalObjectId_V1-2-8c38d4e62a3be2a46af350ccdfbdeca6-109740-1598045288
+        - globalObjectIdString: GlobalObjectId_V1-2-8c38d4e62a3be2a46af350ccdfbdeca6-3151257257227432862-4757942301155291829
         values:
         - colorIndex: 5
           iconNameOrGuid: Folder Icon
@@ -141,6 +146,22 @@ MonoBehaviour:
           isColorRecursive: 0
         - colorIndex: 0
           iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: cs Script Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: cs Script Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: cs Script Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: cs Script Icon
           isIconRecursive: 0
           isColorRecursive: 0
     - goDatas_byGlobalId:
@@ -239,6 +260,129 @@ MonoBehaviour:
           isColorRecursive: 0
         - colorIndex: 0
           iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+    - goDatas_byGlobalId:
+        keys:
+        - globalObjectIdString: GlobalObjectId_V1-2-5da80781a35e8764ebda55f8ad835e38-1703692191-0
+        - globalObjectIdString: GlobalObjectId_V1-2-5da80781a35e8764ebda55f8ad835e38-1859489391-0
+        - globalObjectIdString: GlobalObjectId_V1-2-5da80781a35e8764ebda55f8ad835e38-770642714-0
+        - globalObjectIdString: GlobalObjectId_V1-2-5da80781a35e8764ebda55f8ad835e38-2067396686-0
+        - globalObjectIdString: GlobalObjectId_V1-2-5da80781a35e8764ebda55f8ad835e38-152323921-0
+        - globalObjectIdString: GlobalObjectId_V1-2-5da80781a35e8764ebda55f8ad835e38-1216525481-0
+        - globalObjectIdString: GlobalObjectId_V1-2-5da80781a35e8764ebda55f8ad835e38-1114622036-0
+        - globalObjectIdString: GlobalObjectId_V1-2-5da80781a35e8764ebda55f8ad835e38-1839230368-0
+        - globalObjectIdString: GlobalObjectId_V1-2-5da80781a35e8764ebda55f8ad835e38-415049511-0
+        - globalObjectIdString: GlobalObjectId_V1-2-5da80781a35e8764ebda55f8ad835e38-372634135-0
+        - globalObjectIdString: GlobalObjectId_V1-2-5da80781a35e8764ebda55f8ad835e38-1082506032-0
+        - globalObjectIdString: GlobalObjectId_V1-2-5da80781a35e8764ebda55f8ad835e38-1245788476-0
+        - globalObjectIdString: GlobalObjectId_V1-2-5da80781a35e8764ebda55f8ad835e38-1422150311-0
+        - globalObjectIdString: GlobalObjectId_V1-2-5da80781a35e8764ebda55f8ad835e38-121604712-0
+        - globalObjectIdString: GlobalObjectId_V1-2-5da80781a35e8764ebda55f8ad835e38-856547990-0
+        - globalObjectIdString: GlobalObjectId_V1-2-5da80781a35e8764ebda55f8ad835e38-1639452512-0
+        - globalObjectIdString: GlobalObjectId_V1-2-5da80781a35e8764ebda55f8ad835e38-841629890-0
+        - globalObjectIdString: GlobalObjectId_V1-2-5da80781a35e8764ebda55f8ad835e38-1727794424-0
+        - globalObjectIdString: GlobalObjectId_V1-2-5da80781a35e8764ebda55f8ad835e38-806992716-0
+        - globalObjectIdString: GlobalObjectId_V1-2-5da80781a35e8764ebda55f8ad835e38-1705436892-0
+        - globalObjectIdString: GlobalObjectId_V1-2-5da80781a35e8764ebda55f8ad835e38-109740-1558919763
+        - globalObjectIdString: GlobalObjectId_V1-2-5da80781a35e8764ebda55f8ad835e38-109740-1598045288
+        - globalObjectIdString: GlobalObjectId_V1-2-5da80781a35e8764ebda55f8ad835e38-3151257257227432862-4757942301155291829
+        - globalObjectIdString: GlobalObjectId_V1-2-5da80781a35e8764ebda55f8ad835e38-71785334-0
+        values:
+        - colorIndex: 5
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 8
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 1
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 7
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Terrain Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Terrain Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 9
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: cs Script Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: cs Script Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 3
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: cs Script Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: cs Script Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: cs Script Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: cs Script Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
           isIconRecursive: 0
           isColorRecursive: 0
   bookmarks: []

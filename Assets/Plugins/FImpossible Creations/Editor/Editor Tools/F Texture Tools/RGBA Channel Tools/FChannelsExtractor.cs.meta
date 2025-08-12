@@ -13,7 +13,7 @@ AssetOrigin:
   serializedVersion: 1
   productId: 274837
   packageName: F Texture Tools
-  packageVersion: 1.1.4
-  assetPath: Assets/FImpossible Creations/Editor/Editor Tools/F Texture Tools/RGBA
+  packageVersion: 1.1.5
+  assetPath: Assets/Plugins/FImpossible Creations/Editor/Editor Tools/F Texture Tools/RGBA
     Channel Tools/FChannelsExtractor.cs
-  uploadId: 755346
+  uploadId: 775737

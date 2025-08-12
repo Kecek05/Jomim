@@ -82,8 +82,8 @@ namespace AssetInventory
         [Indexed] public bool HDRPCompatible { get; set; }
         public string Keywords { get; set; }
         public string PackageDependencies { get; set; }
-        public string Version { get; set; }
-        public string LatestVersion { get; set; }
+        public string Version { get; set; } // current local version
+        public string LatestVersion { get; set; } // latest version available online
         public Strategy UpdateStrategy { get; set; }
         public string License { get; set; } // SPDX identifier format: https://spdx.org/licenses/
         public string LicenseLocation { get; set; }
@@ -98,7 +98,7 @@ namespace AssetInventory
         public float PriceCny { get; set; }
         public string Requirements { get; set; }
         public string ReleaseNotes { get; set; }
-        public string OfficialState { get; set; }  // published, deprecated, disabled  // TODO: switch to enum?
+        public string OfficialState { get; set; } // published, deprecated, disabled  // TODO: switch to enum?
         public bool IsHidden { get; set; }
         [Indexed] public bool Exclude { get; set; }
         public bool Backup { get; set; }
@@ -307,10 +307,10 @@ namespace AssetInventory
 
         public string GetPreviewFile(string previewFolder, bool validate = true)
         {
-            string file = Path.Combine(previewFolder, Id.ToString(), $"a-{Id}.png");
-            if (validate && !File.Exists(file)) file = null;
+            string idStr = Id.ToString();
+            string path = Path.Combine(previewFolder, idStr, $"a-{idStr}.png");
 
-            return file;
+            return validate && !File.Exists(path) ? null : path;
         }
 
         public string GetMediaFile(AssetMedia media, string previewFolder, bool validate = true)
@@ -375,7 +375,7 @@ namespace AssetInventory
 
         public string GetSafeVersion()
         {
-            return new SemVer(Version).CleanedVersion.Replace("/", "").Replace("\\", "");
+            return new SemVer(Version).CleanedVersion?.Replace("/", "").Replace("\\", "");
         }
 
         public override string ToString()

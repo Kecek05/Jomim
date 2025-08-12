@@ -695,6 +695,75 @@ namespace LunaWolfStudiosEditor.ScriptableSheets.EditorTests
 		}
 
 		[Test]
+		public void FromFlatFileFormat_RemovesHeadersWhenExtraWhitespace()
+		{
+			var propertyTable = GetEmptyTable(3, 2);
+			var flatFileContent = "column-1,column - 2\nrow1-col1,row1-col2\nrow2-col1,row2-col2\nrow3-col1,row3-col2";
+
+			var formatSettings = new FlatFileFormatSettings()
+			{
+				RowDelimiter = "\n",
+				ColumnDelimiter = ",",
+				ColumnHeaders = new string[] { "column - 1", "column-2" },
+			};
+
+			propertyTable.FromFlatFileFormat(flatFileContent, formatSettings);
+
+			Assert.AreEqual("row1-col1", propertyTable.Get(0, 0).GetProperty(formatSettings));
+			Assert.AreEqual("row1-col2", propertyTable.Get(0, 1).GetProperty(formatSettings));
+			Assert.AreEqual("row2-col1", propertyTable.Get(1, 0).GetProperty(formatSettings));
+			Assert.AreEqual("row2-col2", propertyTable.Get(1, 1).GetProperty(formatSettings));
+			Assert.AreEqual("row3-col1", propertyTable.Get(2, 0).GetProperty(formatSettings));
+			Assert.AreEqual("row3-col2", propertyTable.Get(2, 1).GetProperty(formatSettings));
+		}
+
+		[Test]
+		public void FromFlatFileFormat_RemovesHeadersWhenCasingDiffers()
+		{
+			var propertyTable = GetEmptyTable(3, 2);
+			var flatFileContent = "COLUMN-1,column-2\nrow1-col1,row1-col2\nrow2-col1,row2-col2\nrow3-col1,row3-col2";
+
+			var formatSettings = new FlatFileFormatSettings()
+			{
+				RowDelimiter = "\n",
+				ColumnDelimiter = ",",
+				ColumnHeaders = new string[] { "column-1", "COLUMN-2" },
+			};
+
+			propertyTable.FromFlatFileFormat(flatFileContent, formatSettings);
+
+			Assert.AreEqual("row1-col1", propertyTable.Get(0, 0).GetProperty(formatSettings));
+			Assert.AreEqual("row1-col2", propertyTable.Get(0, 1).GetProperty(formatSettings));
+			Assert.AreEqual("row2-col1", propertyTable.Get(1, 0).GetProperty(formatSettings));
+			Assert.AreEqual("row2-col2", propertyTable.Get(1, 1).GetProperty(formatSettings));
+			Assert.AreEqual("row3-col1", propertyTable.Get(2, 0).GetProperty(formatSettings));
+			Assert.AreEqual("row3-col2", propertyTable.Get(2, 1).GetProperty(formatSettings));
+		}
+
+		[Test]
+		public void FromFlatFileFormat_RemovesHeadersWhenPrefixed()
+		{
+			var propertyTable = GetEmptyTable(3, 2);
+			var flatFileContent = "m_Column-1,column-2\nrow1-col1,row1-col2\nrow2-col1,row2-col2\nrow3-col1,row3-col2";
+
+			var formatSettings = new FlatFileFormatSettings()
+			{
+				RowDelimiter = "\n",
+				ColumnDelimiter = ",",
+				ColumnHeaders = new string[] { "column-1", "m_Column-2" },
+			};
+
+			propertyTable.FromFlatFileFormat(flatFileContent, formatSettings);
+
+			Assert.AreEqual("row1-col1", propertyTable.Get(0, 0).GetProperty(formatSettings));
+			Assert.AreEqual("row1-col2", propertyTable.Get(0, 1).GetProperty(formatSettings));
+			Assert.AreEqual("row2-col1", propertyTable.Get(1, 0).GetProperty(formatSettings));
+			Assert.AreEqual("row2-col2", propertyTable.Get(1, 1).GetProperty(formatSettings));
+			Assert.AreEqual("row3-col1", propertyTable.Get(2, 0).GetProperty(formatSettings));
+			Assert.AreEqual("row3-col2", propertyTable.Get(2, 1).GetProperty(formatSettings));
+		}
+
+		[Test]
 		public void FromFlatFileFormat_RemovesHeadersWhenSkippingFirstColumn()
 		{
 			var propertyTable = GetEmptyTable(3, 2);

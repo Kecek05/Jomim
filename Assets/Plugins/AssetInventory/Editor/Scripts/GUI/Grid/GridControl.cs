@@ -10,7 +10,7 @@ namespace AssetInventory
     {
         public event Action<AssetInfo> OnDoubleClick;
 
-        public List<AssetInfo> packages;
+        public IEnumerable<AssetInfo> packages;
         private GUIContent[] _contents;
         public GUIContent[] contents
         {
@@ -42,6 +42,7 @@ namespace AssetInventory
         public int noTextBelow;
         public bool enlargeTiles;
         public bool centerTiles;
+        public bool IsMouseOverGrid;
 
         private GUIContent[] Selection
         {
@@ -63,10 +64,9 @@ namespace AssetInventory
         private int _lastSelectionTile;
         private List<AssetInfo> _allPackages;
         private Action _bulkHandler;
-        private bool _mouseOverGrid;
         private Rect _lastRect;
 
-        public void Init(List<AssetInfo> allPackages, List<AssetInfo> visiblePackages, Action bulkHandler, Func<AssetInfo, string> textGenerator = null)
+        public void Init(List<AssetInfo> allPackages, IEnumerable<AssetInfo> visiblePackages, Action bulkHandler, Func<AssetInfo, string> textGenerator = null)
         {
             packages = visiblePackages;
             _textGenerator = textGenerator;
@@ -78,7 +78,7 @@ namespace AssetInventory
             CalculateBulkSelection();
         }
 
-        public void Draw(float width, int inspectorCount, int tileSize, GUIStyle tileStyle, GUIStyle selectedTileStyle)
+        public void Draw(float width, int inspectorCount, int tileSize, float tileAspectRatio, GUIStyle tileStyle, GUIStyle selectedTileStyle)
         {
             float actualWidth = width - UIStyles.INSPECTOR_WIDTH * inspectorCount - UIStyles.BORDER_WIDTH;
             int cells = Mathf.Clamp(Mathf.FloorToInt(actualWidth / (tileSize + AI.Config.tileMargin)), 1, 99);
@@ -87,10 +87,10 @@ namespace AssetInventory
             if (enlargeTiles)
             {
                 // enlarge tiles dynamically so they take the full width
-                tileSize = Mathf.FloorToInt((actualWidth - cells * AI.Config.tileMargin) / cells);
+                tileSize = Mathf.FloorToInt((actualWidth - cells * AI.Config.tileMargin - 2 * AI.Config.tileMargin) / cells);
             }
 
-            tileStyle.fixedHeight = tileSize;
+            tileStyle.fixedHeight = tileSize / tileAspectRatio;
             tileStyle.fixedWidth = tileSize;
             tileStyle.margin = new RectOffset(AI.Config.tileMargin, AI.Config.tileMargin, AI.Config.tileMargin, AI.Config.tileMargin); // set again due to initial style only being set once so changes would not reflect
             selectedTileStyle.fixedHeight = tileStyle.fixedHeight + tileStyle.margin.top;
@@ -114,7 +114,7 @@ namespace AssetInventory
                     {
                         for (int i = 0; i < contents.Length; i++)
                         {
-                            contents[i].text = _textGenerator(packages[i]);
+                            contents[i].text = _textGenerator(packages.ElementAt(i));
                         }
                     }
                 }
@@ -123,16 +123,17 @@ namespace AssetInventory
             GUILayout.BeginHorizontal();
             if (centerTiles) GUILayout.Space((actualWidth - tileSize * cells) / 2f);
             selectionTile = GUILayout.SelectionGrid(selectionTile, contents, cells, tileStyle);
-            _lastRect = GUILayoutUtility.GetLastRect();
+            _lastRect = UIStyles.GetCurrentVisibleRect(); // GetLastRect would include invisible scroll area as well
             if (Event.current.type == EventType.Repaint)
             {
-                _mouseOverGrid = _lastRect.Contains(Event.current.mousePosition);
+                IsMouseOverGrid = _lastRect.Contains(Event.current.mousePosition);
             }
 
             if (selectionCount > 1)
             {
                 // draw selection on top if there are more than one selected, otherwise don't for performance
-                GUI.SelectionGrid(_lastRect, selectionTile, Selection, cells, selectedTileStyle);
+                // use real last rect to support scrolling
+                GUI.SelectionGrid(GUILayoutUtility.GetLastRect(), selectionTile, Selection, cells, selectedTileStyle);
             }
             GUILayout.EndHorizontal();
 
@@ -141,7 +142,7 @@ namespace AssetInventory
                 // handle double-clicks
                 if (Event.current.clickCount > 1)
                 {
-                    if (_mouseOverGrid) OnDoubleClick?.Invoke(packages[selectionTile]);
+                    if (IsMouseOverGrid) OnDoubleClick?.Invoke(packages.ElementAt(selectionTile));
                 }
             }
         }
@@ -224,7 +225,7 @@ namespace AssetInventory
         private void CalculateBulkSelection()
         {
             selectionItems = Selection
-                .Select((item, index) => item == UIStyles.selectedTileContent ? packages[index] : null)
+                .Select((item, index) => item == UIStyles.selectedTileContent ? packages.ElementAt(index) : null)
                 .Where(item => item != null)
                 .ToList();
             selectionCount = selectionItems.Count;
@@ -239,6 +240,9 @@ namespace AssetInventory
         public void DeselectAll()
         {
             selectionTile = 0;
+            _selectionMin = selectionTile;
+            _selectionMax = selectionTile;
+            _lastSelectionTile = selectionTile;
             Selection.Populate(UIStyles.emptyTileContent);
             MarkGridSelection();
             CalculateBulkSelection();
@@ -246,7 +250,14 @@ namespace AssetInventory
 
         public void Select(AssetInfo info)
         {
-            selectionTile = packages.FindIndex(p => p.AssetId == info.AssetId);
+            if (packages != null)
+            {
+                selectionTile = packages.ToList().FindIndex(p => p.AssetId == info.AssetId);
+            }
+            else
+            {
+                selectionTile = 0;
+            }
             Selection.Populate(UIStyles.emptyTileContent);
             MarkGridSelection();
 

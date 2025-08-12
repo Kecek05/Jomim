@@ -13,6 +13,7 @@ AssetOrigin:
   serializedVersion: 1
   productId: 274837
   packageName: F Texture Tools
-  packageVersion: 1.1.4
-  assetPath: Assets/FImpossible Creations/Shared Tools/Editor Tools/File Operations/FTex_AdditionalEncoders.cs
-  uploadId: 755346
+  packageVersion: 1.1.5
+  assetPath: Assets/Plugins/FImpossible Creations/Shared Tools/Editor Tools/File
+    Operations/FTex_AdditionalEncoders.cs
+  uploadId: 775737

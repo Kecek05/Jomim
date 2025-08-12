@@ -71,7 +71,7 @@ namespace AssetInventory
                         {
                             if (captions[j].caption != null)
                             {
-                                fileChunk[j].AICaption = captions[j].caption;
+                                fileChunk[j].AICaption = captions[j].caption.Truncate(AI.Config.aiMaxCaptionLength);
                                 DBAdapter.DB.Execute("update AssetFile set AICaption=? where Id=?", fileChunk[j].AICaption, fileChunk[j].Id);
 
                                 if (AI.Config.logAICaptions)
@@ -138,6 +138,9 @@ namespace AssetInventory
                             // resize to minimum size if necessary
                             int w = img.Width;
                             int h = img.Height;
+
+                            if (h < 2) continue; // scales too high if corrected
+
                             double scale = Math.Max((float)AI.Config.aiMinSize / w, (float)AI.Config.aiMinSize / h);
                             if (scale > 1.0)
                             {

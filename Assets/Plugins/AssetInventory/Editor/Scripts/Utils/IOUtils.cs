@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 #if UNITY_2021_2_OR_NEWER
 using SharpCompress.Archives;
@@ -85,8 +86,8 @@ namespace AssetInventory
 #if UNITY_EDITOR_WIN && UNITY_2020_2_OR_NEWER // support was only added in that Mono version
             // see https://learn.microsoft.com/en-us/answers/questions/240603/c-app-long-path-support-on-windows-10-post-1607-ne
             path = path.Replace("/", "\\"); // in case later concatenations added /
-            if (path.StartsWith(LONG_PATH_PREFIX)) return path;
-            if (path.StartsWith(@"\\"))
+            if (path.StartsWith(LONG_PATH_PREFIX, StringComparison.Ordinal)) return path;
+            if (path.StartsWith(@"\\", StringComparison.Ordinal))
             {
                 string withoutSlashes = path.Substring(2);
                 return $"{LONG_PATH_UNC_PREFIX}{withoutSlashes}";
@@ -103,7 +104,7 @@ namespace AssetInventory
             if (path == null) return null;
 
             // handle UNC long-path prefix \\?\UNC\server\share\…
-            if (path.StartsWith(LONG_PATH_UNC_PREFIX))
+            if (path.StartsWith(LONG_PATH_UNC_PREFIX, StringComparison.Ordinal))
             {
                 string withoutUncPrefix = path.Substring(LONG_PATH_UNC_PREFIX.Length);
                 string uncPath = @"\\" + withoutUncPrefix;
@@ -201,21 +202,11 @@ namespace AssetInventory
             return foundMatches.ToList();
         }
 
-        // faster helper method using also fewer allocations 
         public static string GetExtensionWithoutDot(string path)
         {
-            if (string.IsNullOrWhiteSpace(path))
-            {
-                return string.Empty;
-            }
-
-            int dotIndex = path.LastIndexOf('.');
-            if (dotIndex >= 0 && dotIndex < path.Length - 1) // Ensure there is an extension and it's not the last character
-            {
-                return path.Substring(dotIndex + 1);
-            }
-
-            return string.Empty;
+            if (string.IsNullOrWhiteSpace(path)) return string.Empty;
+            string ext = Path.GetExtension(path);
+            return string.IsNullOrEmpty(ext) ? string.Empty : ext.TrimStart('.');
         }
 
         public static string GetFileName(string path, bool returnOriginalOnError = true, bool quiet = true)
@@ -496,7 +487,7 @@ namespace AssetInventory
             // No entries added: creates an empty zip.
         }
 
-        public static bool ExtractArchive(string archiveFile, string targetFolder)
+        public static bool ExtractArchive(string archiveFile, string targetFolder, CancellationToken ct = default(CancellationToken))
         {
             Directory.CreateDirectory(targetFolder);
 
@@ -506,6 +497,11 @@ namespace AssetInventory
                 {
                     foreach (IArchiveEntry entry in archive.Entries)
                     {
+                        if (ct.IsCancellationRequested)
+                        {
+                            _ = DeleteFileOrDirectory(targetFolder);
+                            return false;
+                        }
                         if (string.IsNullOrEmpty(entry.Key)) continue;
 
                         if (!entry.IsDirectory)

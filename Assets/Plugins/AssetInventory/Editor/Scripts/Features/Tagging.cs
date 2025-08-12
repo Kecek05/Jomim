@@ -21,6 +21,8 @@ namespace AssetInventory
         }
         private static List<TagInfo> _tags;
 
+        private static Dictionary<int, List<TagInfo>> _packageTagMap;
+
         internal static int TagHash { get; private set; }
 
         public static bool AddAssignment(int targetId, string tag, TagAssignment.Target target, bool fromAssetStore = false)
@@ -47,6 +49,27 @@ namespace AssetInventory
             return true;
         }
 
+        public static void AddAssignments(List<AssetInfo> infos, string tag, TagAssignment.Target target, bool byUser = false)
+        {
+            if (infos.Count == 1 || infos.Any(info => info.AssetSource == Asset.Source.AssetManager))
+            {
+                // if at least one asset is from AM, we need to sync the tag changes
+                infos.ForEach(info => AddAssignment(info, tag, target, byUser));
+                return;
+            }
+
+            // optimized for bulk assignment without AM sync
+            infos.ForEach(info =>
+            {
+                TagInfo tagInfo = (target == TagAssignment.Target.Asset ? info.AssetTags : info.PackageTags)?.Find(t => t.Name == tag);
+                if (tagInfo != null) return;
+
+                if (!AddAssignment(target == TagAssignment.Target.Asset ? info.Id : info.AssetId, tag, target)) return;
+                info.SetTagsDirty();
+            });
+            LoadAssignments();
+        }
+
         public static void RemoveAssignment(AssetInfo info, TagInfo tagInfo, bool autoReload = true, bool byUser = false)
         {
             DBAdapter.DB.Delete<TagAssignment>(tagInfo.Id);
@@ -57,6 +80,7 @@ namespace AssetInventory
 
         public static void RemoveAssetAssignments(List<AssetInfo> infos, string name, bool byUser)
         {
+            if (infos == null) return;
             infos.ForEach(info =>
             {
                 TagInfo tagInfo = info.AssetTags?.Find(t => t.Name == name);
@@ -68,8 +92,9 @@ namespace AssetInventory
             LoadAssignments();
         }
 
-        public static void RemovePackageAssignment(List<AssetInfo> infos, string name, bool byUser)
+        public static void RemovePackageAssignments(List<AssetInfo> infos, string name, bool byUser)
         {
+            if (infos == null) return;
             infos.ForEach(info =>
             {
                 TagInfo tagInfo = info.PackageTags?.Find(t => t.Name == name);
@@ -111,6 +136,12 @@ namespace AssetInventory
             _tags = DBAdapter.DB.Query<TagInfo>($"{dataQuery}").ToList();
             TagHash = Random.Range(0, int.MaxValue);
 
+            // Build fast lookup dictionary for package tags
+            _packageTagMap = _tags
+                .Where(t => t.TagTarget == TagAssignment.Target.Package)
+                .GroupBy(t => t.TargetId)
+                .ToDictionary(g => g.Key, g => g.OrderBy(t => t.Name).ToList());
+
             info?.SetTagsDirty();
             if (triggerEvents) OnTagsChanged?.Invoke();
         }
@@ -123,8 +154,8 @@ namespace AssetInventory
 
         public static List<TagInfo> GetPackageTags(int assetId)
         {
-            return Tags?.Where(t => t.TagTarget == TagAssignment.Target.Package && t.TargetId == assetId)
-                .OrderBy(t => t.Name).ToList();
+            if (_packageTagMap == null) LoadAssignments();
+            return _packageTagMap.TryGetValue(assetId, out List<TagInfo> tags) ? tags : new List<TagInfo>();
         }
 
         public static void SaveTag(Tag tag)

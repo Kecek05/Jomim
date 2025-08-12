@@ -404,8 +404,7 @@ namespace FIMSpace.FEditor
         #endregion
 
 
-
-        public static void ScaleTextureFile( Texture2D source, Texture2D output, Vector2 dimensions, int quality = 4 )
+        public static void ScaleTextureFile( Texture2D source, Texture2D output, Vector2 dimensions, int quality = 4, bool transparentIcon = false )
         {
             if( output )
                 if( output.width == (int)dimensions.x && output.height == (int)dimensions.y )
@@ -466,7 +465,7 @@ namespace FIMSpace.FEditor
                     outTex.SaveAndReimport();
 
                     // Rescaling image
-                    Color32[] newPixels = FTex_ScaleLanczos.ScaleTexture( source.GetPixels32(), source.width, source.height, (int)dimensions.x, (int)dimensions.y, quality );
+                    Color32[] newPixels = FTex_ScaleLanczos.ScaleTexture( source.GetPixels32(), source.width, source.height, (int)dimensions.x, (int)dimensions.y, quality, transparentIcon );
 
                     //int startBytes = File.ReadAllBytes(oPath).Length;
 
@@ -539,7 +538,7 @@ namespace FIMSpace.FEditor
         }
 
 
-        public static Texture2D GenerateScaledTexture2DReference( Texture2D source, Vector2 dimensions, int quality = 4, bool doMipMaps = false, bool makeNoLongerReadable = false )
+        public static Texture2D GenerateScaledTexture2DReference( Texture2D source, Vector2 dimensions, int quality = 4, bool doMipMaps = false, bool makeNoLongerReadable = false, bool transparentIcon = false )
         {
             // Getting texture
             string sPath = AssetDatabase.GetAssetPath( source );
@@ -562,7 +561,7 @@ namespace FIMSpace.FEditor
                     sourceTex.SaveAndReimport();
 
                     // Rescaling image
-                    Color32[] newPixels = FTex_ScaleLanczos.ScaleTexture( source.GetPixels32(), source.width, source.height, (int)dimensions.x, (int)dimensions.y, quality );
+                    Color32[] newPixels = FTex_ScaleLanczos.ScaleTexture( source.GetPixels32(), source.width, source.height, (int)dimensions.x, (int)dimensions.y, quality, transparentIcon );
 
                     generatedTex = new Texture2D( (int)dimensions.x, (int)dimensions.y );
                     // Applying to texture asset

@@ -20,11 +20,13 @@ namespace LunaWolfStudiosEditor.ScriptableSheets.Tables
 			{
 				var firstRowEndIndex = flatFileContent.IndexOf(formatSettings.RowDelimiter);
 				var joinedColumnHeaders = formatSettings.GetJoinedColumnHeaders(wrapper);
+				var joinedColumnHeadersSanitized = SanitizeHeader(joinedColumnHeaders);
 				if (firstRowEndIndex >= 0)
 				{
 					var headerRow = flatFileContent.Substring(0, firstRowEndIndex).Trim();
+					var headerRowSanitized = SanitizeHeader(headerRow);
 					// Validate column headers match the header row.
-					if (joinedColumnHeaders.Contains(headerRow) || headerRow.Contains(joinedColumnHeaders))
+					if (joinedColumnHeadersSanitized.Contains(headerRowSanitized) || headerRowSanitized.Contains(joinedColumnHeadersSanitized))
 					{
 						flatFileContent = flatFileContent.Substring(firstRowEndIndex + formatSettings.RowDelimiter.Length);
 					}
@@ -32,7 +34,8 @@ namespace LunaWolfStudiosEditor.ScriptableSheets.Tables
 				else
 				{
 					// Handle case where there's only a single row.
-					if (joinedColumnHeaders.Contains(flatFileContent))
+					var flatFileContentSanitized = SanitizeHeader(flatFileContent);
+					if (joinedColumnHeadersSanitized.Contains(flatFileContentSanitized))
 					{
 						flatFileContent = string.Empty;
 					}
@@ -365,6 +368,11 @@ namespace LunaWolfStudiosEditor.ScriptableSheets.Tables
 				}
 			}
 			return JsonConvert.SerializeObject(rowObjects, Formatting.Indented);
+		}
+
+		private static string SanitizeHeader(string header)
+		{
+			return new string(header.Where(c => !char.IsWhiteSpace(c)).ToArray()).ToLower().Replace("m_", string.Empty);
 		}
 	}
 }

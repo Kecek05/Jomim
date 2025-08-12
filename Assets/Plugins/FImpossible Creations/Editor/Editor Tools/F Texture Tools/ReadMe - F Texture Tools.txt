@@ -1,7 +1,7 @@
 ﻿__________________________________________________________________________________________
 
 Package "F Texture Tools"
-Version 1.1.4
+Version 1.1.5
 
 Made by FImpossible Creations - Filip Moeglich
 https://assetstore.unity.com/publishers/37262
@@ -63,6 +63,9 @@ Tools In The Package:
 
 
 ______________________________________________________________
+
+Version 1.1.5
+- Fixed problem with scaling textures which are fully transparent
 
 Version 1.1.4
 - Reading source pixels is disabling crunch compression and restoring it after texture processing
