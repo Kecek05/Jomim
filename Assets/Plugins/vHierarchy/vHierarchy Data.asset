@@ -288,6 +288,8 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-5da80781a35e8764ebda55f8ad835e38-109740-1598045288
         - globalObjectIdString: GlobalObjectId_V1-2-5da80781a35e8764ebda55f8ad835e38-3151257257227432862-4757942301155291829
         - globalObjectIdString: GlobalObjectId_V1-2-5da80781a35e8764ebda55f8ad835e38-71785334-0
+        - globalObjectIdString: GlobalObjectId_V1-2-5da80781a35e8764ebda55f8ad835e38-945977768-0
+        - globalObjectIdString: GlobalObjectId_V1-2-5da80781a35e8764ebda55f8ad835e38-362122784-0
         values:
         - colorIndex: 5
           iconNameOrGuid: Folder Icon
@@ -385,8 +387,17 @@ MonoBehaviour:
           iconNameOrGuid: Folder Icon
           isIconRecursive: 0
           isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
   bookmarks: []
   bookmarkedScenePaths:
   - Assets/Plugins/Layer Lab/2D Art Maker/AMCasual Character/Demo/Scenes/Demo_Casual.unity
   - Assets/Scenes/Levels/Level1.unity
   - Assets/Scenes/TestingField/TestingField.unity
+  - Assets/Scenes/Levels/Level2.unity

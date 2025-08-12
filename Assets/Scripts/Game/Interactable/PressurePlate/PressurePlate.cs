@@ -11,13 +11,13 @@ namespace KeceK.Game
     {
         public event Action<bool> OnActivationStateChanged;
         
-        [SerializeField] [FoldoutGroup("References")] [Tooltip("The activatable object that this pressure plate will activate or deactivate.")] [Required]
+        [SerializeField] [Title("References")] [Tooltip("The activatable object that this pressure plate will activate or deactivate.")] [Required]
         [ValidateInput(nameof(HasIActivatable), "GameObject must have a component implementing IActivatable.")]
         private GameObject _iActivatableObject;
         
-        [SerializeField] [FoldoutGroup("Settings")] [Tooltip("If true, the pressure plate will be active on start.")]
+        [SerializeField] [Title("Settings")] [Tooltip("If true, the pressure plate will be active on start.")]
         private bool _isInitiallyActive;
-        [SerializeField] [FoldoutGroup("Settings")] [Tooltip("If true, the pressure plate will disable as soon as the colliding object gets out.")]
+        [SerializeField] [Tooltip("If true, the pressure plate will disable as soon as the colliding object gets out.")]
         private bool _needToKeepTouchingToKeepActive;
         
         private List<GameObject> _collidingObjects = new List<GameObject>();
