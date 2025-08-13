@@ -8,16 +8,17 @@
             </engine:VisualElement>
         </engine:VisualElement>
         <engine:VisualElement name="MainMenuSelector" class="background" style="flex-grow: 1;">
-            <engine:VisualElement name="FerrisWheelBackground" style="flex-grow: 0; background-image: url(&quot;project://database/Assets/Sprites/UI/ferisWheel.png?fileID=2800000&amp;guid=7970067bfbede3d49997fb84e8e313cc&amp;type=3#ferisWheel&quot;); background-color: rgba(255, 255, 255, 0); width: 100%; height: 100%; position: absolute; top: 0; left: 0; -unity-background-scale-mode: scale-to-fit;" />
-            <engine:VisualElement name="LevelSelectorButtons" style="flex-grow: 1; align-items: center; justify-content: center; align-self: stretch; align-content: flex-start; width: 100%; height: 100%;">
-                <engine:Button text="1" name="Level1Button" class="button" style="top: 10%; position: absolute; left: 45%; flex-shrink: 0; flex-grow: 0;" />
-                <engine:Button text="2" name="Level2Button" class="button" />
-                <engine:Button text="3" name="Level3Button" class="button" />
-                <engine:Button text="4" name="Level4Button" class="button" />
-                <engine:Button text="5" name="Level5Button" class="button" />
-                <engine:Button text="6" name="Level6Button" class="button" />
-                <engine:Button text="7" name="Level7Button" class="button" />
-                <engine:Button text="8" name="Level8Button" class="button" />
+            <engine:VisualElement name="FerrisWheelBackground" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/UI/ferisWheel.png?fileID=2800000&amp;guid=7970067bfbede3d49997fb84e8e313cc&amp;type=3#ferisWheel&quot;); background-color: rgba(255, 255, 255, 0); width: 100%; height: 100%; position: absolute; top: 0; left: 0; -unity-background-scale-mode: scale-to-fit; flex-shrink: 1;" />
+            <engine:VisualElement name="LevelSelectorButtons" style="align-items: center; justify-content: center; align-self: stretch; align-content: flex-start; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0);">
+                <engine:Button text="1" name="Level1Button" enabled="true" class="button" style="top: 12%; position: absolute; left: 45%; flex-shrink: 1; flex-grow: 0; flex-basis: auto; width: 200px; height: 50px; min-width: 200px; min-height: 50px; max-width: 400px; max-height: 100px;" />
+                <engine:Button text="2" name="Level2Button" enabled="false" class="button" style="left: auto; right: -15%; top: -10%;" />
+                <engine:Button text="3" name="Level3Button" enabled="false" class="button" style="right: -18%; top: 5%;" />
+                <engine:Button text="4" name="Level4Button" enabled="false" class="button" style="bottom: -25%; right: -14%;" />
+                <engine:Button text="5" name="Level5Button" enabled="false" class="button" style="bottom: -27%;" />
+                <engine:Button text="6" name="Level6Button" enabled="false" class="button" style="bottom: -13%; right: 14%;" />
+                <engine:Button text="7" name="Level7Button" enabled="false" class="button" style="top: -15%; left: -18%;" />
+                <engine:Button text="8" name="Level8Button" enabled="false" class="button" style="top: -41%; left: -14%;" />
+                <engine:Button text="Last" name="Level9Button" enabled="false" class="button" style="top: 43%; left: 45%; position: absolute; right: 0; bottom: 0;" />
             </engine:VisualElement>
         </engine:VisualElement>
     </engine:VisualElement>

@@ -21,3 +21,8 @@
     transition-timing-function: ease-out-bounce, ease-out-bounce;
     transition-property: all, scale;
 }
+
+.button:disabled {
+    background-color: rgba(255, 255, 255, 0);
+    color: rgba(27, 27, 27, 0);
+}
