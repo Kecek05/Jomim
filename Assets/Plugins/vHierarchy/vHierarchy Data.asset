@@ -19,6 +19,7 @@ MonoBehaviour:
     - 8c38d4e62a3be2a46af350ccdfbdeca6
     - 60c3eab5693642e44b874b3feaf78d52
     - 5da80781a35e8764ebda55f8ad835e38
+    - 7c493961aa44aaa4f956d984083c75e7
     values:
     - goDatas_byGlobalId:
         keys:
@@ -389,6 +390,39 @@ MonoBehaviour:
           isColorRecursive: 0
         - colorIndex: 0
           iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+    - goDatas_byGlobalId:
+        keys:
+        - globalObjectIdString: GlobalObjectId_V1-2-7c493961aa44aaa4f956d984083c75e7-1715595677-0
+        - globalObjectIdString: GlobalObjectId_V1-2-7c493961aa44aaa4f956d984083c75e7-1957093347-0
+        - globalObjectIdString: GlobalObjectId_V1-2-7c493961aa44aaa4f956d984083c75e7-35565363-0
+        - globalObjectIdString: GlobalObjectId_V1-2-7c493961aa44aaa4f956d984083c75e7-820196393-0
+        - globalObjectIdString: GlobalObjectId_V1-2-7c493961aa44aaa4f956d984083c75e7-1093542720-0
+        - globalObjectIdString: GlobalObjectId_V1-2-7c493961aa44aaa4f956d984083c75e7-54005892-0
+        values:
+        - colorIndex: 5
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 1
+        - colorIndex: 0
+          iconNameOrGuid: TouchInputModule Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: TouchInputModule Icon
           isIconRecursive: 0
           isColorRecursive: 0
         - colorIndex: 0
