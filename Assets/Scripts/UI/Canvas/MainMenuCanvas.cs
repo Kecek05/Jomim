@@ -1,19 +1,47 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace KeceK.UI
 {
     public class MainMenuCanvas : MonoBehaviour
     {
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
+        [Title("References")] [SerializeField] 
+        private GameObject _mainMenuParent;
+        [SerializeField] private LevelSelectorCanvas _levelSelectorCanvas;
+        [Title("Buttons")]
+        [SerializeField] private Button _playButton;
+        [SerializeField] private Button _exitButton;
         
+        
+        private void Awake()
+        {
+            Show();
+            
+            SetupButtons();
         }
-
-        // Update is called once per frame
-        void Update()
-        {
         
+        private void SetupButtons()
+        {
+            _playButton.onClick.AddListener(() =>
+            {
+                _levelSelectorCanvas.Show();
+            });
+            
+            _exitButton.onClick.AddListener(() =>
+            {
+                Application.Quit();
+            });
+        }
+        
+        public void Show()
+        {
+            _mainMenuParent.SetActive(true);
+        }
+        
+        public void Hide()
+        {
+            _mainMenuParent.SetActive(false);
         }
     }
 }

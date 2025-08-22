@@ -1,7 +1,7 @@
 {
     "name": "KeceK.General",
     "rootNamespace": "KeceK.General",
-    "references": [],
+    "references": ["GUID:46735b5d8af9aa443bc2e44e83c33e1c"],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

@@ -1,7 +1,7 @@
 {
-    "name": "KeceK.UI",
-    "rootNamespace": "KeceK.UI",
-    "references": ["GUID:b9318f8905863c641b65985ce31a5190"],
+    "name": "Plugins.TransitionBlocks.Scripts",
+    "rootNamespace": "Plugins.TransitionBlocks.Scripts",
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

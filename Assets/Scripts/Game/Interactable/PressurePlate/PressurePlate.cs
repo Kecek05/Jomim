@@ -9,11 +9,10 @@ namespace KeceK.Game
 {
     public class PressurePlate : MonoBehaviour, IActivator, ITouchable, IUnTouchable
     {
-        public event Action<bool> OnActivationStateChanged;
-        
+
         [SerializeField] [Title("References")] [Tooltip("The activatable object that this pressure plate will activate or deactivate.")] [Required]
         [ValidateInput(nameof(HasIActivatable), "GameObject must have a component implementing IActivatable.")]
-        private GameObject _iActivatableObject;
+        private List<GameObject> _iActivatableObjects;
         
         [SerializeField] [Title("Settings")] [Tooltip("If true, the pressure plate will be active on start.")]
         private bool _isInitiallyActive;
@@ -21,10 +20,11 @@ namespace KeceK.Game
         private bool _needToKeepTouchingToKeepActive;
         
         private List<GameObject> _collidingObjects = new List<GameObject>();
-        private IActivatable _activable;
+        private List<IActivatable> _activables = new List<IActivatable>();
+        
+        public List<IActivatable> Activables => _activables;
 
-        public IActivatable Activable => _activable;
-
+        
         private void Awake()
         {
             UpdateIActivatableReference();
@@ -36,27 +36,31 @@ namespace KeceK.Game
                 TriggerActivate();
         }
 
-        private bool HasIActivatable(GameObject gameObject)
+        private bool HasIActivatable(List<GameObject> gameObjects)
         {
-            return gameObject != null && gameObject.GetComponent<IActivatable>() != null;
+            return gameObjects != null && gameObjects.TrueForAll(obj => obj.GetComponent<IActivatable>() != null);
         }
 
         private void UpdateIActivatableReference()
         {
-            _activable = _iActivatableObject.GetComponent<IActivatable>();
+            _iActivatableObjects.ForEach(obj => _activables.Add(obj.GetComponent<IActivatable>()));
         }
+        
+
         [Button(ButtonSizes.Large)] [HorizontalGroup("Trigger")] [HideInEditorMode]
         public void TriggerActivate()
         {
-            _activable.TryActivate();
+            _activables.ForEach(obj => obj.TryActivate());
             OnActivationStateChanged?.Invoke(true);
         }
         [Button(ButtonSizes.Large)] [HorizontalGroup("Trigger")] [HideInEditorMode]
         public void TriggerDeactivate()
         {
-            _activable.TryDeactivate();
+            _activables.ForEach(obj => obj.TryDeactivate());
             OnActivationStateChanged?.Invoke(false);
         }
+
+        public event Action<bool> OnActivationStateChanged;
 
         private void AddTouchingObject(GameObject gameObject)
         {

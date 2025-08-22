@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace KeceK.General
@@ -51,7 +52,7 @@ namespace KeceK.General
     /// </summary>
     public interface IActivator
     {
-        public IActivatable Activable { get; }
+        public List<IActivatable> Activables { get; }
         /// <summary>
         /// Try to activate the IActivatable object.
         /// </summary>
@@ -60,6 +61,8 @@ namespace KeceK.General
         /// Try to deactivate the IActivatable object.
         /// </summary>
         public void TriggerDeactivate();
+        
+        public event Action<bool> OnActivationStateChanged;
     }
     
     /// <summary>

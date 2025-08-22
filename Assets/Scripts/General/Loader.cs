@@ -1,14 +1,12 @@
 using System;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+using Plugins.TransitionBlocks.Scripts;
 
 namespace KeceK.General
 {
     public static class Loader
     {
         public static event Action<Scene> OnCurrentSceneChanged;
-    
-        private static Scene targetScene;
+        
         private static Scene currentScene;
         
         public static Scene CurrentScene => currentScene;
@@ -17,41 +15,21 @@ namespace KeceK.General
         {
             MainMenu,
             Loading,
-            level1,
-            level2,
-            level3,
-            level4,
-            level5,
-            level6,
-            level7,
-            level8,
-        }
-    
-        /// <summary>
-        /// Load a scene with a loading screen.
-        /// </summary>
-        /// <param name="scene"></param>
-        public static void Load(Scene scene)
-        {
-            targetScene = scene;
-            currentScene = Scene.Loading;
-            
-            SceneManager.LoadScene(Scene.Loading.ToString());
-            OnCurrentSceneChanged?.Invoke(currentScene);
+            Level1,
+            Level2,
+            Level3,
+            Level4,
+            Level5,
+            Level6,
+            Level7,
+            Level8,
         }
         
-        public static void LoadNoLoadingScreen(Scene scene)
+        public static void Load(Scene scene)
         {
             currentScene = scene;
-    
-            SceneManager.LoadScene(scene.ToString());
-            OnCurrentSceneChanged?.Invoke(currentScene);
-        }
-    
-        public static void LoadCallback()
-        {
-            SceneManager.LoadScene(targetScene.ToString());
-            currentScene = targetScene;
+            
+            Transitioner.Instance.TransitionToScene(currentScene.ToString());
             OnCurrentSceneChanged?.Invoke(currentScene);
         }
     }
