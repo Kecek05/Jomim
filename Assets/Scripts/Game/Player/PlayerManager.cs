@@ -19,6 +19,12 @@ namespace KeceK.Game
         private GroundCheck _groundCheck;
         [SerializeField] [Required]
         private InputEnabler _inputEnabler;
+        [SerializeField] [Required]
+        private PlayerRagdoll _playerRagdoll;
+        [SerializeField] [Required]
+        private PlayerHealth _playerHealth;
+        [SerializeField] [Required]
+        private FasterFallVelocity _fasterFallVelocity;
         
         private PlayerStateMachine _playerStateMachine;
 
@@ -27,13 +33,20 @@ namespace KeceK.Game
         
         private void Start()
         {
-            _playerStateMachine = new PlayerStateMachine(_rigidbody2D, _groundCheck);
+            _playerStateMachine = new PlayerStateMachine(_rigidbody2D, _groundCheck, _playerRagdoll, _inputEnabler, _fasterFallVelocity);
             
             _playerStateMachine.OnStateChanged += PlayerStateMachineOnOnStateChanged;
             _playerStateMachine.Initialize(PlayerState.Idle);
             
             _playerMovement.OnJump += PlayerMovementOnOnJump;
             GameManager.OnChangingLevel += GameManagerOnOnChangingLevel;
+            
+            _playerHealth.OnDeath += PlayerHealthOnOnDeath;
+        }
+
+        private void PlayerHealthOnOnDeath()
+        {
+            _playerStateMachine.ChangeState(PlayerState.Dead);
         }
 
         private void GameManagerOnOnChangingLevel()
@@ -46,6 +59,7 @@ namespace KeceK.Game
             _playerStateMachine.OnStateChanged -= PlayerStateMachineOnOnStateChanged;
             _playerMovement.OnJump -= PlayerMovementOnOnJump;
             GameManager.OnChangingLevel -= GameManagerOnOnChangingLevel;
+            _playerHealth.OnDeath -= PlayerHealthOnOnDeath;
         }
 
         private void Update()

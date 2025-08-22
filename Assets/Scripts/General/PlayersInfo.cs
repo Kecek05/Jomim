@@ -17,6 +17,7 @@ namespace KeceK.General
         Walk,
         Jump,
         Fall,
+        Dead,
     }
     
     public static class PlayersInfo

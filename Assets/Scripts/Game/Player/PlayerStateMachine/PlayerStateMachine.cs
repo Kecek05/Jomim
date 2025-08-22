@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using KeceK.General;
+using KeceK.Input;
 using KeceK.Utils.Components;
 using UnityEngine;
 
@@ -20,13 +21,14 @@ namespace KeceK.Game
         private PlayerIdleState _playerIdleState;
         private PlayerJumpState _playerJumpState;
         private PlayerFallState _playerFallState;
+        private PlayerDead _playerDead;
         
         //Publics
         public PlayerState CurrentState => _currentPlayerState;
         
-        public PlayerStateMachine(Rigidbody2D rigidbody2D, GroundCheck groundCheck)
+        public PlayerStateMachine(Rigidbody2D rigidbody2D, GroundCheck groundCheck, PlayerRagdoll playerRagdoll, InputEnabler inputEnabler, FasterFallVelocity fasterFallVelocity)
         {
-            var stateFactory = new PlayerStateFactory(rigidbody2D, this, groundCheck);
+            var stateFactory = new PlayerStateFactory(rigidbody2D, this, groundCheck, playerRagdoll, inputEnabler, fasterFallVelocity);
             _stateMap = stateFactory.CreateStates();
         }
         

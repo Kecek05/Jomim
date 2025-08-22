@@ -7,6 +7,8 @@ namespace KeceK.Game
 {
     public class PlayerHealth : MonoBehaviour, IDamageable
     {
+        public event Action OnDeath;
+        
         [SerializeField] [Title("Settings")]
         private float _maxHealth = 100f;
         
@@ -24,7 +26,7 @@ namespace KeceK.Game
 
         public void TakeDamage(float damage)
         {
-            if(IsDead) return;
+            if(_isDead) return;
             
             _currentHealth -= damage;
             Debug.Log(_currentHealth);
@@ -36,9 +38,8 @@ namespace KeceK.Game
 
         public void Die()
         {
-            //Temporary death handling
             _isDead = true;
-            Destroy(gameObject);
+            OnDeath?.Invoke();
         }
     }
 }

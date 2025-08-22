@@ -125,6 +125,13 @@ namespace KeceK.Game
 
         private void FixedUpdate()
         {
+            if (_rigidbody2D.bodyType != RigidbodyType2D.Dynamic)
+            {
+                _stopMovingTween?.Kill();
+                _jumpTween?.Kill();
+                return;
+            }
+            
             DoMove(_playerMovementSO.speed);
             DoJump(_playerMovementSO.jumpHigh);
         }

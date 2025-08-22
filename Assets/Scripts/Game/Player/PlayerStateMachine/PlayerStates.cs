@@ -1,4 +1,6 @@
+using System;
 using KeceK.General;
+using KeceK.Input;
 using KeceK.Utils.Components;
 using UnityEngine;
 
@@ -161,6 +163,44 @@ namespace KeceK.Game
                     _playerStateMachine.ChangeState(PlayerState.Idle);
                 }
             }
+        }
+
+        public void Exit()
+        {
+
+        }
+    }
+    
+    public class PlayerDead : IState
+    {
+        public static event Action OnPlayerDead;
+        
+        private PlayerState _state = PlayerState.Dead;
+        private PlayerRagdoll _playerRagdoll;
+        private InputEnabler _inputEnabler;
+        private FasterFallVelocity _fasterFallVelocity;
+        
+        public PlayerState State => _state;
+
+        public PlayerDead(PlayerRagdoll playerRagdoll, InputEnabler inputEnabler, FasterFallVelocity fasterFallVelocity)
+        {
+            _playerRagdoll = playerRagdoll;
+            _inputEnabler = inputEnabler;
+            OnPlayerDead?.Invoke();
+            _fasterFallVelocity = fasterFallVelocity;
+        }
+        
+        public void Enter()
+        {
+            _fasterFallVelocity.SetIsEnabled(false);
+            _inputEnabler.LockInput();
+            _playerRagdoll.EnableRagdoll();
+            OnPlayerDead?.Invoke();
+        }
+
+        public void Execute()
+        {
+
         }
 
         public void Exit()
