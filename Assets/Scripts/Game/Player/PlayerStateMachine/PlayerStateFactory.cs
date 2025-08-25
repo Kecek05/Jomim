@@ -14,8 +14,9 @@ namespace KeceK.Game
         private readonly PlayerRagdoll _playerRagdoll;
         private readonly InputEnabler _inputEnabler;
         private readonly FasterFallVelocity _fasterFallVelocity;
+        private readonly ShaderAnimator _shaderAnimator;
         
-        public PlayerStateFactory(Rigidbody2D rigidbody2D, PlayerStateMachine stateMachine, GroundCheck groundCheck, PlayerRagdoll playerRagdoll, InputEnabler inputEnabler, FasterFallVelocity fasterFallVelocity)
+        public PlayerStateFactory(Rigidbody2D rigidbody2D, PlayerStateMachine stateMachine, GroundCheck groundCheck, PlayerRagdoll playerRagdoll, InputEnabler inputEnabler, FasterFallVelocity fasterFallVelocity, ShaderAnimator shaderAnimator)
         {
             _rigidbody2D = rigidbody2D;
             _stateMachine = stateMachine;
@@ -23,6 +24,7 @@ namespace KeceK.Game
             _playerRagdoll = playerRagdoll;
             _inputEnabler = inputEnabler;
             _fasterFallVelocity = fasterFallVelocity;
+            _shaderAnimator = shaderAnimator;
         }
         
         public Dictionary<PlayerState, IState> CreateStates()
@@ -33,7 +35,7 @@ namespace KeceK.Game
                 { PlayerState.Walk, new PlayerWalkState(_rigidbody2D, _stateMachine, _groundCheck) },
                 { PlayerState.Jump, new PlayerJumpState(_rigidbody2D, _stateMachine) },
                 { PlayerState.Fall, new PlayerFallState(_rigidbody2D, _stateMachine, _groundCheck) },
-                { PlayerState.Dead, new PlayerDead(_playerRagdoll, _inputEnabler, _fasterFallVelocity) }
+                { PlayerState.Dead, new PlayerDeadState(_playerRagdoll, _inputEnabler, _fasterFallVelocity, _shaderAnimator) }
             };
         }
     }

@@ -25,6 +25,8 @@ namespace KeceK.Game
         private PlayerHealth _playerHealth;
         [SerializeField] [Required]
         private FasterFallVelocity _fasterFallVelocity;
+        [SerializeField] [Required] 
+        private ShaderAnimator _shaderAnimator;
         
         private PlayerStateMachine _playerStateMachine;
 
@@ -33,7 +35,7 @@ namespace KeceK.Game
         
         private void Start()
         {
-            _playerStateMachine = new PlayerStateMachine(_rigidbody2D, _groundCheck, _playerRagdoll, _inputEnabler, _fasterFallVelocity);
+            _playerStateMachine = new PlayerStateMachine(_rigidbody2D, _groundCheck, _playerRagdoll, _inputEnabler, _fasterFallVelocity, _shaderAnimator);
             
             _playerStateMachine.OnStateChanged += PlayerStateMachineOnOnStateChanged;
             _playerStateMachine.Initialize(PlayerState.Idle);

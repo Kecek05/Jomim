@@ -29,7 +29,7 @@ namespace KeceK.Utils.Components
         [SerializeField] [Required] [Tooltip("List of sprite renderers that will have this animation effect. All simultaneously.")]
         private List<SpriteRenderer> _spriteRenderers;
         [Space(10f)]
-        
+
         [Title("Animation Settings")]
         [SerializeField] [FoldoutGroup("$_shaderProperty")] [OnValueChanged(nameof(IsALoopValidate))]
         [Tooltip("If true, the animation will loop indefinitely. If false, it will play once and stop.")]

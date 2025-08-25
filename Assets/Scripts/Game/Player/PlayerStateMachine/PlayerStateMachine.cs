@@ -21,14 +21,14 @@ namespace KeceK.Game
         private PlayerIdleState _playerIdleState;
         private PlayerJumpState _playerJumpState;
         private PlayerFallState _playerFallState;
-        private PlayerDead _playerDead;
+        private PlayerDeadState _playerDeadState;
         
         //Publics
         public PlayerState CurrentState => _currentPlayerState;
         
-        public PlayerStateMachine(Rigidbody2D rigidbody2D, GroundCheck groundCheck, PlayerRagdoll playerRagdoll, InputEnabler inputEnabler, FasterFallVelocity fasterFallVelocity)
+        public PlayerStateMachine(Rigidbody2D rigidbody2D, GroundCheck groundCheck, PlayerRagdoll playerRagdoll, InputEnabler inputEnabler, FasterFallVelocity fasterFallVelocity, ShaderAnimator shaderAnimator)
         {
-            var stateFactory = new PlayerStateFactory(rigidbody2D, this, groundCheck, playerRagdoll, inputEnabler, fasterFallVelocity);
+            var stateFactory = new PlayerStateFactory(rigidbody2D, this, groundCheck, playerRagdoll, inputEnabler, fasterFallVelocity, shaderAnimator);
             _stateMap = stateFactory.CreateStates();
         }
         

@@ -9,6 +9,7 @@ namespace KeceK.Utils
         _ShineLocation,
         _FadeAmount,
         _HologramBlend,
+        _GreyscaleBlend,
     }
     
     public static class UtilsK

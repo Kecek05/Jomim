@@ -1,6 +1,7 @@
 using System;
 using KeceK.General;
 using KeceK.Input;
+using KeceK.Utils;
 using KeceK.Utils.Components;
 using UnityEngine;
 
@@ -171,7 +172,7 @@ namespace KeceK.Game
         }
     }
     
-    public class PlayerDead : IState
+    public class PlayerDeadState : IState
     {
         public static event Action OnPlayerDead;
         
@@ -179,13 +180,15 @@ namespace KeceK.Game
         private PlayerRagdoll _playerRagdoll;
         private InputEnabler _inputEnabler;
         private FasterFallVelocity _fasterFallVelocity;
+        private ShaderAnimator _shaderAnimator;
         
         public PlayerState State => _state;
 
-        public PlayerDead(PlayerRagdoll playerRagdoll, InputEnabler inputEnabler, FasterFallVelocity fasterFallVelocity)
+        public PlayerDeadState(PlayerRagdoll playerRagdoll, InputEnabler inputEnabler, FasterFallVelocity fasterFallVelocity, ShaderAnimator shaderAnimator)
         {
             _playerRagdoll = playerRagdoll;
             _inputEnabler = inputEnabler;
+            _shaderAnimator = shaderAnimator;
             OnPlayerDead?.Invoke();
             _fasterFallVelocity = fasterFallVelocity;
         }
@@ -195,6 +198,7 @@ namespace KeceK.Game
             _fasterFallVelocity.SetIsEnabled(false);
             _inputEnabler.LockInput();
             _playerRagdoll.EnableRagdoll();
+            _shaderAnimator.StartAnimation(_shaderAnimator.GetAnimationDataByProperty(ShaderProperty._GreyscaleBlend));
             OnPlayerDead?.Invoke();
         }
 

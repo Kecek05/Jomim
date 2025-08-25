@@ -35,7 +35,7 @@ namespace KeceK.Utils.Components
             _shaderAnimations.ForEach(StopAnimation);
         }
 
-        public IEnumerator DelayToStartAnimationLoop(ShaderAnimationData animationData)
+        private IEnumerator DelayToStartAnimationLoop(ShaderAnimationData animationData)
         {
             yield return new WaitForSeconds(animationData.GetPropertyStartDelay());
             StartAnimation(animationData);
