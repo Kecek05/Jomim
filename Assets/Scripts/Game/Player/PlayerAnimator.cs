@@ -1,8 +1,7 @@
-using System;
+using System.Collections;
 using KeceK.General;
 using KeceK.Utils;
 using KeceK.Utils.Components;
-using LayerLab.ArtMaker;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -33,7 +32,9 @@ namespace KeceK.Game
         
         [SerializeField] [Title("Settings")] 
         [Tooltip("Minimum speed value to flip the sprite")]
-        private float flipSpriteThreshold = 1f;
+        private float _flipSpriteThreshold = 1f;
+        [SerializeField]
+        private float _delayToTriggerChangingLevelAnimation = 0.5f;
 
         private Animations _currentAnimation;
         private PlayerState _currentPlayerState;
@@ -55,13 +56,7 @@ namespace KeceK.Game
         {
             GameManager.OnChangingLevel -= GameManagerOnOnChangingLevel;
         }
-
-        private void GameManagerOnOnChangingLevel()
-        {
-            _shaderAnimatorTrigger.StartAnimation(ShaderProperty._FadeAmount);
-            _shaderAnimatorTrigger.StartAnimation(ShaderProperty._HologramBlend);
-        }
-
+        
         private void Update()
         {
             RotatePlayerGFX();
@@ -89,9 +84,9 @@ namespace KeceK.Game
 
         private void RotatePlayerGFX()
         {
-            if (_rigidbody2D.linearVelocityX > flipSpriteThreshold)
+            if (_rigidbody2D.linearVelocityX > _flipSpriteThreshold)
                 _modelTransform.localScale = new Vector3(-1f, _modelTransform.localScale.y, _modelTransform.localScale.z);
-            else if (_rigidbody2D.linearVelocityX < -flipSpriteThreshold)
+            else if (_rigidbody2D.linearVelocityX < -_flipSpriteThreshold)
                 _modelTransform.localScale = new Vector3(1f, _modelTransform.localScale.y,
                     _modelTransform.localScale.z);
         }
@@ -103,6 +98,18 @@ namespace KeceK.Game
             _currentAnimation = animation;
             
             _animator.CrossFade(animations[(int)_currentAnimation], ANIMATION_NORMALIZED_TRANSITION_DURATION);
+        }
+        
+        private void GameManagerOnOnChangingLevel()
+        {
+            StartCoroutine(DelayedChangingLevelAnimation());
+        }
+
+        private IEnumerator DelayedChangingLevelAnimation()
+        {
+            yield return new WaitForSeconds(_delayToTriggerChangingLevelAnimation);
+            _shaderAnimatorTrigger.StartAnimation(ShaderProperty._FadeAmount);
+            _shaderAnimatorTrigger.StartAnimation(ShaderProperty._HologramBlend);
         }
     }
 }

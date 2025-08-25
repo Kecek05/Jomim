@@ -29,7 +29,6 @@ namespace KeceK.Game
             if(_isDead) return;
             
             _currentHealth -= damage;
-            Debug.Log(_currentHealth);
             if (_currentHealth <= 0)
             {
                 Die();

@@ -1,5 +1,7 @@
 using System;
 using Plugins.TransitionBlocks.Scripts;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace KeceK.General
 {
@@ -13,6 +15,7 @@ namespace KeceK.General
     
         public enum Scene
         {
+            None,
             MainMenu,
             Loading,
             Level1,
@@ -25,12 +28,54 @@ namespace KeceK.General
             Level8,
         }
         
+        /// <summary>
+        /// Load the scene and invoke OnCurrentSceneChanged
+        /// </summary>
+        /// <param name="scene"></param>
         public static void Load(Scene scene)
         {
             currentScene = scene;
-            
-            Transitioner.Instance.TransitionToScene(currentScene.ToString());
+            if (Transitioner.Instance != null)
+            {
+                Transitioner.Instance.TransitionToScene(currentScene.ToString());
+            }
+            else
+            {
+                SceneManager.LoadScene(currentScene.ToString());
+            }
             OnCurrentSceneChanged?.Invoke(currentScene);
+        }
+        
+        public static void ReloadCurrentScene()
+        {
+            Load(currentScene);
+        }
+
+        public static void LoadNextLevel()
+        {
+            int nextSceneIndex = (int)currentScene + 1;
+
+            if (nextSceneIndex < Enum.GetNames(typeof(Scene)).Length)
+            {
+                Scene nextScene = (Scene)nextSceneIndex;
+                
+                if(IsLevel(nextScene))
+                    Load(nextScene);
+                else
+                {
+                    Debug.Log($"Next scene is not a level. The Scene is: {nextScene}. Going to menu");
+                    Load(Scene.MainMenu);
+                }
+            }
+        }
+
+        private static bool IsLevel(Scene scene)
+        {
+            string sceneName = scene.ToString();
+            
+            if (string.IsNullOrEmpty(sceneName)) return false;
+            
+            return sceneName.IndexOf("Level", StringComparison.OrdinalIgnoreCase) >= 0;
         }
     }
 }
