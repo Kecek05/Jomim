@@ -79,14 +79,15 @@ namespace KeceK.Game
                 obj.enabled = !isActive;
             });
             
-            _animator.enabled = !isActive;
-            _playerRigidbody.bodyType = isActive ? RigidbodyType2D.Static : RigidbodyType2D.Dynamic;
-            _playerCollider.enabled = !isActive;
-            
             _colliders.ForEach(obj => obj.enabled = isActive);
             _hingeJoints.ForEach(obj => obj.enabled = isActive);
             _rigidbodies.ForEach(obj => obj.simulated = isActive);
-
+            
+            _playerRigidbody.bodyType = isActive ? RigidbodyType2D.Static : RigidbodyType2D.Dynamic;
+            _playerCollider.enabled = !isActive;
+            _animator.enabled = !isActive;
+            
+            Debug.Break();
         }
     }
 }
