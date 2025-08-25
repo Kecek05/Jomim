@@ -26,11 +26,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6572407060464667335, guid: e38f0c2305ab77f44a826eac49454cf9, type: 3}
       propertyPath: m_Size.y
-      value: 25.603403
+      value: 6.4008512
       objectReference: {fileID: 0}
     - target: {fileID: 6572407060464667335, guid: e38f0c2305ab77f44a826eac49454cf9, type: 3}
       propertyPath: m_Offset.y
-      value: 0
+      value: 0.028326869
       objectReference: {fileID: 0}
     - target: {fileID: 7644651619814346531, guid: e38f0c2305ab77f44a826eac49454cf9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -74,11 +74,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8548820704703566140, guid: e38f0c2305ab77f44a826eac49454cf9, type: 3}
       propertyPath: m_Size.x
-      value: 20.12
+      value: 5.03
       objectReference: {fileID: 0}
     - target: {fileID: 8548820704703566140, guid: e38f0c2305ab77f44a826eac49454cf9, type: 3}
       propertyPath: m_Size.y
-      value: 2.72
+      value: 0.68
       objectReference: {fileID: 0}
     - target: {fileID: 8548820704703566140, guid: e38f0c2305ab77f44a826eac49454cf9, type: 3}
       propertyPath: m_DrawMode

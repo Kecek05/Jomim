@@ -14,11 +14,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5832034129234937883, guid: 80ee782b55d79b942b7794ec31e7bd5f, type: 3}
       propertyPath: m_Size.x
-      value: 8.4
+      value: 2.1
       objectReference: {fileID: 0}
     - target: {fileID: 5832034129234937883, guid: 80ee782b55d79b942b7794ec31e7bd5f, type: 3}
       propertyPath: m_Size.y
-      value: 1.36
+      value: 0.34
       objectReference: {fileID: 0}
     - target: {fileID: 5832034129234937883, guid: 80ee782b55d79b942b7794ec31e7bd5f, type: 3}
       propertyPath: m_DrawMode
