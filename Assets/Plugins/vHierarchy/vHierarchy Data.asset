@@ -20,6 +20,7 @@ MonoBehaviour:
     - 60c3eab5693642e44b874b3feaf78d52
     - 5da80781a35e8764ebda55f8ad835e38
     - 7c493961aa44aaa4f956d984083c75e7
+    - 3c800373c33541448ad0fad2446dc4e7
     values:
     - goDatas_byGlobalId:
         keys:
@@ -449,6 +450,29 @@ MonoBehaviour:
           iconNameOrGuid: cs Script Icon
           isIconRecursive: 0
           isColorRecursive: 0
+    - goDatas_byGlobalId:
+        keys:
+        - globalObjectIdString: GlobalObjectId_V1-2-3c800373c33541448ad0fad2446dc4e7-1425005061-0
+        - globalObjectIdString: GlobalObjectId_V1-2-3c800373c33541448ad0fad2446dc4e7-586533454-0
+        - globalObjectIdString: GlobalObjectId_V1-2-3c800373c33541448ad0fad2446dc4e7-365600439-0
+        - globalObjectIdString: GlobalObjectId_V1-2-3c800373c33541448ad0fad2446dc4e7-1811898099-0
+        values:
+        - colorIndex: 9
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 8
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 3
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
   bookmarks: []
   bookmarkedScenePaths:
   - Assets/Plugins/Layer Lab/2D Art Maker/AMCasual Character/Demo/Scenes/Demo_Casual.unity
@@ -456,3 +480,4 @@ MonoBehaviour:
   - Assets/Scenes/TestingField/TestingField.unity
   - Assets/Scenes/Levels/Level2.unity
   - Assets/Scenes/MainMenu.unity
+  - Assets/Scenes/LockedLevels/LockedLevel2.unity
