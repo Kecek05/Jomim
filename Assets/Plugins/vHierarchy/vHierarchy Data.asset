@@ -421,6 +421,7 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-7c493961aa44aaa4f956d984083c75e7-1093542720-0
         - globalObjectIdString: GlobalObjectId_V1-2-7c493961aa44aaa4f956d984083c75e7-54005892-0
         - globalObjectIdString: GlobalObjectId_V1-2-7c493961aa44aaa4f956d984083c75e7-3151257257227432862-64073683
+        - globalObjectIdString: GlobalObjectId_V1-2-7c493961aa44aaa4f956d984083c75e7-1180902062-0
         values:
         - colorIndex: 5
           iconNameOrGuid: Folder Icon
@@ -442,12 +443,16 @@ MonoBehaviour:
           iconNameOrGuid: TouchInputModule Icon
           isIconRecursive: 0
           isColorRecursive: 0
-        - colorIndex: 0
+        - colorIndex: 3
           iconNameOrGuid: Folder Icon
           isIconRecursive: 0
           isColorRecursive: 0
         - colorIndex: 0
           iconNameOrGuid: cs Script Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 1
+          iconNameOrGuid: Folder Icon
           isIconRecursive: 0
           isColorRecursive: 0
     - goDatas_byGlobalId:
@@ -475,7 +480,6 @@ MonoBehaviour:
           isColorRecursive: 0
   bookmarks: []
   bookmarkedScenePaths:
-  - Assets/Plugins/Layer Lab/2D Art Maker/AMCasual Character/Demo/Scenes/Demo_Casual.unity
   - Assets/Scenes/Levels/Level1.unity
   - Assets/Scenes/TestingField/TestingField.unity
   - Assets/Scenes/Levels/Level2.unity

@@ -9,6 +9,7 @@ namespace KeceK.Game
 {
     public class PressurePlate : MonoBehaviour, IActivator, ITouchable, IUnTouchable
     {
+        public event Action<bool> OnActivationStateChanged;
 
         [SerializeField] [Title("References")] [Tooltip("The activatable object that this pressure plate will activate or deactivate.")] [Required]
         [ValidateInput(nameof(HasIActivatable), "GameObject must have a component implementing IActivatable.")]
@@ -59,16 +60,15 @@ namespace KeceK.Game
             _activables.ForEach(obj => obj.TryDeactivate());
             OnActivationStateChanged?.Invoke(false);
         }
-
-        public event Action<bool> OnActivationStateChanged;
-
+        
         private void AddTouchingObject(GameObject gameObject)
         {
             if (!_collidingObjects.Contains(gameObject))
             {
                 _collidingObjects.Add(gameObject);
             }
-            TriggerActivate();
+            if(_collidingObjects.Count == 1)
+                TriggerActivate();
         }
 
         private void RemoveTouchingObject(GameObject gameObject)

@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using DG.Tweening;
 using KeceK.Input;
-using KeceK.Plugins.EditableAssetAttribute;
 using KeceK.Utils.Components;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -15,7 +14,7 @@ namespace KeceK.Game
         public event Action OnJump;
         
 
-        [CreateEditableAsset] [SerializeField] [Title("References")] [Required]
+        [SerializeField] [Title("References")] [Required]
         private PlayerMovementSO _playerMovementSO;
         [SerializeField] [Required]
         private InputReader _inputReader;

@@ -6949,6 +6949,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelExitP1: {fileID: 1642860315}
   levelExitP2: {fileID: 1793078499}
+  _gameSettingsSO: {fileID: 11400000, guid: a53ab0d9e76a721409857f69aefc487a, type: 2}
 --- !u!1001 &909745189
 PrefabInstance:
   m_ObjectHideFlags: 0

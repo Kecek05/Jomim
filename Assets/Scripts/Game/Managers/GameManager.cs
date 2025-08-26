@@ -17,11 +17,8 @@ namespace KeceK.Game
         private LevelExit levelExitP1;
         [SerializeField] [Required] [FoldoutGroup("Exits")]
         private LevelExit levelExitP2;
-        
-        [Title("Settings")] [SerializeField]
-        private float _delayToChangeLevel = 1.5f;
-        [SerializeField]
-        private float _delayToReloadLevel = 1f;
+
+        [Title("Settings")] [SerializeField] private GameSettingsSO _gameSettingsSO;
         
         private bool _isP1AtExit;
         private bool _isP2AtExit;
@@ -76,7 +73,7 @@ namespace KeceK.Game
             }
         }
 
-        [Button]
+        [Button] [HideInEditorMode]
         private void GoNextLevel()
         {
             _onChangingLevel = true;
@@ -86,11 +83,11 @@ namespace KeceK.Game
 
         private IEnumerator DelayedChangingLevel()
         {
-            yield return new WaitForSeconds(_delayToChangeLevel);
+            yield return new WaitForSeconds(_gameSettingsSO.DelayToChangeLevel);
             Loader.LoadNextLevel();
         }
         
-        [Button]
+        [Button("Reload Level")] [HideInEditorMode]
         private void PlayerDeadStateOnOnPlayerDead()
         {
             StartCoroutine(DelayedReloadCurrentLevel());
@@ -98,7 +95,7 @@ namespace KeceK.Game
         
         private IEnumerator DelayedReloadCurrentLevel()
         {
-            yield return new WaitForSeconds(_delayToReloadLevel);
+            yield return new WaitForSeconds(_gameSettingsSO.DelayToReloadLevel);
             Loader.ReloadCurrentScene();
             
         }

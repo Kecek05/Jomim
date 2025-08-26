@@ -71,6 +71,7 @@ namespace KeceK.General
     public interface IActivatable
     {
         public bool IsActive { get; }
+        
         /// <summary>
         /// Call this to try to activate.
         /// </summary>
