@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 using KeceK.General;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -13,17 +13,48 @@ namespace KeceK.UI
         [Title("Buttons")]
         [SerializeField] private Button _level1Button;
         [SerializeField] private Button _level2Button;
+        [SerializeField] private Button _level3Button;
+        [SerializeField] private Button _level4Button;
+        [SerializeField] private Button _level5Button;
+        [SerializeField] private Button _level6Button;
+        [SerializeField] private Button _level7Button;
+        [SerializeField] private Button _level8Button;
+        [SerializeField] private Button _level9Button;
+        [SerializeField] private List<GameObject> _levelsButtons;
         [Space(10f)]
         [SerializeField] private Button _backButton;
+        [SerializeField] private Button _deleteSaveButton;
         
         private void Awake()
         {
             Hide();
-            
             SetupButtons();
         }
 
         private void SetupButtons()
+        {
+            DisableAllButtons();
+            ListenToButtonEvents();
+            EnableButtonsBySave();
+        }
+
+        private void EnableButtonsBySave()
+        {
+            for (int i = 0; i <= Saver.GetSavedUnlockedLevelIndex(); i++)
+            {
+                _levelsButtons[i].SetActive(true);
+            }
+        }
+
+        private void DisableAllButtons()
+        {
+            foreach (GameObject buttonObj in _levelsButtons)
+            {
+                buttonObj.SetActive(false);
+            }
+        }
+
+        private void ListenToButtonEvents()
         {
             _level1Button.onClick.AddListener(() =>
             {
@@ -35,10 +66,53 @@ namespace KeceK.UI
                 SelectLevel(Loader.Scene.Level2);
             });
             
+            _level3Button.onClick.AddListener(() =>
+            {
+                SelectLevel(Loader.Scene.Level3);
+            });
+            
+            _level4Button.onClick.AddListener(() =>
+            {
+                SelectLevel(Loader.Scene.Level4);
+            });
+            
+            _level5Button.onClick.AddListener(() =>
+            {
+                SelectLevel(Loader.Scene.Level5);
+            });
+            
+            _level6Button.onClick.AddListener(() =>
+            {
+                SelectLevel(Loader.Scene.Level6);
+            });
+            
+            _level7Button.onClick.AddListener(() =>
+            {
+                SelectLevel(Loader.Scene.Level7);
+            });
+            
+            _level8Button.onClick.AddListener(() =>
+            {
+                SelectLevel(Loader.Scene.Level8);
+            });
+            
+            _level9Button.onClick.AddListener(() =>
+            {
+                SelectLevel(Loader.Scene.Level9);
+            });
+            
             _backButton.onClick.AddListener(() =>
             {
                 Hide();
             });
+            
+            _deleteSaveButton.onClick.AddListener(() =>
+            {
+                Saver.DeleteSavedUnlockedLevels();
+                DisableAllButtons();
+                EnableButtonsBySave();
+            });
+            
         }
         
         private void SelectLevel(Loader.Scene scene)
@@ -55,5 +129,6 @@ namespace KeceK.UI
         {
             _levelSelectorParent.SetActive(false);
         }
+        
     }
 }

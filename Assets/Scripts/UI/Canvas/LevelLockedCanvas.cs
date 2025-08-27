@@ -15,6 +15,9 @@ namespace KeceK.UI
         [SerializeField] private TMP_InputField _inputField;
         [SerializeField] private Button _submitButton;
         [SerializeField] private LevelPasswordSO _levelPasswordSO;
+        
+        [Title("Settings")]
+        [SerializeField] private int _levelToUnlockIndex;
 
         private void OnEnable()
         {
@@ -41,6 +44,7 @@ namespace KeceK.UI
             Debug.Log("Correct Password");
             _submitButton.interactable = false;
             _inputField.interactable = false;
+            Saver.SaveUnlockedLevelByIndex(_levelToUnlockIndex);
             Loader.LoadNextLevel();
         }
 
