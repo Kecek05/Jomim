@@ -45,17 +45,7 @@ namespace KeceK.Game
             
             _playerHealth.OnDeath += PlayerHealthOnOnDeath;
         }
-
-        private void PlayerHealthOnOnDeath()
-        {
-            _playerStateMachine.ChangeState(PlayerState.Dead);
-        }
-
-        private void GameManagerOnOnChangingLevel()
-        {
-            _inputEnabler.LockInput();
-        }
-
+        
         private void OnDestroy()
         {
             _playerStateMachine.OnStateChanged -= PlayerStateMachineOnOnStateChanged;
@@ -67,6 +57,16 @@ namespace KeceK.Game
         private void Update()
         {
             _playerStateMachine.ExecuteState();
+        }
+
+        private void PlayerHealthOnOnDeath()
+        {
+            _playerStateMachine.ChangeState(PlayerState.Dead);
+        }
+
+        private void GameManagerOnOnChangingLevel()
+        {
+            _inputEnabler.LockInput();
         }
         
         private void PlayerMovementOnOnJump()

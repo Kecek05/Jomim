@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d02a4b1c244b5a44e90bb94f7a87373f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _iActivatableObject: {fileID: 0}
+  _iActivatableObjects: []
   _isInitiallyActive: 0
   _needToKeepTouchingToKeepActive: 1
 --- !u!1 &6398924471667108394
@@ -173,7 +173,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 48584935
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 1702573737, guid: 7810966f0f690954c87305933cabf2b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -237,7 +237,6 @@ MonoBehaviour:
   - _shaderProperty: 0
     _spriteRenderers:
     - {fileID: 9100052321242316870}
-    _animationID: 0
     _isALoop: 1
     _shaderEase: 2
     _isRandomDelayBetweenLoops: 1

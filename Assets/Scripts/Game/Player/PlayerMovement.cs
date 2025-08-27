@@ -81,7 +81,7 @@ namespace KeceK.Game
         
         private void InputReaderOnOnMoveEvent(InputAction.CallbackContext context)
         {
-            if (context.performed)
+            if (context.performed && !PauseManager.IsPaused)
                 _moveInput = context.ReadValue<Vector2>();
             else if (context.canceled)
                 StopMove();
@@ -89,7 +89,7 @@ namespace KeceK.Game
 
         private void InputReaderOnOnJumpEvent(InputAction.CallbackContext context)
         {
-            if (context.performed)
+            if (context.performed && !PauseManager.IsPaused)
             {
                 _jumpButtonHeld = true;
             }
@@ -105,7 +105,6 @@ namespace KeceK.Game
             if (_groundCheck.IsGrounded())
             {
                 _coyoteTimeCounter = _coyoteTime;
-                // _canJump = true;
             }
             else if(_coyoteTimeCounter > 0f)
             {

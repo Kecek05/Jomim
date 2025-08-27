@@ -56,5 +56,8 @@ TagManager:
   - name: Ground
     uniqueID: 2172014393
     locked: 0
+  - name: Camera
+    uniqueID: 1904852353
+    locked: 0
   m_RenderingLayers:
   - Default

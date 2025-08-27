@@ -43,6 +43,8 @@ namespace KeceK.Game
             levelExitP2.OnLevelExitTouched += HandleExitTouchedP2;
             CollectablesManager.OnCollectedAllCoins += CollectablesManagerOnOnCollectedAllCoins;
             PlayerDeadState.OnPlayerDead += PlayerDeadStateOnOnPlayerDead;
+            
+            PauseManager.SetCanChangePauseState(true);
         }
 
         private void OnDestroy()

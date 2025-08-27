@@ -9,6 +9,7 @@ namespace KeceK.Input
     {
         public event Action<InputAction.CallbackContext> OnJumpEvent;
         public event Action<InputAction.CallbackContext> OnMoveEvent;
+        public event Action<InputAction.CallbackContext> OnPauseEvent;
         
         private PlayerControls _controls;
         private PlayerType _thisPlayerType = PlayerType.None;
@@ -30,6 +31,11 @@ namespace KeceK.Input
         void PlayerControls.IPlayer1Actions.OnMove(InputAction.CallbackContext context)
         {
             OnMoveEvent?.Invoke(context);
+        }
+
+        public void OnPause(InputAction.CallbackContext context)
+        {
+            OnPauseEvent?.Invoke(context);
         }
 
         void PlayerControls.IPlayer2Actions.OnMove(InputAction.CallbackContext context)

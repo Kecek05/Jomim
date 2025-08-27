@@ -15,7 +15,13 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelsLocker/Level2Locker.unity
     guid: 3c800373c33541448ad0fad2446dc4e7
   - enabled: 1
+    path: Assets/Scenes/Levels/Level2.unity
+    guid: e4de4b8077f122a4f81153aaad89ed20
+  - enabled: 1
     path: Assets/Scenes/Levels/Level3.unity
+    guid: 6c56ae8db347b704085d15233e131970
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelWithSpikes.unity
     guid: 5da80781a35e8764ebda55f8ad835e38
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

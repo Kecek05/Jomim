@@ -46,6 +46,15 @@ namespace KeceK.Input
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""d2447dac-0418-410e-a2a9-e3d8b400a945"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -92,6 +101,28 @@ namespace KeceK.Input
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""efe7adc8-a3ff-4813-b229-490e0ceda34c"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ade1eaf2-4b4e-4405-834b-fdd2ffa5492d"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -172,6 +203,7 @@ namespace KeceK.Input
             m_Player1 = asset.FindActionMap("Player1", throwIfNotFound: true);
             m_Player1_Jump = m_Player1.FindAction("Jump", throwIfNotFound: true);
             m_Player1_Move = m_Player1.FindAction("Move", throwIfNotFound: true);
+            m_Player1_Pause = m_Player1.FindAction("Pause", throwIfNotFound: true);
             // Player2
             m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
             m_Player2_Jump = m_Player2.FindAction("Jump", throwIfNotFound: true);
@@ -245,12 +277,14 @@ namespace KeceK.Input
         private List<IPlayer1Actions> m_Player1ActionsCallbackInterfaces = new List<IPlayer1Actions>();
         private readonly InputAction m_Player1_Jump;
         private readonly InputAction m_Player1_Move;
+        private readonly InputAction m_Player1_Pause;
         public struct Player1Actions
         {
             private @PlayerControls m_Wrapper;
             public Player1Actions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
             public InputAction @Jump => m_Wrapper.m_Player1_Jump;
             public InputAction @Move => m_Wrapper.m_Player1_Move;
+            public InputAction @Pause => m_Wrapper.m_Player1_Pause;
             public InputActionMap Get() { return m_Wrapper.m_Player1; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -266,6 +300,9 @@ namespace KeceK.Input
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
 
             private void UnregisterCallbacks(IPlayer1Actions instance)
@@ -276,6 +313,9 @@ namespace KeceK.Input
                 @Move.started -= instance.OnMove;
                 @Move.performed -= instance.OnMove;
                 @Move.canceled -= instance.OnMove;
+                @Pause.started -= instance.OnPause;
+                @Pause.performed -= instance.OnPause;
+                @Pause.canceled -= instance.OnPause;
             }
 
             public void RemoveCallbacks(IPlayer1Actions instance)
@@ -351,6 +391,7 @@ namespace KeceK.Input
         {
             void OnJump(InputAction.CallbackContext context);
             void OnMove(InputAction.CallbackContext context);
+            void OnPause(InputAction.CallbackContext context);
         }
         public interface IPlayer2Actions
         {
