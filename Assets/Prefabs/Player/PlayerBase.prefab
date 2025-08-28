@@ -1574,8 +1574,8 @@ MonoBehaviour:
   _rigidbody2D: {fileID: 6944335272430101092}
   _isEnabled: 1
   _haveStoppingDistance: 1
-  _fallForce: 200
-  _maxFallForce: 5
+  _fallForce: 10
+  _maxFallRigidbodyVelocityY: 7
   velocityYThreshold: 0.1
   _stoppingDistanceStartTransform: {fileID: 1614156225182088807}
   _stoppingDistanceLayerMask:

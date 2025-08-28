@@ -1,3 +1,4 @@
+using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -20,9 +21,9 @@ namespace KeceK.Utils.Components
         private bool _haveStoppingDistance;
         [Space(2f)]
         [SerializeField] [Tooltip("Force that will be applied to the RB when starts falling every tick")] [ShowIf(nameof(_isEnabled))]
-        private float _fallForce = 300f;
+        private float _fallForce = 10f;
         [SerializeField] [Tooltip("The max force that the RB can get added by the fall force")] [ShowIf(nameof(_isEnabled))]
-        private float _maxFallForce = 10f;
+        private float _maxFallRigidbodyVelocityY = 10f;
         [SerializeField] [Tooltip("Minimum force to start adding negative force to Y")] [ShowIf(nameof(_isEnabled))]
         private float velocityYThreshold = 0.1f;
         [Space(1f)]
@@ -50,52 +51,58 @@ namespace KeceK.Utils.Components
                 _rigidbody2D = GetComponent<Rigidbody2D>();
             }
         }
+
+        private void FixedUpdate()
+        {
+            if (!_isEnabled) return;
+            
+            if(ShouldStopAddingForce()) return;
+                
+            if (_rigidbody2D.linearVelocityY < velocityYThreshold)
+            {
+                _rigidbody2D.AddForceY(-_fallForce, mode: ForceMode2D.Impulse);
+            }
+        }
+        
+        private bool ShouldStopAddingForce()
+        {
+            if (!_haveStoppingDistance) return false;
+
+            _shouldStopAddingForce = IsAtMaxFallForce() || TooCloseToGround();
+            return _shouldStopAddingForce;
+        }
+
+        private bool IsAtMaxFallForce()
+        {
+            return Mathf.Abs(_rigidbody2D.linearVelocityY) >= _maxFallRigidbodyVelocityY;
+        }
+        
+        private bool TooCloseToGround()
+        {
+            if (!_haveStoppingDistance) return false;
+            
+            _raycastHit = Physics2D.Raycast(
+                _stoppingDistanceStartTransform.position, 
+                Vector2.down, _rayLength, 
+                _stoppingDistanceLayerMask);
+            return _raycastHit.collider != null;
+        }
+        
+#if UNITY_EDITOR
+        private void OnDrawGizmos()
+        {
+            Debug.DrawRay(
+                _stoppingDistanceStartTransform.position,
+                Vector2.down * _rayLength,
+                Color.red
+            );   
+        }
+#endif
         private void ResetHaveStoppingDistance()
         {
             _haveStoppingDistance = false;
         }
-
-        private void FixedUpdate()
-        {
-            if (_isEnabled)
-            {
-                if(ShouldStopAddingForce()) return;
-                
-                if (_rigidbody2D.linearVelocityY < velocityYThreshold)
-                {
-                    _rigidbody2D.AddForceY(-_fallForce);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Call this to check if the object is too close to the colliding layer.
-        /// </summary>
-        /// <returns>
-        /// True: colliding with the provided layer
-        /// False: Not colliding with the provided layer
-        /// </returns>
-        private bool ShouldStopAddingForce()
-        {
-            if (!_haveStoppingDistance) return false;
-            
-            _shouldStopAddingForce = Mathf.Abs(_rigidbody2D.linearVelocityY) >= _maxFallForce 
-                                     || Physics2D.Raycast(
-                                         _stoppingDistanceStartTransform.position, 
-                                         Vector2.down, _rayLength, 
-                                         _stoppingDistanceLayerMask).collider != null;
-            // Debug.DrawRay(
-            //     _stoppingDistanceStartTransform.position,
-            //     Vector2.down * _rayLength,
-            //     Color.red
-            // );   
-            return _shouldStopAddingForce;
-        }
-
-        /// <summary>
-        /// Call this to enable or disable this component
-        /// </summary>
-        /// <param name="isEnabled"></param>
+        
         public void SetIsEnabled(bool isEnabled)
         {
             _isEnabled = isEnabled;
