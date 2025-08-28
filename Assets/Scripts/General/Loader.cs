@@ -117,7 +117,7 @@ namespace KeceK.General
         private static bool AlreadyUnlockedLevel(Scene scene)
         {
             int sceneIndex = (int)scene;
-            if (sceneIndex <= Saver.GetSavedUnlockedLevelIndex())
+            if (sceneIndex <= Saver.GetSavedUnlockedLevelEnumIndex())
                 return true;
             else
                 return false;

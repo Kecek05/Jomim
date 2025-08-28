@@ -40,7 +40,10 @@ namespace KeceK.UI
 
         private void EnableButtonsBySave()
         {
-            for (int i = 0; i <= Saver.GetSavedUnlockedLevelIndex(); i++)
+            int unlockedLevelsInEnumIndex = Saver.GetSavedUnlockedLevelEnumIndex();
+            int enumIndexToButtonsListIndex = (unlockedLevelsInEnumIndex / 2) + 1;
+
+            for (int i = 0; i < enumIndexToButtonsListIndex && i < _levelsButtons.Count; i++)
             {
                 _levelsButtons[i].SetActive(true);
             }

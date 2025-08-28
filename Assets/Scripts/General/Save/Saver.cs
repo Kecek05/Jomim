@@ -12,7 +12,7 @@ namespace KeceK.General
             PlayerPrefs.Save();
         }
         
-        public static int GetSavedUnlockedLevelIndex()
+        public static int GetSavedUnlockedLevelEnumIndex()
         {
             return PlayerPrefs.GetInt(Save_UnlockedLevel_Key, 0);
         }
