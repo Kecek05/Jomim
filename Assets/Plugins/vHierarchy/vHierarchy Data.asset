@@ -458,7 +458,7 @@ MonoBehaviour:
         - colorIndex: 5
           iconNameOrGuid: Folder Icon
           isIconRecursive: 0
-          isColorRecursive: 1
+          isColorRecursive: 0
         - colorIndex: 0
           iconNameOrGuid: TouchInputModule Icon
           isIconRecursive: 0
