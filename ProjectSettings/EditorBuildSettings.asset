@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Level2.unity
     guid: e4de4b8077f122a4f81153aaad89ed20
   - enabled: 1
+    path: Assets/Scenes/LevelsLocker/Level3Locker.unity
+    guid: d03120c2aab663c4bb359e1f75a0c194
+  - enabled: 1
     path: Assets/Scenes/Levels/Level3.unity
     guid: 6c56ae8db347b704085d15233e131970
   - enabled: 1

@@ -23,6 +23,7 @@ MonoBehaviour:
     - 3c800373c33541448ad0fad2446dc4e7
     - e4de4b8077f122a4f81153aaad89ed20
     - 6c56ae8db347b704085d15233e131970
+    - d03120c2aab663c4bb359e1f75a0c194
     values:
     - goDatas_byGlobalId:
         keys:
@@ -794,6 +795,29 @@ MonoBehaviour:
           isColorRecursive: 0
         - colorIndex: 0
           iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+    - goDatas_byGlobalId:
+        keys:
+        - globalObjectIdString: GlobalObjectId_V1-2-d03120c2aab663c4bb359e1f75a0c194-1425005061-0
+        - globalObjectIdString: GlobalObjectId_V1-2-d03120c2aab663c4bb359e1f75a0c194-586533454-0
+        - globalObjectIdString: GlobalObjectId_V1-2-d03120c2aab663c4bb359e1f75a0c194-365600439-0
+        - globalObjectIdString: GlobalObjectId_V1-2-d03120c2aab663c4bb359e1f75a0c194-1811898099-0
+        values:
+        - colorIndex: 9
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 8
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 3
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Canvas Icon
           isIconRecursive: 0
           isColorRecursive: 0
   bookmarks: []

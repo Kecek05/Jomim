@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using KeceK.General;
 using Sirenix.OdinInspector;
 using TMPro;
@@ -9,15 +10,19 @@ namespace KeceK.UI
 {
     public class LevelLockedCanvas : MonoBehaviour
     {
-        public static event Action OnIncorrectPassword;
+        public event Action<bool> OnPasswordSubmitted;
         
         [Title("References")]
+        [SerializeField] private TextMeshProUGUI _hintText;
         [SerializeField] private TMP_InputField _inputField;
         [SerializeField] private Button _submitButton;
+        [Space(15f)]
         [SerializeField] private LevelPasswordSO _levelPasswordSO;
-        
-        [Title("Settings")]
-        [SerializeField] private int _levelToUnlockIndex;
+
+        private void Start()
+        {
+            _hintText.text = _levelPasswordSO.Hint;
+        }
 
         private void OnEnable()
         {
@@ -44,14 +49,20 @@ namespace KeceK.UI
             Debug.Log("Correct Password");
             _submitButton.interactable = false;
             _inputField.interactable = false;
-            Saver.SaveUnlockedLevelByIndex(_levelToUnlockIndex);
+            Saver.SaveUnlockedLevelByIndex(_levelPasswordSO.LevelToUnlockIndex);
+            OnPasswordSubmitted?.Invoke(true);
+            StartCoroutine(DelayToChangeScene());
+        }
+        
+        private IEnumerator DelayToChangeScene()
+        {
+            yield return new WaitForSeconds(1f);
             Loader.LoadNextLevel();
         }
 
         private void IncorrectPassword()
         {
-            Debug.Log("Wrong Password");
-            OnIncorrectPassword?.Invoke();
+            OnPasswordSubmitted?.Invoke(false);
         }
     }
 }

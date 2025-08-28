@@ -1,4 +1,5 @@
 using System;
+using System.Text.RegularExpressions;
 using Plugins.TransitionBlocks.Scripts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,6 +8,8 @@ namespace KeceK.General
 {
     public static class Loader
     {
+        private readonly static string LockerSufix = "Locker";
+        
         public static event Action<Scene> OnCurrentSceneChanged;
         
         private static Scene currentScene;
@@ -15,9 +18,6 @@ namespace KeceK.General
     
         public enum Scene
         {
-            None,
-            MainMenu,
-            Loading,
             Level1,
             Level2Locker,
             Level2,
@@ -37,6 +37,9 @@ namespace KeceK.General
             Level9,
             Level10Locker,
             Level10,
+            None,
+            MainMenu,
+            Loading,
         }
         
         /// <summary>
@@ -48,7 +51,7 @@ namespace KeceK.General
             currentScene = scene;
             if (Transitioner.Instance != null)
             {
-                Transitioner.Instance.TransitionToScene(currentScene.ToString());
+                Transitioner.Instance.TransitionToScene(currentScene.ToString(), true);
             }
             else
             {
@@ -69,9 +72,22 @@ namespace KeceK.General
             if (nextSceneIndex < Enum.GetNames(typeof(Scene)).Length)
             {
                 Scene nextScene = (Scene)nextSceneIndex;
-                
-                if(IsLevel(nextScene))
-                    Load(nextScene);
+
+                if (IsLevel(nextScene))
+                {
+                    if (IsLocker(nextScene))
+                    {
+                        if (AlreadyUnlockedLevel(nextScene))
+                        {
+                            Scene nextLevelUnlocked = (Scene)(nextSceneIndex + 1);
+                            Load(nextLevelUnlocked);
+                        }
+                        else
+                            Load(nextScene);
+                    }
+                    else
+                        Load(nextScene);
+                }
                 else
                 {
                     Debug.Log($"Next scene is not a level. The Scene is: {nextScene}. Going to menu");
@@ -87,6 +103,38 @@ namespace KeceK.General
             if (string.IsNullOrEmpty(sceneName)) return false;
             
             return sceneName.IndexOf("Level", StringComparison.OrdinalIgnoreCase) >= 0;
+        }
+        
+        private static bool IsLocker(Scene scene)
+        {
+            string sceneName = scene.ToString();
+            
+            if (string.IsNullOrEmpty(sceneName)) return false;
+            
+            return sceneName.IndexOf("Locker", StringComparison.OrdinalIgnoreCase) >= 0;
+        }
+
+        private static bool AlreadyUnlockedLevel(Scene scene)
+        {
+            int sceneIndex = (int)scene;
+            if (sceneIndex <= Saver.GetSavedUnlockedLevelIndex())
+                return true;
+            else
+                return false;
+        }
+
+        private static void LoadRespectiveLocker(Scene scene)
+        {
+            string lockerSceneName = scene.ToString() + LockerSufix;
+            if (Enum.TryParse(lockerSceneName, out Scene lockerScene))
+            {
+                Load(lockerScene);
+            }
+            else
+            {
+                Debug.LogError($"Locker scene not found for {scene}");
+                Load(Scene.MainMenu);
+            }
         }
     }
 }

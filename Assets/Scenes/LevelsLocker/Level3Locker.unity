@@ -3358,7 +3358,7 @@ MonoBehaviour:
   _hintText: {fileID: 1252633565}
   _inputField: {fileID: 2120372626}
   _submitButton: {fileID: 758545436}
-  _levelPasswordSO: {fileID: 11400000, guid: 6abe8b4816e73e64c9f571a73cbcc3a0, type: 2}
+  _levelPasswordSO: {fileID: 11400000, guid: 05dd7d0197ba58a46b502a81c504d4cd, type: 2}
 --- !u!114 &1811898105
 MonoBehaviour:
   m_ObjectHideFlags: 0

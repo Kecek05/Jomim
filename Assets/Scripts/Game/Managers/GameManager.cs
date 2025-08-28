@@ -79,8 +79,8 @@ namespace KeceK.Game
         private void GoNextLevel()
         {
             _onChangingLevel = true;
-            StartCoroutine(DelayedChangingLevel());
             OnChangingLevel?.Invoke();
+            StartCoroutine(DelayedChangingLevel());
         }
 
         private IEnumerator DelayedChangingLevel()
