@@ -855,6 +855,12 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-3e7f8ded28fa0d04ea3e450c04c54624-2039663157-0
         - globalObjectIdString: GlobalObjectId_V1-2-3e7f8ded28fa0d04ea3e450c04c54624-944462472-0
         - globalObjectIdString: GlobalObjectId_V1-2-3e7f8ded28fa0d04ea3e450c04c54624-550243793-0
+        - globalObjectIdString: GlobalObjectId_V1-2-3e7f8ded28fa0d04ea3e450c04c54624-612352639381039944-608754029
+        - globalObjectIdString: GlobalObjectId_V1-2-3e7f8ded28fa0d04ea3e450c04c54624-612352639381039944-718974236
+        - globalObjectIdString: GlobalObjectId_V1-2-3e7f8ded28fa0d04ea3e450c04c54624-612352639381039944-973644815
+        - globalObjectIdString: GlobalObjectId_V1-2-3e7f8ded28fa0d04ea3e450c04c54624-198229117363394717-374342792
+        - globalObjectIdString: GlobalObjectId_V1-2-3e7f8ded28fa0d04ea3e450c04c54624-752671363-0
+        - globalObjectIdString: GlobalObjectId_V1-2-3e7f8ded28fa0d04ea3e450c04c54624-198229117363394717-2127812093
         values:
         - colorIndex: 5
           iconNameOrGuid: Folder Icon
@@ -984,12 +990,38 @@ MonoBehaviour:
           iconNameOrGuid: Folder Icon
           isIconRecursive: 0
           isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: PreMatQuad
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: PreMatQuad
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: PreMatQuad
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: PreMatQuad
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: PreMatQuad
+          isIconRecursive: 0
+          isColorRecursive: 0
   bookmarks: []
   bookmarkedScenePaths:
   - Assets/Scenes/Levels/Level1.unity
   - Assets/Scenes/TestingField/TestingField.unity
+  - Assets/Scenes/LevelsLocker/Level2Locker.unity
   - Assets/Scenes/Levels/Level2.unity
   - Assets/Scenes/MainMenu.unity
-  - Assets/Scenes/LevelsLocker/Level2Locker.unity
+  - Assets/Scenes/LevelsLocker/Level3Locker.unity
   - Assets/Scenes/Levels/Level3.unity
   - Assets/Scenes/Levels/LevelWithSpikes.unity
+  - Assets/Scenes/Levels/Level4.unity
