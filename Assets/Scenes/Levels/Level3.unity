@@ -840,6 +840,10 @@ PrefabInstance:
       propertyPath: _durationOfTheMove
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 5090048571345578852, guid: e38f0c2305ab77f44a826eac49454cf9, type: 3}
+      propertyPath: _interactorColorizeData.Array.data[0].InteractorColor
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7111057229722371253, guid: e38f0c2305ab77f44a826eac49454cf9, type: 3}
       propertyPath: _baseIdentifiers.Array.size
       value: 1
@@ -4738,6 +4742,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 415049512}
     m_Modifications:
+    - target: {fileID: 261125118438362244, guid: 7b05ec9264b58664b8d0e54904a8ab1e, type: 3}
+      propertyPath: _interactorColorizeData.Array.data[0].InteractorColor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3616439987927633188, guid: 7b05ec9264b58664b8d0e54904a8ab1e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.040001
@@ -5258,6 +5266,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 415049512}
     m_Modifications:
+    - target: {fileID: 261125118438362244, guid: 7b05ec9264b58664b8d0e54904a8ab1e, type: 3}
+      propertyPath: _interactorColorizeData.Array.data[0].InteractorColor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3616439987927633188, guid: 7b05ec9264b58664b8d0e54904a8ab1e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.040001
@@ -5924,6 +5936,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 695118427}
     m_Modifications:
+    - target: {fileID: 261125118438362244, guid: 7b05ec9264b58664b8d0e54904a8ab1e, type: 3}
+      propertyPath: _interactorColorizeData.Array.data[0].InteractorColor
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3616439987927633188, guid: 7b05ec9264b58664b8d0e54904a8ab1e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.959999
@@ -6433,6 +6449,10 @@ PrefabInstance:
       propertyPath: _durationOfTheMove
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 5090048571345578852, guid: e38f0c2305ab77f44a826eac49454cf9, type: 3}
+      propertyPath: _interactorColorizeData.Array.data[0].InteractorColor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7111057229722371253, guid: e38f0c2305ab77f44a826eac49454cf9, type: 3}
       propertyPath: _baseIdentifiers.Array.size
       value: 1
@@ -6624,6 +6644,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1269593675}
     m_Modifications:
+    - target: {fileID: 261125118438362244, guid: 7b05ec9264b58664b8d0e54904a8ab1e, type: 3}
+      propertyPath: _interactorColorizeData.Array.data[0].InteractorColor
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3616439987927633188, guid: 7b05ec9264b58664b8d0e54904a8ab1e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.959999
@@ -6804,6 +6828,10 @@ PrefabInstance:
     - target: {fileID: 2384122085656129863, guid: e38f0c2305ab77f44a826eac49454cf9, type: 3}
       propertyPath: _durationOfTheMove
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5090048571345578852, guid: e38f0c2305ab77f44a826eac49454cf9, type: 3}
+      propertyPath: _interactorColorizeData.Array.data[0].InteractorColor
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7111057229722371253, guid: e38f0c2305ab77f44a826eac49454cf9, type: 3}
       propertyPath: _baseIdentifiers.Array.size
