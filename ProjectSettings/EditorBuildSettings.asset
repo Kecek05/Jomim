@@ -24,7 +24,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Level3.unity
     guid: 6c56ae8db347b704085d15233e131970
   - enabled: 1
-    path: Assets/Scenes/Levels/LevelWithSpikes.unity
+    path: Assets/Scenes/Levels/Level4.unity
+    guid: 3e7f8ded28fa0d04ea3e450c04c54624
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level5.unity
+    guid: b50b8d492b83b3146a22d02ff78a5813
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level6.unity
     guid: 5da80781a35e8764ebda55f8ad835e38
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

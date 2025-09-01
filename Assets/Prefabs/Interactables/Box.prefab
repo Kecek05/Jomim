@@ -156,6 +156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 697059530098068435}
   - component: {fileID: 8657053548499765564}
+  - component: {fileID: 8891397479224453863}
   m_Layer: 9
   m_Name: GFX
   m_TagString: Untagged
@@ -201,7 +202,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: e47082a20ec31ce4989df54d5e2d8ef5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -233,3 +234,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8891397479224453863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9025630385619857461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff5590e400c9e814a97c202086869705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shaderAnimations:
+  - _shaderProperty: 0
+    _spriteRenderers:
+    - {fileID: 8657053548499765564}
+    _isALoop: 1
+    _shaderEase: 2
+    _isRandomDelayBetweenLoops: 1
+    _delayBetweenLoops: 0
+    _randomDelayBetweenLoops: {x: 1.0436894, y: 2.1359224}
+    _isRandomDuration: 1
+    _animationDuration: 1
+    _randomAnimationDuration: {x: 2.6941748, y: 6.334952}
+    _isRandomStartValue: 0
+    _startValue: 0
+    _randomStartValue: {x: 0, y: 0.5}
+    _isRandomEndValue: 0
+    _endValue: 1
+    _randomEndValue: {x: 0, y: 0.7}
+    _startAnimationOnStart: 1
+    _isRandomStartAnimationOnStart: 1
+    _randomStartDelay: {x: 0, y: 1.9174757}
+    _startDelay: 0
