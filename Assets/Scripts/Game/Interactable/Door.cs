@@ -15,9 +15,6 @@ namespace KeceK.Game
         [SerializeField] [FoldoutGroup("Settings")]
         private bool _isInitiallyActive;
         
-        /// <summary>
-        /// How many Activators are currently activating this door. More than one Activator can activate the same door.
-        /// </summary>
         private int _activationsCount;
         
         public bool IsActive => _isActive;
