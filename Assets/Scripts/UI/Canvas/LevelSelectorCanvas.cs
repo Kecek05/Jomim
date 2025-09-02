@@ -24,6 +24,7 @@ namespace KeceK.UI
         [Space(10f)]
         [SerializeField] private Button _backButton;
         [SerializeField] private Button _deleteSaveButton;
+        [SerializeField] private Button _unlockAllLevelsButton;
         
         private void Awake()
         {
@@ -112,6 +113,13 @@ namespace KeceK.UI
             _deleteSaveButton.onClick.AddListener(() =>
             {
                 Saver.DeleteSavedUnlockedLevels();
+                DisableAllButtons();
+                EnableButtonsBySave();
+            });
+            
+            _unlockAllLevelsButton.onClick.AddListener(() =>
+            {
+                Saver.SaveUnlockedLevelByIndex(30);
                 DisableAllButtons();
                 EnableButtonsBySave();
             });
