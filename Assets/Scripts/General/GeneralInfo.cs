@@ -11,6 +11,10 @@ namespace KeceK.General
         Purple,
         Orange,
         Cyan,
+        Yellow,
+        Green,
+        Magenta,
+        Gray,
         Black,
     }
     
@@ -25,9 +29,12 @@ namespace KeceK.General
                 InteractorColor.Blue => Color.blue,
                 InteractorColor.Purple => new Color(0.5f, 0f, 0.5f),
                 InteractorColor.Orange => new Color(1f, 0.65f, 0f),
-                InteractorColor.Black => Color.black,
                 InteractorColor.Cyan => Color.cyan,
-                _ => Color.white
+                InteractorColor.Yellow => Color.yellow,
+                InteractorColor.Green => Color.green,
+                InteractorColor.Magenta => Color.magenta,
+                InteractorColor.Gray => Color.gray,
+                InteractorColor.Black => Color.black,
             };
         }
     }

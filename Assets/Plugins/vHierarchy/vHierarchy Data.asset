@@ -1332,6 +1332,10 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-7f1fafe682059d942aa71b459e9c69f2-907040786-0
         - globalObjectIdString: GlobalObjectId_V1-2-7f1fafe682059d942aa71b459e9c69f2-612352639381039944-2030591204
         - globalObjectIdString: GlobalObjectId_V1-2-7f1fafe682059d942aa71b459e9c69f2-612352639381039944-1420791278
+        - globalObjectIdString: GlobalObjectId_V1-2-7f1fafe682059d942aa71b459e9c69f2-1680600433-0
+        - globalObjectIdString: GlobalObjectId_V1-2-7f1fafe682059d942aa71b459e9c69f2-2064743855-0
+        - globalObjectIdString: GlobalObjectId_V1-2-7f1fafe682059d942aa71b459e9c69f2-612352639381039944-423112135
+        - globalObjectIdString: GlobalObjectId_V1-2-7f1fafe682059d942aa71b459e9c69f2-198229117363394717-1227158846
         values:
         - colorIndex: 5
           iconNameOrGuid: Folder Icon
@@ -1539,6 +1543,22 @@ MonoBehaviour:
           isColorRecursive: 0
         - colorIndex: 0
           iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: PreMatQuad
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: PreMatQuad
           isIconRecursive: 0
           isColorRecursive: 0
         - colorIndex: 0
