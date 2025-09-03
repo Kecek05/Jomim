@@ -930,7 +930,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 16
   m_TargetDisplay: 0
 --- !u!114 &839518310803371904
 MonoBehaviour:
@@ -4091,7 +4091,7 @@ PrefabInstance:
     - target: {fileID: 4347005234495330071, guid: a71ae035ce5d0429a9a29210c6f978fb, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 9fa5016cb7e534c0aa0c0adb2ecf9124, type: 2}
+      objectReference: {fileID: 11400000, guid: 5ecb30a2f9eb28d439bec451faceae1b, type: 2}
     - target: {fileID: 4347005234495330071, guid: a71ae035ce5d0429a9a29210c6f978fb, type: 3}
       propertyPath: m_fontSizeBase
       value: 49.07
@@ -4099,7 +4099,7 @@ PrefabInstance:
     - target: {fileID: 4347005234495330071, guid: a71ae035ce5d0429a9a29210c6f978fb, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 6098576539282327867, guid: 9fa5016cb7e534c0aa0c0adb2ecf9124, type: 2}
+      objectReference: {fileID: -7846591044520969798, guid: 5ecb30a2f9eb28d439bec451faceae1b, type: 2}
     - target: {fileID: 4347005234495330071, guid: a71ae035ce5d0429a9a29210c6f978fb, type: 3}
       propertyPath: m_HorizontalAlignment
       value: 2

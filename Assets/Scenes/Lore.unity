@@ -584,6 +584,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2080947758439120701, guid: ad0dc837094f438439ab78f8ec9d466e, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5ecb30a2f9eb28d439bec451faceae1b, type: 2}
+    - target: {fileID: 2080947758439120701, guid: ad0dc837094f438439ab78f8ec9d466e, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -7846591044520969798, guid: 5ecb30a2f9eb28d439bec451faceae1b, type: 2}
+    - target: {fileID: 2080947758439120701, guid: ad0dc837094f438439ab78f8ec9d466e, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2720866719015702260, guid: ad0dc837094f438439ab78f8ec9d466e, type: 3}
       propertyPath: m_Name
       value: LoreCanvas
@@ -596,9 +608,25 @@ PrefabInstance:
       propertyPath: m_text
       value: Title
       objectReference: {fileID: 0}
+    - target: {fileID: 3446232687937494892, guid: ad0dc837094f438439ab78f8ec9d466e, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5ecb30a2f9eb28d439bec451faceae1b, type: 2}
+    - target: {fileID: 3446232687937494892, guid: ad0dc837094f438439ab78f8ec9d466e, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -7846591044520969798, guid: 5ecb30a2f9eb28d439bec451faceae1b, type: 2}
+    - target: {fileID: 3446232687937494892, guid: ad0dc837094f438439ab78f8ec9d466e, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6071810344358524199, guid: ad0dc837094f438439ab78f8ec9d466e, type: 3}
       propertyPath: m_text
       value: Content
+      objectReference: {fileID: 0}
+    - target: {fileID: 6071810344358524199, guid: ad0dc837094f438439ab78f8ec9d466e, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

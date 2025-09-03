@@ -107,5 +107,11 @@ namespace KeceK.Game
             _canExit = true;
             OnCanExit?.Invoke();
         }
+        
+        [Button] [HideInEditorMode]
+        private void SetCurrentSceneDebugOnly(Loader.Scene currentScene)
+        {
+            Loader.SetCurrentSceneDebugOnly(currentScene);
+        }
     }
 }

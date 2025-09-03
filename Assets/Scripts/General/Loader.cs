@@ -37,6 +37,7 @@ namespace KeceK.General
             Level9,
             Level10Locker,
             Level10,
+            Level11,
             None,
             MainMenu,
             Loading,
@@ -135,6 +136,11 @@ namespace KeceK.General
                 Debug.LogError($"Locker scene not found for {scene}");
                 Load(Scene.MainMenu);
             }
+        }
+
+        public static void SetCurrentSceneDebugOnly(Scene scene)
+        {
+            currentScene = scene;
         }
     }
 }

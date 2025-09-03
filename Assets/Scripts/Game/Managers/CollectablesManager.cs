@@ -21,6 +21,7 @@ namespace KeceK.Game
         private void Start()
         {
             Coin.OnCoinCollected += CoinOnOnCoinCollected;
+            CheckCollectedAllCoins();
         }
 
         private void OnDestroy()

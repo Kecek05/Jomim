@@ -24,6 +24,7 @@ MonoBehaviour:
     - e9db74c64aee43c458816d5bbd0cb775
     - 272743c0a14a25a4c91ed8c4e169eb97
     - f0fe1d9f34d91ad4ab781f3646da816c
+    - 5a285570921da5a488e2d59748bc02d5
     values:
     - iconNameOrGuid: cs Script Icon
       colorIndex: 4
@@ -62,6 +63,10 @@ MonoBehaviour:
       isIconRecursive: 0
       isColorRecursive: 0
     - iconNameOrGuid: RawImage Icon
+      colorIndex: 0
+      isIconRecursive: 0
+      isColorRecursive: 0
+    - iconNameOrGuid: TrueTypeFontImporter Icon
       colorIndex: 0
       isIconRecursive: 0
       isColorRecursive: 0

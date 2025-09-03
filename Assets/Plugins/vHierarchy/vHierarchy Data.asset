@@ -40,6 +40,7 @@ MonoBehaviour:
     - 40b0a698bcaf5d542bca0f1a3a34bbce
     - d51f093a38b98144198ce75ac9d4532a
     - 4b1cf769afc13fa4c963805fcf16610a
+    - c75e6e9805947f84086c3318a7cb5d84
     values:
     - goDatas_byGlobalId:
         keys:
@@ -3524,6 +3525,24 @@ MonoBehaviour:
           iconNameOrGuid: Canvas Icon
           isIconRecursive: 0
           isColorRecursive: 0
+    - goDatas_byGlobalId:
+        keys:
+        - globalObjectIdString: GlobalObjectId_V1-2-c75e6e9805947f84086c3318a7cb5d84-427268284-0
+        - globalObjectIdString: GlobalObjectId_V1-2-c75e6e9805947f84086c3318a7cb5d84-619891446-0
+        - globalObjectIdString: GlobalObjectId_V1-2-c75e6e9805947f84086c3318a7cb5d84-320092261-0
+        values:
+        - colorIndex: 3
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 5
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 1
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
   bookmarks: []
   bookmarkedScenePaths:
   - Assets/Scenes/Levels/Level1.unity
@@ -3548,3 +3567,5 @@ MonoBehaviour:
   - Assets/Scenes/LevelsLocker/Level9Locker.unity
   - Assets/Scenes/LevelsLocker/Level10Locker.unity
   - Assets/Scenes/Lore.unity
+  - Assets/Scenes/Levels/Level11.unity
+  - Assets/Scenes/Levels/Level10.unity
