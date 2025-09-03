@@ -43,7 +43,7 @@ namespace KeceK.UI
                 IncorrectPassword();
             }
         }
-        
+        [Button] [HideInEditorMode]
         private void CorrectPassword()
         {
             Debug.Log("Correct Password");
@@ -60,6 +60,7 @@ namespace KeceK.UI
             Loader.LoadNextLevel();
         }
 
+        [Button] [HideInEditorMode]
         private void IncorrectPassword()
         {
             OnPasswordSubmitted?.Invoke(false);

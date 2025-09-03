@@ -39,6 +39,7 @@ MonoBehaviour:
     - dc625ee77551edb4a8af24395b5552b5
     - 40b0a698bcaf5d542bca0f1a3a34bbce
     - d51f093a38b98144198ce75ac9d4532a
+    - 4b1cf769afc13fa4c963805fcf16610a
     values:
     - goDatas_byGlobalId:
         keys:
@@ -3204,6 +3205,314 @@ MonoBehaviour:
           isColorRecursive: 0
         - colorIndex: 0
           iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+    - goDatas_byGlobalId:
+        keys:
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-1703692191-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-1859489391-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-770642714-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-2067396686-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-152323921-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-1216525481-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-1114622036-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-1839230368-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-415049511-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-372634135-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-1082506032-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-1245788476-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-1422150311-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-121604712-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-856547990-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-1639452512-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-841629890-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-1727794424-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-806992716-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-1705436892-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-109740-1558919763
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-109740-1598045288
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-3151257257227432862-4757942301155291829
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-1733882499-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-1269593674-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-1553504430-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-1799166748-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-214021890-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-695118426-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-2039663157-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-944462472-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-550243793-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-612352639381039944-608754029
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-612352639381039944-718974236
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-612352639381039944-973644815
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-198229117363394717-374342792
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-752671363-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-198229117363394717-2127812093
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-198229117363394717-1068992865
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-381535572-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-612352639381039944-1774133266
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-1998008092-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-612352639381039944-1521133142
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-543909437-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-612352639381039944-364992097
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-198229117363394717-733324493
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-612352639381039944-995598221
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-612352639381039944-1768448794
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-612352639381039944-2123692017
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-612352639381039944-1661578338
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-430991459-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-862628092-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-2142854841-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-907040786-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-612352639381039944-2030591204
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-612352639381039944-1420791278
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-1680600433-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-2064743855-0
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-612352639381039944-423112135
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-198229117363394717-1227158846
+        - globalObjectIdString: GlobalObjectId_V1-2-4b1cf769afc13fa4c963805fcf16610a-8725472167283259954-256948944
+        values:
+        - colorIndex: 5
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 8
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 1
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 7
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Terrain Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Terrain Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 9
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Settings Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Settings Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 3
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: cs Script Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: cs Script Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: cs Script Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: cs Script Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Settings Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: PreMatQuad
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: PreMatQuad
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: PreMatQuad
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: PreMatQuad
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: PreMatQuad
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: PreMatQuad
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: PreMatQuad
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: PreMatQuad
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: PreMatQuad
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: PreMatQuad
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: PreMatQuad
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: PreMatQuad
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: PreMatQuad
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: PreMatQuad
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: PreMatQuad
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: PreMatQuad
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: PreMatQuad
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: PreMatQuad
           isIconRecursive: 0
           isColorRecursive: 0
         - colorIndex: 0

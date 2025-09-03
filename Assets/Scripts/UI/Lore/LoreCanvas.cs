@@ -33,35 +33,41 @@ namespace KeceK.UI
                 _continueButton.interactable = false;
             });
             _continueButton.gameObject.SetActive(false);
-            
+
+            DisableButtonsIfNeeded();
             UpdateLoreDisplayToCurrentIndex();
         }
         
 
         private void NextLore()
         {
-            ChangeLoreIndex(_currentLoreIndex + 1);
+            ChangeLoreIndex(1);
+            DisableButtonsIfNeeded();
             EnableContinueButtonIfAtEnd();
             UpdateLoreDisplayToCurrentIndex();
         }
 
         private void PreviousLore()
         {
-            ChangeLoreIndex(_currentLoreIndex - 1);
+            ChangeLoreIndex(-1);
+            DisableButtonsIfNeeded();
             UpdateLoreDisplayToCurrentIndex();
         }
         
-        private void ChangeLoreIndex(int change)
+        private void ChangeLoreIndex(int valueToChange)
         {
-            _currentLoreIndex = Mathf.Clamp(_currentLoreIndex + change, 0, _maxLoreIndex);
+            _currentLoreIndex = Mathf.Clamp(_currentLoreIndex + valueToChange, 0, _maxLoreIndex);
+        }
+        
+        private void DisableButtonsIfNeeded()
+        {
+            _previousButton.gameObject.SetActive(_currentLoreIndex > 0);
+            _nextButton.gameObject.SetActive(_currentLoreIndex < _maxLoreIndex);
         }
         
         private void EnableContinueButtonIfAtEnd()
         {
-            if (_currentLoreIndex >= _maxLoreIndex)
-            {
-                _continueButton.gameObject.SetActive(true);
-            }
+            _continueButton.gameObject.SetActive(_currentLoreIndex >= _maxLoreIndex);
         }
 
         private void UpdateLoreDisplayToCurrentIndex()
