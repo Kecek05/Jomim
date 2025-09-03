@@ -38,6 +38,7 @@ MonoBehaviour:
     - 46508467cab93ae4aaf6dea9c617f73a
     - dc625ee77551edb4a8af24395b5552b5
     - 40b0a698bcaf5d542bca0f1a3a34bbce
+    - d51f093a38b98144198ce75ac9d4532a
     values:
     - goDatas_byGlobalId:
         keys:
@@ -3176,6 +3177,39 @@ MonoBehaviour:
           iconNameOrGuid: Canvas Icon
           isIconRecursive: 0
           isColorRecursive: 0
+    - goDatas_byGlobalId:
+        keys:
+        - globalObjectIdString: GlobalObjectId_V1-2-d51f093a38b98144198ce75ac9d4532a-3151257257227432862-1595045229
+        - globalObjectIdString: GlobalObjectId_V1-2-d51f093a38b98144198ce75ac9d4532a-510936439-0
+        - globalObjectIdString: GlobalObjectId_V1-2-d51f093a38b98144198ce75ac9d4532a-1304060606-0
+        - globalObjectIdString: GlobalObjectId_V1-2-d51f093a38b98144198ce75ac9d4532a-211769300-0
+        - globalObjectIdString: GlobalObjectId_V1-2-d51f093a38b98144198ce75ac9d4532a-1515423990-0
+        - globalObjectIdString: GlobalObjectId_V1-2-d51f093a38b98144198ce75ac9d4532a-2720866719015702260-3367538168678602162
+        values:
+        - colorIndex: 0
+          iconNameOrGuid: cs Script Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 5
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 3
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 1
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
   bookmarks: []
   bookmarkedScenePaths:
   - Assets/Scenes/Levels/Level1.unity
@@ -3199,3 +3233,4 @@ MonoBehaviour:
   - Assets/Scenes/LevelsLocker/Level8Locker.unity
   - Assets/Scenes/LevelsLocker/Level9Locker.unity
   - Assets/Scenes/LevelsLocker/Level10Locker.unity
+  - Assets/Scenes/Lore.unity
