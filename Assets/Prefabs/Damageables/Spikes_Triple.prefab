@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 161186205197746710, guid: 85deb8c20ee18bc449a424a0aa68e8ef, type: 3}
       propertyPath: m_Size.x
-      value: 3.21
+      value: 2.85
       objectReference: {fileID: 0}
     - target: {fileID: 326093063119157130, guid: 85deb8c20ee18bc449a424a0aa68e8ef, type: 3}
       propertyPath: m_LocalPosition.x
@@ -54,15 +54,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3305474162364886786, guid: 85deb8c20ee18bc449a424a0aa68e8ef, type: 3}
       propertyPath: m_Size.x
-      value: 6.044442
+      value: 5.3301554
       objectReference: {fileID: 0}
     - target: {fileID: 3305474162364886786, guid: 85deb8c20ee18bc449a424a0aa68e8ef, type: 3}
       propertyPath: m_Offset.x
-      value: -0.0074418783
+      value: -0.00809145
       objectReference: {fileID: 0}
     - target: {fileID: 6470148657390899519, guid: 85deb8c20ee18bc449a424a0aa68e8ef, type: 3}
       propertyPath: m_Name
-      value: Spikes_Triple Variant
+      value: Spikes_Triple
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

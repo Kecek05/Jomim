@@ -2690,6 +2690,10 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-2171ff43927145a49b937395483c0021-8725472167283259954-256948944
         - globalObjectIdString: GlobalObjectId_V1-2-2171ff43927145a49b937395483c0021-1192783711-0
         - globalObjectIdString: GlobalObjectId_V1-2-2171ff43927145a49b937395483c0021-612352639381039944-446815333
+        - globalObjectIdString: GlobalObjectId_V1-2-2171ff43927145a49b937395483c0021-2120666693-0
+        - globalObjectIdString: GlobalObjectId_V1-2-2171ff43927145a49b937395483c0021-612352639381039944-2090563964
+        - globalObjectIdString: GlobalObjectId_V1-2-2171ff43927145a49b937395483c0021-1448839180-0
+        - globalObjectIdString: GlobalObjectId_V1-2-2171ff43927145a49b937395483c0021-612352639381039944-1971740743
         values:
         - colorIndex: 5
           iconNameOrGuid: Folder Icon
@@ -2933,6 +2937,22 @@ MonoBehaviour:
           isColorRecursive: 0
         - colorIndex: 0
           iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: PreMatQuad
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: PreMatQuad
           isIconRecursive: 0
           isColorRecursive: 0
         - colorIndex: 0
