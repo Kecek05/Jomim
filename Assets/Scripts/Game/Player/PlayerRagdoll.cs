@@ -9,10 +9,11 @@ namespace KeceK.Game
     {
         [Title("References")] [SerializeField] [Tooltip("Should be the GFX Object")]
         private GameObject ragdollRoot;
-        [SerializeField] private List<Collider2D> _colliders;
-        [SerializeField] private List<HingeJoint2D> _hingeJoints;
-        [SerializeField] private List<Rigidbody2D> _rigidbodies;
-        [SerializeField] private List<LimbSolver2D> _limbSolvers;
+        [SerializeField] private List<Collider2D> _ragdollColliders;
+        [SerializeField] private List<HingeJoint2D> _ragdollHingeJoints;
+        [SerializeField] private List<Rigidbody2D> _ragdollRigidbodies;
+        [SerializeField] private List<LimbSolver2D> _ragdollLimbSolvers;
+        [SerializeField] private Rigidbody2D _ragdollSpineRigidbody;
         [Space(10f)]
         [Title("Player References")]
         [SerializeField] private Animator _animator;
@@ -20,6 +21,8 @@ namespace KeceK.Game
         [SerializeField] private Collider2D _playerCollider;
         [SerializeField] private Rigidbody2D _playerRigidbody;
 
+        private readonly float _forceMultiplierToMainSpine = 10f;
+        
         private void Awake()
         {
             DisableRagdoll();
@@ -35,25 +38,25 @@ namespace KeceK.Game
                 return;
             }
             
-            _colliders = new List<Collider2D>();
-            _hingeJoints = new List<HingeJoint2D>();
-            _rigidbodies = new List<Rigidbody2D>();
-            _limbSolvers = new List<LimbSolver2D>();
+            _ragdollColliders = new List<Collider2D>();
+            _ragdollHingeJoints = new List<HingeJoint2D>();
+            _ragdollRigidbodies = new List<Rigidbody2D>();
+            _ragdollLimbSolvers = new List<LimbSolver2D>();
             foreach (var collider in ragdollRoot.GetComponentsInChildren<Collider2D>())
             {
-                _colliders.Add(collider);
+                _ragdollColliders.Add(collider);
             }
             foreach (var hingeJoint in ragdollRoot.GetComponentsInChildren<HingeJoint2D>())
             {
-                _hingeJoints.Add(hingeJoint);
+                _ragdollHingeJoints.Add(hingeJoint);
             }
             foreach (var rigidbody in ragdollRoot.GetComponentsInChildren<Rigidbody2D>())
             {
-                _rigidbodies.Add(rigidbody);
+                _ragdollRigidbodies.Add(rigidbody);
             }
             foreach (var limbSolver in ragdollRoot.GetComponentsInChildren<LimbSolver2D>())
             {
-                _limbSolvers.Add(limbSolver);
+                _ragdollLimbSolvers.Add(limbSolver);
             }
         }
         
@@ -71,23 +74,37 @@ namespace KeceK.Game
         
         private void ToggleRagdoll(bool isActive)
         {
+            Vector2 playerLinearVelocity = _playerRigidbody.linearVelocity;
+            TogglePlayerObjectsAndRagdollLimbSolvers(isActive);
+            ToggleRagdollObjects(isActive);
+            
+            if(isActive)
+                _ragdollSpineRigidbody.AddForce(playerLinearVelocity * _forceMultiplierToMainSpine, ForceMode2D.Impulse);
+        }
+
+        
+        private void TogglePlayerObjectsAndRagdollLimbSolvers(bool isActive)
+        {
             _animator.enabled = !isActive;
             _ikManager.weight = isActive ? 0f : 1f;
             _ikManager.enabled = !isActive;
-            _limbSolvers.ForEach(obj =>
+            _ragdollLimbSolvers.ForEach(obj =>
             {
                 obj.weight = isActive ? 0f : 1f;
                 obj.enabled = !isActive;
             });
             
             _playerRigidbody.linearVelocity = Vector2.zero;
-            _rigidbodies.ForEach(obj => obj.linearVelocity = Vector2.zero);
             _playerRigidbody.bodyType = isActive ? RigidbodyType2D.Static : RigidbodyType2D.Dynamic;
             _playerCollider.enabled = !isActive;
-            
-            _rigidbodies.ForEach(obj => obj.simulated = isActive);
-            _colliders.ForEach(obj => obj.enabled = isActive);
-            _hingeJoints.ForEach(obj => obj.enabled = isActive);
+        }
+
+        private void ToggleRagdollObjects(bool isActive)
+        {
+            _ragdollRigidbodies.ForEach(obj => obj.linearVelocity = Vector2.zero);
+            _ragdollRigidbodies.ForEach(obj => obj.simulated = isActive);
+            _ragdollColliders.ForEach(obj => obj.enabled = isActive);
+            _ragdollHingeJoints.ForEach(obj => obj.enabled = isActive);
         }
     }
 }

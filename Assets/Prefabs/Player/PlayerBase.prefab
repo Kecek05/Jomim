@@ -1693,7 +1693,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ragdollRoot: {fileID: 2403482205067797734}
-  _colliders:
+  _ragdollColliders:
   - {fileID: 4893998000773898423}
   - {fileID: 3064533185385128506}
   - {fileID: 7744552364410361136}
@@ -1708,7 +1708,7 @@ MonoBehaviour:
   - {fileID: 1135208370614875962}
   - {fileID: 9073186994907390560}
   - {fileID: 3749695498853390835}
-  _hingeJoints:
+  _ragdollHingeJoints:
   - {fileID: 6196894969588987983}
   - {fileID: 7600393617709118343}
   - {fileID: 2540029495165663414}
@@ -1722,7 +1722,7 @@ MonoBehaviour:
   - {fileID: 3636503989784090383}
   - {fileID: 7797725078040395152}
   - {fileID: 9049677241811627603}
-  _rigidbodies:
+  _ragdollRigidbodies:
   - {fileID: 2685426780185305545}
   - {fileID: 6467486498674251820}
   - {fileID: 6724621527073495128}
@@ -1737,11 +1737,12 @@ MonoBehaviour:
   - {fileID: 8867202982446828083}
   - {fileID: 1341247095212066770}
   - {fileID: 9099566843323048601}
-  _limbSolvers:
+  _ragdollLimbSolvers:
   - {fileID: 6083979357727366707}
   - {fileID: 9183211270905574927}
   - {fileID: 20720362573176628}
   - {fileID: 5417794625437679927}
+  _ragdollSpineRigidbody: {fileID: 2685426780185305545}
   _animator: {fileID: 1274717571907165449}
   _ikManager: {fileID: 9192485737933427991}
   _playerCollider: {fileID: 8397626616289157234}
