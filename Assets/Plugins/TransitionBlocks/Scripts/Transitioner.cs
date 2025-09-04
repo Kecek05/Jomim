@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,6 +8,9 @@ namespace Plugins.TransitionBlocks.Scripts
 {
     public class Transitioner : MonoBehaviour
     {
+        public static event Action OnTransitioningOutScene;
+        public static event Action OnTransitioningInAScene;
+        
         const float MinimumTransitionTime = 0.1f;
         const float MaximumTransitionTime = 5.0f;
         const float MinimumTransitionBlockWidth = 1;
@@ -44,9 +48,6 @@ namespace Plugins.TransitionBlocks.Scripts
         [Range(1, 15)]
         [Tooltip("Only change this if you're having performance issues. This will skip every X transition block updates. (If this is at 2 every other update will be skipped, at 3 every third update is skipped, etc...) Leave this at one to do nothing")]
         public int _skipEveryXBlockUpdates = 1;
-
-        public delegate void TransitionComplete();
-        public event TransitionComplete OnTransitionComplete;
 
         private bool _canTransition = true;
         private bool _transitionInTriggered = false;
@@ -192,11 +193,6 @@ namespace Plugins.TransitionBlocks.Scripts
             yield return StartCoroutine(Transition(TransitionType.In));
             Destroy(_transitionOrdererObject);
             _canTransition = true;
-
-            if(OnTransitionComplete != null)
-            {
-                OnTransitionComplete();
-            }
         }
 
         private IEnumerator Transition(TransitionType transitionType)
@@ -212,6 +208,16 @@ namespace Plugins.TransitionBlocks.Scripts
 
             yield return new WaitForFixedUpdate();
             transitionOrderer.SetPercent(0.0f);
+
+            switch (transitionType)
+            {
+                case TransitionType.Out:
+                    OnTransitioningOutScene?.Invoke();
+                    break;
+                case TransitionType.In:
+                    OnTransitioningInAScene?.Invoke();
+                    break;
+            }
 
             if (transitionType == TransitionType.In && !_automaticallyTransitionIn)
             {

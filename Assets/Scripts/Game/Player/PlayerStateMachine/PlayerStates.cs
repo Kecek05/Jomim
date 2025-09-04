@@ -99,18 +99,20 @@ namespace KeceK.Game
         private PlayerState _state = PlayerState.Jump;
         private Rigidbody2D _rigidbody2D;
         private PlayerStateMachine _playerStateMachine;
+        private AudioSource _jumpSFX;
         
         public PlayerState State => _state;
 
-        public PlayerJumpState(Rigidbody2D rigidbody2D, PlayerStateMachine playerStateMachine)
+        public PlayerJumpState(Rigidbody2D rigidbody2D, PlayerStateMachine playerStateMachine, AudioSource jumpSfx)
         {
             _rigidbody2D = rigidbody2D;
             _playerStateMachine = playerStateMachine;
+            _jumpSFX = jumpSfx;
         }
         
         public void Enter()
         {
-
+            _jumpSFX?.Play();
         }
 
         public void Execute()
@@ -134,14 +136,16 @@ namespace KeceK.Game
         private Rigidbody2D _rigidbody2D;
         private PlayerStateMachine _playerStateMachine;
         private GroundCheck _groundCheck;
+        private AudioSource _landSFX;
         
         public PlayerState State => _state;
 
-        public PlayerFallState(Rigidbody2D rigidbody2D, PlayerStateMachine playerStateMachine, GroundCheck groundCheck)
+        public PlayerFallState(Rigidbody2D rigidbody2D, PlayerStateMachine playerStateMachine, GroundCheck groundCheck, AudioSource landSfx)
         {
             _rigidbody2D = rigidbody2D;
             _playerStateMachine = playerStateMachine;
             _groundCheck = groundCheck;
+            _landSFX = landSfx;
         }
         
         public void Enter()
@@ -163,6 +167,7 @@ namespace KeceK.Game
                     //Idle
                     _playerStateMachine.ChangeState(PlayerState.Idle);
                 }
+                _landSFX?.Play();
             }
         }
 
@@ -181,15 +186,17 @@ namespace KeceK.Game
         private InputEnabler _inputEnabler;
         private FasterFallVelocity _fasterFallVelocity;
         private ShaderAnimator _shaderAnimator;
+        private AudioSource _dieSFX;
         
         public PlayerState State => _state;
 
-        public PlayerDeadState(PlayerRagdoll playerRagdoll, InputEnabler inputEnabler, FasterFallVelocity fasterFallVelocity, ShaderAnimator shaderAnimator)
+        public PlayerDeadState(PlayerRagdoll playerRagdoll, InputEnabler inputEnabler, FasterFallVelocity fasterFallVelocity, ShaderAnimator shaderAnimator, AudioSource dieSfx)
         {
             _playerRagdoll = playerRagdoll;
             _inputEnabler = inputEnabler;
             _fasterFallVelocity = fasterFallVelocity;
             _shaderAnimator = shaderAnimator;
+            _dieSFX = dieSfx;
         }
         
         public void Enter()
@@ -198,6 +205,7 @@ namespace KeceK.Game
             _inputEnabler.LockInput();
             _playerRagdoll.EnableRagdoll();
             _shaderAnimator.StartAnimation(_shaderAnimator.GetAnimationDataByProperty(ShaderProperty._GreyscaleBlend));
+            _dieSFX?.Play();
             OnPlayerDead?.Invoke();
         }
 

@@ -28,6 +28,15 @@ namespace KeceK.Game
         [SerializeField] [Required] 
         private ShaderAnimator _shaderAnimator;
         
+        [Space(5f)]
+        [Title("SFXs")]
+        [SerializeField] [Required]
+        private AudioSource _jumpAudioSource;
+        [SerializeField] [Required]
+        private AudioSource _landAudioSource;
+        [SerializeField] [Required]
+        private AudioSource _dieAudioSource;
+        
         private PlayerStateMachine _playerStateMachine;
 
         //Debug
@@ -35,7 +44,7 @@ namespace KeceK.Game
         
         private void Start()
         {
-            _playerStateMachine = new PlayerStateMachine(_rigidbody2D, _groundCheck, _playerRagdoll, _inputEnabler, _fasterFallVelocity, _shaderAnimator);
+            _playerStateMachine = new PlayerStateMachine(_rigidbody2D, _groundCheck, _playerRagdoll, _inputEnabler, _fasterFallVelocity, _shaderAnimator, _jumpAudioSource, _landAudioSource, _dieAudioSource);
             
             _playerStateMachine.OnStateChanged += PlayerStateMachineOnOnStateChanged;
             _playerStateMachine.Initialize(PlayerState.Idle);

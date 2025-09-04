@@ -26,9 +26,12 @@ namespace KeceK.Game
         //Publics
         public PlayerState CurrentState => _currentPlayerState;
         
-        public PlayerStateMachine(Rigidbody2D rigidbody2D, GroundCheck groundCheck, PlayerRagdoll playerRagdoll, InputEnabler inputEnabler, FasterFallVelocity fasterFallVelocity, ShaderAnimator shaderAnimator)
+        //TODO Refactor this constructor, too many dependencies
+        public PlayerStateMachine(Rigidbody2D rigidbody2D, GroundCheck groundCheck, PlayerRagdoll playerRagdoll, 
+            InputEnabler inputEnabler, FasterFallVelocity fasterFallVelocity, ShaderAnimator shaderAnimator,
+            AudioSource jumpAudioSource, AudioSource landAudioSource, AudioSource dieAudioSource)
         {
-            var stateFactory = new PlayerStateFactory(rigidbody2D, this, groundCheck, playerRagdoll, inputEnabler, fasterFallVelocity, shaderAnimator);
+            var stateFactory = new PlayerStateFactory(rigidbody2D, this, groundCheck, playerRagdoll, inputEnabler, fasterFallVelocity, shaderAnimator, jumpAudioSource, landAudioSource, dieAudioSource);
             _stateMap = stateFactory.CreateStates();
         }
         
