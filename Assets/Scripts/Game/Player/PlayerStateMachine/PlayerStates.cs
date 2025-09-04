@@ -188,9 +188,8 @@ namespace KeceK.Game
         {
             _playerRagdoll = playerRagdoll;
             _inputEnabler = inputEnabler;
-            _shaderAnimator = shaderAnimator;
-            OnPlayerDead?.Invoke();
             _fasterFallVelocity = fasterFallVelocity;
+            _shaderAnimator = shaderAnimator;
         }
         
         public void Enter()

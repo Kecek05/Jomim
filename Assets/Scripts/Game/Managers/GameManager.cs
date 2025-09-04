@@ -9,7 +9,7 @@ namespace KeceK.Game
     public class GameManager : MonoBehaviour
     {
         public static GameManager instance;
-        
+
         public static event Action OnChangingLevel;
         public static event Action OnCanExit;
 
