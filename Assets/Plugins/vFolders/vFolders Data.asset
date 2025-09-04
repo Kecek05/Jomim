@@ -25,6 +25,7 @@ MonoBehaviour:
     - 272743c0a14a25a4c91ed8c4e169eb97
     - f0fe1d9f34d91ad4ab781f3646da816c
     - 5a285570921da5a488e2d59748bc02d5
+    - 95b21b43ca096fe4aac67f3281229f3d
     values:
     - iconNameOrGuid: cs Script Icon
       colorIndex: 4
@@ -67,6 +68,10 @@ MonoBehaviour:
       isIconRecursive: 0
       isColorRecursive: 0
     - iconNameOrGuid: TrueTypeFontImporter Icon
+      colorIndex: 0
+      isIconRecursive: 0
+      isColorRecursive: 0
+    - iconNameOrGuid: AudioSource Icon
       colorIndex: 0
       isIconRecursive: 0
       isColorRecursive: 0
