@@ -21,7 +21,8 @@ namespace KeceK.Game
         private void Start()
         {
             Coin.OnCoinCollected += CoinOnOnCoinCollected;
-            CheckCollectedAllCoins();
+            Invoke(nameof(CheckCollectedAllCoins), 0.3f);
+            
         }
 
         private void OnDestroy()
@@ -54,7 +55,7 @@ namespace KeceK.Game
         }
         
         [Button] [HideInEditorMode]
-        private void ForceCollectAllCoins()
+        private void ForceCollectAllCoinsDebugOnly()
         {
             _collectedCoinsP1 = _collectablesToWinP1;
             _collectedCoinsP2 = _collectablesToWinP2;

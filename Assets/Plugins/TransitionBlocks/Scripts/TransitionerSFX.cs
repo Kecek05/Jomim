@@ -10,6 +10,10 @@ namespace Plugins.TransitionBlocks.Scripts
         [SerializeField] [Required] private AudioSource _fadeInSFX;
         [SerializeField] [Required] private AudioSource _fadeOutSFX;
 
+        [Title("Settings")]
+        [SerializeField] private float _fadeInDelay = 0.1f;
+        [SerializeField] private float _fadeOutDelay = 0.1f;
+        
         private void Start()
         {
             Transitioner.OnTransitioningOutScene += TransitionerOnOnTransitioningOutScene;
@@ -22,14 +26,16 @@ namespace Plugins.TransitionBlocks.Scripts
             Transitioner.OnTransitioningInAScene -= TransitionerOnOnTransitioningInAScene;
         }
         
+        [Button("Fade Out SFX")]
         private void TransitionerOnOnTransitioningOutScene()
         {
-            _fadeOutSFX.Play();
+            _fadeOutSFX.PlayDelayed(_fadeOutDelay);
         }
 
+        [Button("Fade In SFX")]
         private void TransitionerOnOnTransitioningInAScene()
         {
-            _fadeInSFX.Play();
+            _fadeInSFX.PlayDelayed(_fadeInDelay);
         }
     }
 }

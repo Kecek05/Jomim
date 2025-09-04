@@ -92,6 +92,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3446716044663588114, guid: 0972c94c0b3f9ca4ab6e38edabb65a61, type: 3}
+      propertyPath: _playerMovementSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 19320cf8e6162224e90006ac4df3596d, type: 2}
     - target: {fileID: 3636503989784090383, guid: 0972c94c0b3f9ca4ab6e38edabb65a61, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 0.010872666

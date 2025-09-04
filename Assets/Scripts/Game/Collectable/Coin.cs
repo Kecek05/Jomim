@@ -21,6 +21,7 @@ namespace KeceK.Game
         private PlayerIdentifier _playerIdentifier;
 
         [SerializeField] [Required] private GameObject _coinGFX;
+        [SerializeField] [Required] private Collider2D _collider2D;
         
         public void Collect()
         {
@@ -28,6 +29,7 @@ namespace KeceK.Game
                 transform.position, Quaternion.identity);
             OnCoinCollected?.Invoke(_playerIdentifier.ThisPlayerType == PlayerType.Player1 ? 1 : 2);
             _coinGFX.SetActive(false);
+            _collider2D.enabled = false;
             OnThisCoinCollected?.Invoke();
             Destroy(gameObject, 1f);
         }

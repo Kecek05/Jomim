@@ -45,7 +45,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: eddbfb1d8249b954b81b8768174e6930, type: 3}
   m_Resource: {fileID: 8300000, guid: eddbfb1d8249b954b81b8768174e6930, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -171,11 +171,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 30b32009639b62340a74cd67ac8aa4d5, type: 3}
-  m_Resource: {fileID: 8300000, guid: 30b32009639b62340a74cd67ac8aa4d5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8d66a5523873f7f4996760c99d055f10, type: 3}
+  m_Resource: {fileID: 8300000, guid: 8d66a5523873f7f4996760c99d055f10, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0.2
+  m_Pitch: 0.6
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -276,15 +276,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 493412, guid: f56677cc419404a4d94df9c2ea9a8279, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.0772524
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 493412, guid: f56677cc419404a4d94df9c2ea9a8279, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.062834725
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 493412, guid: f56677cc419404a4d94df9c2ea9a8279, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.06977898
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 493412, guid: f56677cc419404a4d94df9c2ea9a8279, type: 3}
       propertyPath: m_LocalRotation.w
@@ -351,6 +351,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fadeInSFX: {fileID: 1872422440345860931}
   _fadeOutSFX: {fileID: 8078193751280252788}
+  _fadeInDelay: 0
+  _fadeOutDelay: 0.1
 --- !u!4 &3151257257227819094 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 493412, guid: f56677cc419404a4d94df9c2ea9a8279, type: 3}

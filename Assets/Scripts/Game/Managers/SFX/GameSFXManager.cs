@@ -25,12 +25,12 @@ namespace KeceK.Game
         [Button("Next Level SFX")]
         private void GameManagerOnOnChangingLevel()
         {
-            _nextLevelSFX.Play();
+            _nextLevelSFX?.Play();
         }
         [Button("Can Exit SFX")]
         private void GameManagerOnOnCanExit()
         {
-            _exitPoweredSFX.Play();
+            _exitPoweredSFX?.Play();
         }
     }
 }
