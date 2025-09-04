@@ -448,6 +448,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: EndGameCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6602886881537759310, guid: 08e41e150ee6a534eb721bbfe83e3bae, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6602886881537759310, guid: 08e41e150ee6a534eb721bbfe83e3bae, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6802209718646138126, guid: 08e41e150ee6a534eb721bbfe83e3bae, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -532,6 +540,22 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1414344363}
+    - target: {fileID: 8140061655229493216, guid: 08e41e150ee6a534eb721bbfe83e3bae, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8140061655229493216, guid: 08e41e150ee6a534eb721bbfe83e3bae, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 185.00002
+      objectReference: {fileID: 0}
+    - target: {fileID: 8758266441652290067, guid: 08e41e150ee6a534eb721bbfe83e3bae, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 278
+      objectReference: {fileID: 0}
+    - target: {fileID: 8758266441652290067, guid: 08e41e150ee6a534eb721bbfe83e3bae, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 185
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

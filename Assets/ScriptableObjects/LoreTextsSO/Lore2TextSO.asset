@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e6a044045818f048b2c965b583a0517, type: 3}
   m_Name: Lore2TextSO
   m_EditorClassIdentifier: 
-  Title: Title 2
-  Content: aaaa 2
+  Title: 
+  Content: "Eles precisam coletar todos os ingredientes para fazer o melhor P\xC3O
+    DE MA\xC7\xC3 do mundo."

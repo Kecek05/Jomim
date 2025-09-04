@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e6a044045818f048b2c965b583a0517, type: 3}
-  m_Name: Lore1TextSO
+  m_Name: Lore4TextSO
   m_EditorClassIdentifier: 
   Title: 
-  Content: "Com o objetivo de fazer o melhor P\xC3O DE MA\xC7\xC3 do mundo, Jo\xE3o
-    e Yasmim saem em uma aventura em busca dos ingredientes."
+  Content: "S\xE3o necess\xE1rios exatos 2 bilh\xF5es de MA\xC7\xC3S e 2 bilh\xF5es
+    de P\xC3ES para que o melhor P\xC3O DE MA\xC7\xC3 do mundo seja feito."

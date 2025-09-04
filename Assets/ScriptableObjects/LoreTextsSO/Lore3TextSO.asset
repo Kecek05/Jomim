@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e6a044045818f048b2c965b583a0517, type: 3}
   m_Name: Lore3TextSO
   m_EditorClassIdentifier: 
-  Title: Title 3
-  Content: aaaa 3
+  Title: 
+  Content: "Sendo eles: P\xC3O e MA\xC7\xC3."

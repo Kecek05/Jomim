@@ -993,6 +993,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8e136bc239f94254b92b2e74096c8f64, type: 2}
   - {fileID: 11400000, guid: 9bec48d1b9ed5d84aa71f9b80b304665, type: 2}
   - {fileID: 11400000, guid: 635a5564ce1df814abd6708451d15cf5, type: 2}
+  - {fileID: 11400000, guid: 3b8759f9ce05acb4d970e6a8a0ffc9f2, type: 2}
 --- !u!1 &2973957702292423369
 GameObject:
   m_ObjectHideFlags: 0
@@ -3912,12 +3913,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2283174855376963476, guid: 60b86f156bcf74d7b9afee4a0556e2c2, type: 3}
       propertyPath: m_text
-      value: Voice
+      value: Title
       objectReference: {fileID: 0}
     - target: {fileID: 2283174855376963476, guid: 60b86f156bcf74d7b9afee4a0556e2c2, type: 3}
       propertyPath: m_fontSize
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 2283174855376963476, guid: 60b86f156bcf74d7b9afee4a0556e2c2, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5ecb30a2f9eb28d439bec451faceae1b, type: 2}
     - target: {fileID: 2283174855376963476, guid: 60b86f156bcf74d7b9afee4a0556e2c2, type: 3}
       propertyPath: m_fontColor.b
       value: 0.57735866
@@ -3929,6 +3934,14 @@ PrefabInstance:
     - target: {fileID: 2283174855376963476, guid: 60b86f156bcf74d7b9afee4a0556e2c2, type: 3}
       propertyPath: m_fontSizeBase
       value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 2283174855376963476, guid: 60b86f156bcf74d7b9afee4a0556e2c2, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -7846591044520969798, guid: 5ecb30a2f9eb28d439bec451faceae1b, type: 2}
+    - target: {fileID: 2283174855376963476, guid: 60b86f156bcf74d7b9afee4a0556e2c2, type: 3}
+      propertyPath: m_TextWrappingMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2283174855376963476, guid: 60b86f156bcf74d7b9afee4a0556e2c2, type: 3}
       propertyPath: m_fontColor32.rgba
@@ -4049,7 +4062,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2438046988045397025, guid: a71ae035ce5d0429a9a29210c6f978fb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -43
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2438046988045397025, guid: a71ae035ce5d0429a9a29210c6f978fb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4065,8 +4078,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4347005234495330071, guid: a71ae035ce5d0429a9a29210c6f978fb, type: 3}
       propertyPath: m_text
-      value: If you need any help please feel free to contact me via our support
-        website on <#00BBD4>ricimi.com</color> or <#00BBD4>gamevanilla.com</color>.
+      value: Content
       objectReference: {fileID: 0}
     - target: {fileID: 4347005234495330071, guid: a71ae035ce5d0429a9a29210c6f978fb, type: 3}
       propertyPath: m_fontSize
@@ -4074,7 +4086,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4347005234495330071, guid: a71ae035ce5d0429a9a29210c6f978fb, type: 3}
       propertyPath: m_margin.w
-      value: -116.23046
+      value: -249.0392
       objectReference: {fileID: 0}
     - target: {fileID: 4347005234495330071, guid: a71ae035ce5d0429a9a29210c6f978fb, type: 3}
       propertyPath: m_margin.x
@@ -4082,7 +4094,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4347005234495330071, guid: a71ae035ce5d0429a9a29210c6f978fb, type: 3}
       propertyPath: m_margin.y
-      value: -112.861374
+      value: -249.41135
       objectReference: {fileID: 0}
     - target: {fileID: 4347005234495330071, guid: a71ae035ce5d0429a9a29210c6f978fb, type: 3}
       propertyPath: m_margin.z
