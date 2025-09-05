@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1cea4e7f7af0774481755608f17c4f8, type: 3}
   m_Name: PlayerMarriedMovementSO
   m_EditorClassIdentifier: 
-  speed: 100
+  speed: 200
   maxSpeed: 1
-  jumpHigh: 0
+  jumpHigh: 2
