@@ -82,6 +82,8 @@ namespace KeceK.General
         /// </summary>
         /// <returns>If it was successfully</returns>
         public bool TryDeactivate();
+        
+        public event Action<bool> OnActivatableStateChanged;
     }
 
     /// <summary>

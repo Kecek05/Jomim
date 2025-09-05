@@ -1,3 +1,4 @@
+using System;
 using KeceK.General;
 using KeceK.Utils.Components;
 using Sirenix.OdinInspector;
@@ -7,6 +8,8 @@ namespace KeceK.Game
 {
     public class Door : MonoBehaviour, IActivatable
     {
+        public event Action<bool> OnActivatableStateChanged;
+        
         [SerializeField] [FoldoutGroup("References")]
         private Mover _mover;
         
@@ -33,6 +36,7 @@ namespace KeceK.Game
             {
                 _isActive = true;
                 _mover.Move();
+                OnActivatableStateChanged?.Invoke(_isActive);
                 return true;
             }
             return false;
@@ -55,7 +59,9 @@ namespace KeceK.Game
 
             _isActive = false;
             _mover.Move();
+            OnActivatableStateChanged?.Invoke(_isActive);
             return true;
         }
+
     }
 }
