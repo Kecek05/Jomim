@@ -399,7 +399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1658878348397430610, guid: fb4d09b82052741448a0deb1981fd7c1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.43
+      value: 8.04
       objectReference: {fileID: 0}
     - target: {fileID: 5484468568102295729, guid: fb4d09b82052741448a0deb1981fd7c1, type: 3}
       propertyPath: _interactorColorizeData.Array.data[0].InteractorColor
