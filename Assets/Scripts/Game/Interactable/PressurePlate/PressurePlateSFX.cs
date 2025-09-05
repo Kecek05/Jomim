@@ -25,6 +25,7 @@ namespace KeceK.Game
             _pressurePlate.OnActivationStateChanged -= PressurePlateOnOnActivationStateChanged;
         }
         
+        [Button]
         private void PressurePlateOnOnActivationStateChanged(bool activated)
         {
             if (activated)

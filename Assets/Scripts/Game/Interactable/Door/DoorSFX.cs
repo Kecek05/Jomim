@@ -25,6 +25,7 @@ namespace KeceK.Game
             _door.OnActivatableStateChanged -= DoorOnOnActivatableStateChanged;
         }
         
+        [Button]
         private void DoorOnOnActivatableStateChanged(bool active)
         {
             if (active)
