@@ -80,7 +80,7 @@ namespace KeceK.Utils.Components
         private bool TooCloseToGround()
         {
             if (!_haveStoppingDistance) return false;
-
+            
             foreach (Transform stoppingTransform in _stoppingDistanceStartTransforms)
             {
                 _raycastHits = Physics2D.RaycastAll(
@@ -88,10 +88,11 @@ namespace KeceK.Utils.Components
                     Vector2.down, _rayLength, 
                     _stoppingDistanceLayerMask);
 
-                if (RaycastHitOnlyItself(_raycastHits)) return false;
-
-                if(_raycastHits.Length > 0)
-                    return true;
+                if (!RaycastHitOnlyItself(_raycastHits))
+                {
+                    if(_raycastHits.Length > 0)
+                        return true;
+                }
             }
             return false;
         }
@@ -115,10 +116,27 @@ namespace KeceK.Utils.Components
 #if UNITY_EDITOR
         private void OnDrawGizmos()
         {
+            if(!_haveStoppingDistance) return;
+            
             foreach (Transform stoppingTransform in _stoppingDistanceStartTransforms)
             {
-
-                if (TooCloseToGround())
+                
+                RaycastHit2D[] raycast = Physics2D.RaycastAll(
+                    stoppingTransform.position, 
+                    Vector2.down, _rayLength, 
+                    _stoppingDistanceLayerMask);
+                
+                if (RaycastHitOnlyItself(raycast))
+                {
+                    Debug.DrawRay(
+                        stoppingTransform.position,
+                        Vector2.down * _rayLength,
+                        Color.blue
+                    );
+                    continue;
+                }
+                
+                if (raycast.Length > 0)
                 {
                     Debug.DrawRay(
                         stoppingTransform.position,
