@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.y
       value: 0.0000004233106
       objectReference: {fileID: 0}
+    - target: {fileID: 6417180801744308330, guid: 0972c94c0b3f9ca4ab6e38edabb65a61, type: 3}
+      propertyPath: _stoppingDistanceLayerMask.m_Bits
+      value: 576
+      objectReference: {fileID: 0}
     - target: {fileID: 7301497294161000157, guid: 0972c94c0b3f9ca4ab6e38edabb65a61, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 0.17327392

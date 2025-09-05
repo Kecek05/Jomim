@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -28,9 +29,9 @@ namespace KeceK.Utils.Components
         private float velocityYThreshold = 0.1f;
         [Space(1f)]
 
-        [SerializeField] [FoldoutGroup("Stopping Distance Settings")] [Tooltip("Transform to start the raycast")] 
+        [SerializeField] [FoldoutGroup("Stopping Distance Settings")] [Tooltip("Transforms to start the raycast")] 
         [ShowIf(nameof(_isEnabled))] [ShowIf(nameof(_haveStoppingDistance))]
-        private Transform _stoppingDistanceStartTransform;
+        private List<Transform> _stoppingDistanceStartTransforms = new();
         
         [SerializeField] [FoldoutGroup("Stopping Distance Settings")] [Tooltip("Layers to stop adding negative Y velocity when getting close")] 
         [ShowIf(nameof(_isEnabled))] [ShowIf(nameof(_haveStoppingDistance))]
@@ -80,22 +81,47 @@ namespace KeceK.Utils.Components
         private bool TooCloseToGround()
         {
             if (!_haveStoppingDistance) return false;
-            
-            _raycastHit = Physics2D.Raycast(
-                _stoppingDistanceStartTransform.position, 
-                Vector2.down, _rayLength, 
-                _stoppingDistanceLayerMask);
-            return _raycastHit.collider != null;
+
+            foreach (Transform stoppingTransform in _stoppingDistanceStartTransforms)
+            {
+                _raycastHit = Physics2D.Raycast(
+                    stoppingTransform.position, 
+                    Vector2.down, _rayLength, 
+                    _stoppingDistanceLayerMask);
+                
+                if(_raycastHit.collider != null)
+                    return true;
+            }
+            return false;
         }
         
 #if UNITY_EDITOR
         private void OnDrawGizmos()
         {
-            Debug.DrawRay(
-                _stoppingDistanceStartTransform.position,
-                Vector2.down * _rayLength,
-                Color.red
-            );   
+            foreach (Transform stoppingTransform in _stoppingDistanceStartTransforms)
+            {
+                RaycastHit2D hit = Physics2D.Raycast(
+                    stoppingTransform.position,
+                    Vector2.down, _rayLength,
+                    _stoppingDistanceLayerMask);
+
+                if (hit.collider == null)
+                {
+                    Debug.DrawRay(
+                        stoppingTransform.position,
+                        Vector2.down * _rayLength,
+                        Color.red
+                    );
+                }
+                else
+                {
+                    Debug.DrawRay(
+                        stoppingTransform.position,
+                        Vector2.down * _rayLength,
+                        Color.blue
+                    );
+                }
+            }
         }
 #endif
         private void ResetHaveStoppingDistance()
