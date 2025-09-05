@@ -906,6 +906,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2080947758439120701, guid: ad0dc837094f438439ab78f8ec9d466e, type: 3}
+      propertyPath: m_text
+      value: Continuar
+      objectReference: {fileID: 0}
     - target: {fileID: 2720866719015702260, guid: ad0dc837094f438439ab78f8ec9d466e, type: 3}
       propertyPath: m_Name
       value: LoreCanvas
