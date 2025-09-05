@@ -37,13 +37,13 @@ EditorBuildSettings:
     guid: c711cd66206d6e143b02e3525b39c90d
   - enabled: 1
     path: Assets/Scenes/Levels/Level5.unity
-    guid: b50b8d492b83b3146a22d02ff78a5813
+    guid: 5da80781a35e8764ebda55f8ad835e38
   - enabled: 1
     path: Assets/Scenes/LevelsLocker/Level6Locker.unity
     guid: 29632efa1f6ea614ea89f55dcca969c6
   - enabled: 1
     path: Assets/Scenes/Levels/Level6.unity
-    guid: 5da80781a35e8764ebda55f8ad835e38
+    guid: b50b8d492b83b3146a22d02ff78a5813
   - enabled: 1
     path: Assets/Scenes/LevelsLocker/Level7Locker.unity
     guid: 9ed6d7ea981853d4d875399087bab240
