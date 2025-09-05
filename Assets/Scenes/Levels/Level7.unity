@@ -9297,11 +9297,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8795983855352128727, guid: 9942a9da466db1e478b680e473723ab7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.16
+      value: 14.49
       objectReference: {fileID: 0}
     - target: {fileID: 8795983855352128727, guid: 9942a9da466db1e478b680e473723ab7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.829998
+      value: 7.33
       objectReference: {fileID: 0}
     - target: {fileID: 8795983855352128727, guid: 9942a9da466db1e478b680e473723ab7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10497,14 +10497,6 @@ PrefabInstance:
     - target: {fileID: 1666865293846210718, guid: 97948a2e81796c941aae78068678c6da, type: 3}
       propertyPath: m_Name
       value: Box (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1731526779781848266, guid: 97948a2e81796c941aae78068678c6da, type: 3}
-      propertyPath: m_GravityScale
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8657053548499765564, guid: 97948a2e81796c941aae78068678c6da, type: 3}
-      propertyPath: m_SortingLayer
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

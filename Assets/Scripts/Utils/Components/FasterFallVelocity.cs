@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -42,7 +41,7 @@ namespace KeceK.Utils.Components
         private float _rayLength = 2.5f;
         
         //Cache
-        private RaycastHit2D _raycastHit; 
+        private RaycastHit2D[] _raycastHits; 
         private bool _shouldStopAddingForce = false;
         
         private void OnValidate()
@@ -84,15 +83,33 @@ namespace KeceK.Utils.Components
 
             foreach (Transform stoppingTransform in _stoppingDistanceStartTransforms)
             {
-                _raycastHit = Physics2D.Raycast(
+                _raycastHits = Physics2D.RaycastAll(
                     stoppingTransform.position, 
                     Vector2.down, _rayLength, 
                     _stoppingDistanceLayerMask);
-                
-                if(_raycastHit.collider != null)
+
+                if (RaycastHitOnlyItself(_raycastHits)) return false;
+
+                if(_raycastHits.Length > 0)
                     return true;
             }
             return false;
+        }
+
+        private bool RaycastHitOnlyItself(RaycastHit2D[] rayCastHit2Ds)
+        {
+            if (rayCastHit2Ds.Length == 0) return false;
+            
+            bool hitOnlyItself = true;
+            
+            foreach (RaycastHit2D hit2D in rayCastHit2Ds)
+            {
+                if (hit2D.collider.gameObject != gameObject)
+                {
+                    hitOnlyItself = false;
+                }
+            }
+            return hitOnlyItself;
         }
         
 #if UNITY_EDITOR
@@ -100,12 +117,8 @@ namespace KeceK.Utils.Components
         {
             foreach (Transform stoppingTransform in _stoppingDistanceStartTransforms)
             {
-                RaycastHit2D hit = Physics2D.Raycast(
-                    stoppingTransform.position,
-                    Vector2.down, _rayLength,
-                    _stoppingDistanceLayerMask);
 
-                if (hit.collider == null)
+                if (TooCloseToGround())
                 {
                     Debug.DrawRay(
                         stoppingTransform.position,
