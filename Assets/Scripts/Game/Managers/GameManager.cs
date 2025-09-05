@@ -25,6 +25,8 @@ namespace KeceK.Game
         private bool _onChangingLevel = false;
         private bool _canExit = false;
         
+        private bool _debugChangingLevel = false;
+        
         private void Awake()
         {
             if (instance == null)
@@ -112,6 +114,17 @@ namespace KeceK.Game
         private void SetCurrentSceneDebugOnly(Loader.Scene currentScene)
         {
             Loader.SetCurrentSceneDebugOnly(currentScene);
+        }
+
+        //Debug only
+        private void Update()
+        {
+            if(UnityEngine.Input.GetKey(KeyCode.LeftControl) && UnityEngine.Input.GetKey(KeyCode.LeftShift) && UnityEngine.Input.GetKeyDown(KeyCode.F8)
+               && !_debugChangingLevel)
+            {
+                _debugChangingLevel = true;
+                GoNextLevel();
+            }
         }
     }
 }

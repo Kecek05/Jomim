@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using KeceK.General;
 using Sirenix.OdinInspector;
@@ -110,20 +111,10 @@ namespace KeceK.UI
                 Hide();
             });
             
-            _deleteSaveButton.onClick.AddListener(() =>
-            {
-                Saver.DeleteSavedUnlockedLevels();
-                DisableAllButtons();
-                EnableButtonsBySave();
-            });
-            
-            _unlockAllLevelsButton.onClick.AddListener(() =>
-            {
-                Saver.SaveUnlockedLevelByIndex(30);
-                DisableAllButtons();
-                EnableButtonsBySave();
-            });
-            
+            _deleteSaveButton.onClick.AddListener(DeleteSaveDebugOnly);
+
+            _unlockAllLevelsButton.onClick.AddListener(UnlockAllLevelsDebugOnly);
+
         }
         
         private void SelectLevel(Loader.Scene scene)
@@ -140,6 +131,33 @@ namespace KeceK.UI
         {
             _levelSelectorParent.SetActive(false);
         }
+    
+        private void UnlockAllLevelsDebugOnly()
+        {
+            Saver.SaveUnlockedLevelByIndex(30);
+            DisableAllButtons();
+            EnableButtonsBySave();
+        }
         
+        private void DeleteSaveDebugOnly()
+        {
+            Saver.DeleteSavedUnlockedLevels();
+            DisableAllButtons();
+            EnableButtonsBySave();
+        }
+        
+        //Debug Only
+        private void Update()
+        {
+            if(Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.U))
+            {
+                UnlockAllLevelsDebugOnly();
+            }
+
+            if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.I))
+            {
+                DeleteSaveDebugOnly();
+            }
+        }
     }
 }
