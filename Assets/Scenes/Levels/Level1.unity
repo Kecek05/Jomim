@@ -271,10 +271,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3744545599011947758, guid: 7b05ec9264b58664b8d0e54904a8ab1e, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 97353e8ffb4930545814cd11534bf17d, type: 3}
     - target: {fileID: 5342351645613127507, guid: 7b05ec9264b58664b8d0e54904a8ab1e, type: 3}
       propertyPath: m_Name
       value: BasePressurePlate
       objectReference: {fileID: 0}
+    - target: {fileID: 7109093343489014548, guid: 7b05ec9264b58664b8d0e54904a8ab1e, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 97353e8ffb4930545814cd11534bf17d, type: 3}
     - target: {fileID: 7499345841556239369, guid: 7b05ec9264b58664b8d0e54904a8ab1e, type: 3}
       propertyPath: _iActivatableObject
       value: 
@@ -5811,6 +5819,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BaseDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 1267318941899468607, guid: e38f0c2305ab77f44a826eac49454cf9, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 65161613997294fe48d2ad08388e1777, type: 3}
     - target: {fileID: 5090048571345578852, guid: e38f0c2305ab77f44a826eac49454cf9, type: 3}
       propertyPath: _interactorColorizeData.Array.data[0].InteractorColor
       value: 2
@@ -5863,6 +5875,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8940985228023074663, guid: e38f0c2305ab77f44a826eac49454cf9, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 65161613997294fe48d2ad08388e1777, type: 3}
     m_RemovedComponents:
     - {fileID: 2538003366354555555, guid: e38f0c2305ab77f44a826eac49454cf9, type: 3}
     m_RemovedGameObjects: []
