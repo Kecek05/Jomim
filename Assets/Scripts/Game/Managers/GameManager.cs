@@ -13,9 +13,9 @@ namespace KeceK.Game
         public static event Action OnChangingLevel;
         public static event Action OnCanExit;
 
-        [SerializeField] [Required] [FoldoutGroup("Exits")]
+        [SerializeField] [FoldoutGroup("Exits")]
         private LevelExit levelExitP1;
-        [SerializeField] [Required] [FoldoutGroup("Exits")]
+        [SerializeField] [FoldoutGroup("Exits")]
         private LevelExit levelExitP2;
 
         [Title("Settings")] [SerializeField] private GameSettingsSO _gameSettingsSO;

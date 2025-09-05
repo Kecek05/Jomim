@@ -923,7 +923,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4465131216257424596, guid: 98a46bd9ab144f144a7b5d81b88c8a9e, type: 3}
       propertyPath: m_text
-      value: Recomecar
+      value: "Recome\xE7ar"
       objectReference: {fileID: 0}
     - target: {fileID: 4465131216257424596, guid: 98a46bd9ab144f144a7b5d81b88c8a9e, type: 3}
       propertyPath: m_fontAsset
