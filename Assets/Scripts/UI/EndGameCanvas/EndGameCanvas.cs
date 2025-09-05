@@ -17,7 +17,7 @@ namespace KeceK.UI
 
         private string _videoFakeURL = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
         
-        private string _videoRealURL = "https://youtu.be/Sfbtxeen33w";
+        private string _videoRealURL = "https://youtu.be/3UoCLMiCF54";
 
         private void Awake()
         {
