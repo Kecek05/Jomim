@@ -24,8 +24,6 @@ namespace KeceK.UI
         [SerializeField] private List<GameObject> _levelsButtons;
         [Space(10f)]
         [SerializeField] private Button _backButton;
-        [SerializeField] private Button _deleteSaveButton;
-        [SerializeField] private Button _unlockAllLevelsButton;
         
         private void Awake()
         {
@@ -113,11 +111,6 @@ namespace KeceK.UI
             {
                 Hide();
             });
-            
-            _deleteSaveButton.onClick.AddListener(DeleteSaveDebugOnly);
-
-            _unlockAllLevelsButton.onClick.AddListener(UnlockAllLevelsDebugOnly);
-
         }
         
         private void SelectLevel(Loader.Scene scene)
