@@ -508,6 +508,7 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-7c493961aa44aaa4f956d984083c75e7-3151257257227432862-64073683
         - globalObjectIdString: GlobalObjectId_V1-2-7c493961aa44aaa4f956d984083c75e7-1180902062-0
         - globalObjectIdString: GlobalObjectId_V1-2-7c493961aa44aaa4f956d984083c75e7-1283124874-0
+        - globalObjectIdString: GlobalObjectId_V1-2-7c493961aa44aaa4f956d984083c75e7-1990035626-0
         values:
         - colorIndex: 5
           iconNameOrGuid: Folder Icon
@@ -543,6 +544,10 @@ MonoBehaviour:
           isColorRecursive: 0
         - colorIndex: 0
           iconNameOrGuid: Settings Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Canvas Icon
           isIconRecursive: 0
           isColorRecursive: 0
     - goDatas_byGlobalId:
@@ -3292,6 +3297,7 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-d51f093a38b98144198ce75ac9d4532a-211769300-0
         - globalObjectIdString: GlobalObjectId_V1-2-d51f093a38b98144198ce75ac9d4532a-1515423990-0
         - globalObjectIdString: GlobalObjectId_V1-2-d51f093a38b98144198ce75ac9d4532a-2720866719015702260-3367538168678602162
+        - globalObjectIdString: GlobalObjectId_V1-2-d51f093a38b98144198ce75ac9d4532a-1948768661416275666-1143289387
         values:
         - colorIndex: 0
           iconNameOrGuid: cs Script Icon
@@ -3307,6 +3313,10 @@ MonoBehaviour:
           isColorRecursive: 0
         - colorIndex: 1
           iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Canvas Icon
           isIconRecursive: 0
           isColorRecursive: 0
         - colorIndex: 0
