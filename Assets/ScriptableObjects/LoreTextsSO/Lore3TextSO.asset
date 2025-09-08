@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: 
   Content: "Sendo eles: P\xC3O e MA\xC7\xC3."
+  TitleKey: LoreText3
+  ContentKey: 

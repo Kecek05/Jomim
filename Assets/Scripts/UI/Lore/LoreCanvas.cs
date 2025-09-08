@@ -4,6 +4,7 @@ using KeceK.General;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 
 namespace KeceK.UI
@@ -14,8 +15,7 @@ namespace KeceK.UI
         [SerializeField] [Required] private Button _previousButton;
         [SerializeField] [Required] private Button _nextButton;
         [SerializeField] [Required] private Button _continueButton;
-        [SerializeField] [Required] private TextMeshProUGUI _contentText;
-        [SerializeField] [Required] private TextMeshProUGUI _titleText;
+        [SerializeField] [Required] private LocalizeStringEvent _contentText;
         [Space(5f)]
         [SerializeField] private List<LoreTextSO> _loreTextSOsInOrder;
         
@@ -72,8 +72,7 @@ namespace KeceK.UI
 
         private void UpdateLoreDisplayToCurrentIndex()
         {
-            _contentText.text = _loreTextSOsInOrder[_currentLoreIndex].Content;
-            _titleText.text = _loreTextSOsInOrder[_currentLoreIndex].Title;
+            _contentText.SetEntry(_loreTextSOsInOrder[_currentLoreIndex].TitleKey);
         }
     }
 }

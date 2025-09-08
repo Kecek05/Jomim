@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be51871efa6c3e4eae1703925c8f5ac, type: 3}
+  m_Name: Lore
+  m_EditorClassIdentifier: 
+  m_SharedTableData: {fileID: 11400000, guid: 6e2d7c38f791b4a41aa5ff5e93e8ea2c, type: 2}
+  m_Tables:
+  - {fileID: 11400000, guid: cbe978144918de74a849bf684d2e3e8a, type: 2}
+  - {fileID: 11400000, guid: 34c6825a167443b429e2d990d8b0c57f, type: 2}
+  m_Extensions: []
+  m_Group: String Table
+  references:
+    version: 2
+    RefIds: []
