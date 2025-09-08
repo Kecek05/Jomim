@@ -3743,8 +3743,6 @@ MonoBehaviour:
   - {fileID: 1804492244}
   - {fileID: 911367404}
   _backButton: {fileID: 46309278}
-  _deleteSaveButton: {fileID: 800911443}
-  _unlockAllLevelsButton: {fileID: 1327732547}
 --- !u!1001 &846251601
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4628,7 +4626,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Jo Mim
+  m_text: JoMim
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5ecb30a2f9eb28d439bec451faceae1b, type: 2}
   m_sharedMaterial: {fileID: -7846591044520969798, guid: 5ecb30a2f9eb28d439bec451faceae1b, type: 2}
