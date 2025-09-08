@@ -42,13 +42,16 @@ namespace KeceK.UI
 
         private void EnableButtonsBySave()
         {
-            int unlockedLevelsInEnumIndex = Saver.GetSavedUnlockedLevelEnumIndex();
-            int enumIndexToButtonsListIndex = (unlockedLevelsInEnumIndex / 2) + 1;
-
-            for (int i = 0; i < enumIndexToButtonsListIndex && i < _levelsButtons.Count; i++)
+            int levelsToShowButton = GetNextLevelIndex();
+            for (int i = 0; i < levelsToShowButton; i++)
             {
                 _levelsButtons[i].SetActive(true);
             }
+        }
+
+        private int GetNextLevelIndex()
+        {
+            return Saver.GetSavedLevelEnumIndex() + 1;
         }
 
         private void DisableAllButtons()
@@ -58,7 +61,7 @@ namespace KeceK.UI
                 buttonObj.SetActive(false);
             }
         }
-
+        
         private void ListenToButtonEvents()
         {
             _level1Button.onClick.AddListener(() =>
@@ -132,32 +135,22 @@ namespace KeceK.UI
             _levelSelectorParent.SetActive(false);
         }
     
+        #if UNITY_EDITOR
+        [Button]
         private void UnlockAllLevelsDebugOnly()
         {
-            Saver.SaveUnlockedLevelByIndex(30);
+            int levelsInGameIndex = 8;
+            Saver.SaveLevelByIndex(levelsInGameIndex);
             DisableAllButtons();
             EnableButtonsBySave();
         }
-        
+        [Button]
         private void DeleteSaveDebugOnly()
         {
-            Saver.DeleteSavedUnlockedLevels();
+            Saver.DeleteSavedLevels();
             DisableAllButtons();
             EnableButtonsBySave();
         }
-        
-        //Debug Only
-        private void Update()
-        {
-            if(Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.U))
-            {
-                UnlockAllLevelsDebugOnly();
-            }
-
-            if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.I))
-            {
-                DeleteSaveDebugOnly();
-            }
-        }
+        #endif
     }
 }

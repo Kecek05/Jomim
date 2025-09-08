@@ -4,22 +4,24 @@ namespace KeceK.General
 {
     public static class Saver
     {
-        private static string Save_UnlockedLevel_Key = "UnlockedLevel_Key";
+        private static string Save_Level_Key = "Level_Key";
         
-        public static void SaveUnlockedLevelByIndex(int levelIndex)
+        public static void SaveLevelByIndex(int levelIndex)
         {
-            PlayerPrefs.SetInt(Save_UnlockedLevel_Key, levelIndex);
+            if(levelIndex <= GetSavedLevelEnumIndex()) return;
+            
+            PlayerPrefs.SetInt(Save_Level_Key, levelIndex);
             PlayerPrefs.Save();
         }
         
-        public static int GetSavedUnlockedLevelEnumIndex()
+        public static int GetSavedLevelEnumIndex()
         {
-            return PlayerPrefs.GetInt(Save_UnlockedLevel_Key, 0);
+            return PlayerPrefs.GetInt(Save_Level_Key, 0);
         }
         
-        public static void DeleteSavedUnlockedLevels()
+        public static void DeleteSavedLevels()
         {
-            PlayerPrefs.DeleteKey(Save_UnlockedLevel_Key);
+            PlayerPrefs.DeleteKey(Save_Level_Key);
         }
     }
 }

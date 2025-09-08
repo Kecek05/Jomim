@@ -7371,6 +7371,14 @@ PrefabInstance:
       propertyPath: levelExitP2
       value: 
       objectReference: {fileID: 1793078499}
+    - target: {fileID: 6829949367581843156, guid: 352883e0ec39d2241940d593518888fd, type: 3}
+      propertyPath: _currentScene
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829949367581843156, guid: 352883e0ec39d2241940d593518888fd, type: 3}
+      propertyPath: _levelToUnlock
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7781139987488141383, guid: 352883e0ec39d2241940d593518888fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

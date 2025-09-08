@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace KeceK.Utils.Debug
 {
+    #if UNITY_EDITOR
     public class DebugUI : MonoBehaviour
     {
         [SerializeField] 
@@ -31,4 +32,5 @@ namespace KeceK.Utils.Debug
             _texts[6].text = $"State: {_playerManager?.PlayerStateMachine?.CurrentState.ToString() ?? "Null"}";
         }
     }
+    #endif
 }

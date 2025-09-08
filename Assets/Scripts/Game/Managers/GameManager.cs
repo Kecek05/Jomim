@@ -18,7 +18,11 @@ namespace KeceK.Game
         [SerializeField] [FoldoutGroup("Exits")]
         private LevelExit levelExitP2;
 
-        [Title("Settings")] [SerializeField] private GameSettingsSO _gameSettingsSO;
+        [Title("Settings")] 
+        [SerializeField] private GameSettingsSO _gameSettingsSO;
+        [SerializeField] private bool _canUnlockALevel = true;
+        [SerializeField] [ShowIf(nameof(_canUnlockALevel))]
+        private Loader.Scene _levelToUnlock = Loader.Scene.Level1;
         
         private bool _isP1AtExit;
         private bool _isP2AtExit;
@@ -89,6 +93,8 @@ namespace KeceK.Game
         private IEnumerator DelayedChangingLevel()
         {
             yield return new WaitForSeconds(_gameSettingsSO.DelayToChangeLevel);
+            if(_canUnlockALevel)
+                Saver.SaveLevelByIndex((int)_levelToUnlock);
             Loader.LoadNextLevel();
         }
         
@@ -118,17 +124,6 @@ namespace KeceK.Game
         private void SetCurrentSceneDebugOnly(Loader.Scene currentScene)
         {
             Loader.SetCurrentSceneDebugOnly(currentScene);
-        }
-
-        //Debug only
-        private void Update()
-        {
-            if(UnityEngine.Input.GetKey(KeyCode.LeftControl) && UnityEngine.Input.GetKey(KeyCode.LeftShift) && UnityEngine.Input.GetKeyDown(KeyCode.F8)
-               && !_debugChangingLevel)
-            {
-                _debugChangingLevel = true;
-                GoNextLevel();
-            }
         }
     }
 }

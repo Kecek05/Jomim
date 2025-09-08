@@ -6236,6 +6236,18 @@ PrefabInstance:
       propertyPath: levelExitP2
       value: 
       objectReference: {fileID: 1793078499}
+    - target: {fileID: 6829949367581843156, guid: 352883e0ec39d2241940d593518888fd, type: 3}
+      propertyPath: LevelToUnlock
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829949367581843156, guid: 352883e0ec39d2241940d593518888fd, type: 3}
+      propertyPath: _currentScene
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829949367581843156, guid: 352883e0ec39d2241940d593518888fd, type: 3}
+      propertyPath: _levelToUnlock
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7781139987488141383, guid: 352883e0ec39d2241940d593518888fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7983,6 +7995,10 @@ PrefabInstance:
     - target: {fileID: 7687139057167389701, guid: 9942a9da466db1e478b680e473723ab7, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.0010500886
+      objectReference: {fileID: 0}
+    - target: {fileID: 7999721518406252362, guid: 9942a9da466db1e478b680e473723ab7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9999446
       objectReference: {fileID: 0}
     - target: {fileID: 7999721518406252362, guid: 9942a9da466db1e478b680e473723ab7, type: 3}
       propertyPath: m_LocalRotation.z

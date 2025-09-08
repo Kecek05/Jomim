@@ -12,32 +12,22 @@ namespace KeceK.General
         
         public static event Action<Scene> OnCurrentSceneChanged;
         
-        private static Scene currentScene;
+        private static Scene _currentScene;
         
-        public static Scene CurrentScene => currentScene;
+        public static Scene CurrentScene => _currentScene;
     
         public enum Scene
         {
             Level1,
-            Level2Locker,
             Level2,
-            Level3Locker,
             Level3,
-            Level4Locker,
             Level4,
-            Level5Locker,
             Level5,
-            Level6Locker,
             Level6,
-            Level7Locker,
             Level7,
-            Level8Locker,
             Level8,
-            Level9Locker,
             Level9,
-            Level10Locker,
             Level10,
-            Level11,
             None,
             MainMenu,
             Loading,
@@ -49,46 +39,33 @@ namespace KeceK.General
         /// <param name="scene"></param>
         public static void Load(Scene scene)
         {
-            currentScene = scene;
+            _currentScene = scene;
             if (Transitioner.Instance != null)
             {
-                Transitioner.Instance.TransitionToScene(currentScene.ToString(), true);
+                Transitioner.Instance.TransitionToScene(_currentScene.ToString(), true);
             }
             else
             {
-                SceneManager.LoadScene(currentScene.ToString());
+                SceneManager.LoadScene(_currentScene.ToString());
             }
-            OnCurrentSceneChanged?.Invoke(currentScene);
+            OnCurrentSceneChanged?.Invoke(_currentScene);
         }
         
         public static void ReloadCurrentScene()
         {
-            Load(currentScene);
+            Load(_currentScene);
         }
 
         public static void LoadNextLevel()
         {
-            int nextSceneIndex = (int)currentScene + 1;
+            int nextSceneIndex = (int)_currentScene + 1;
 
             if (nextSceneIndex < Enum.GetNames(typeof(Scene)).Length)
             {
                 Scene nextScene = (Scene)nextSceneIndex;
 
                 if (IsLevel(nextScene))
-                {
-                    if (IsLocker(nextScene))
-                    {
-                        if (AlreadyUnlockedLevel(nextScene))
-                        {
-                            Scene nextLevelUnlocked = (Scene)(nextSceneIndex + 1);
-                            Load(nextLevelUnlocked);
-                        }
-                        else
-                            Load(nextScene);
-                    }
-                    else
-                        Load(nextScene);
-                }
+                    Load(nextScene);
                 else
                 {
                     Debug.Log($"Next scene is not a level. The Scene is: {nextScene}. Going to menu");
@@ -105,42 +82,10 @@ namespace KeceK.General
             
             return sceneName.IndexOf("Level", StringComparison.OrdinalIgnoreCase) >= 0;
         }
-        
-        private static bool IsLocker(Scene scene)
-        {
-            string sceneName = scene.ToString();
-            
-            if (string.IsNullOrEmpty(sceneName)) return false;
-            
-            return sceneName.IndexOf("Locker", StringComparison.OrdinalIgnoreCase) >= 0;
-        }
-
-        private static bool AlreadyUnlockedLevel(Scene scene)
-        {
-            int sceneIndex = (int)scene;
-            if (sceneIndex <= Saver.GetSavedUnlockedLevelEnumIndex())
-                return true;
-            else
-                return false;
-        }
-
-        private static void LoadRespectiveLocker(Scene scene)
-        {
-            string lockerSceneName = scene.ToString() + LockerSufix;
-            if (Enum.TryParse(lockerSceneName, out Scene lockerScene))
-            {
-                Load(lockerScene);
-            }
-            else
-            {
-                Debug.LogError($"Locker scene not found for {scene}");
-                Load(Scene.MainMenu);
-            }
-        }
 
         public static void SetCurrentSceneDebugOnly(Scene scene)
         {
-            currentScene = scene;
+            _currentScene = scene;
         }
     }
 }
