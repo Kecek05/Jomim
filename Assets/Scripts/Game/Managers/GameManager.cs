@@ -24,6 +24,7 @@ namespace KeceK.Game
         private bool _isP2AtExit;
         private bool _onChangingLevel = false;
         private bool _canExit = false;
+        private bool _isReloadingLevel = false;
         
         private bool _debugChangingLevel = false;
         
@@ -99,6 +100,9 @@ namespace KeceK.Game
         
         private IEnumerator DelayedReloadCurrentLevel()
         {
+            if (_isReloadingLevel) yield break;
+            _isReloadingLevel = true;
+            
             yield return new WaitForSeconds(_gameSettingsSO.DelayToReloadLevel);
             Loader.ReloadCurrentScene();
             
