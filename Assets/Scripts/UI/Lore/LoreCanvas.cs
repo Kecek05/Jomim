@@ -37,7 +37,12 @@ namespace KeceK.UI
             DisableButtonsIfNeeded();
             UpdateLoreDisplayToCurrentIndex();
         }
-        
+
+        private void Start()
+        {
+            StartCoroutine(LocalizationManager.InitializeLocalizationBasedOnSave());
+        }
+
 
         private void NextLore()
         {
