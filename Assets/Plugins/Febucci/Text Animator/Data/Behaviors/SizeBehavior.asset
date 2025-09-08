@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6da0c21b80efda84188912ce510ee1ca, type: 3}
   m_Name: SizeBehavior
   m_EditorClassIdentifier: 
-  tagID: incr
-  baseAmplitude: 1.5
-  baseFrequency: 4
-  baseWaveSize: 0.2
+  tagID: loreincr
+  baseAmplitude: 1.14
+  baseFrequency: 2.39
+  baseWaveSize: -0.9

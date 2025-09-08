@@ -19,13 +19,13 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 32026443776
-    m_Localized: "Com o objetivo de fazer o melhor P\xC3O DE MA\xC7\xC3 do mundo,
-      Jo\xE3o e Yasmim saem em uma aventura em busca dos ingredientes."
+    m_Localized: "Com o objetivo de fazer o melhor <lore>P\xC3O DE MA\xC7\xC3</lore>
+      do mundo, Jo\xE3o e Yasmim saem em uma aventura em busca dos ingredientes."
     m_Metadata:
       m_Items: []
   - m_Id: 153069862912
     m_Localized: "Eles precisam coletar todos os ingredientes para fazer o melhor
-      P\xC3O DE MA\xC7\xC3 do mundo."
+      <lore>P\xC3O DE MA\xC7\xC3</lore> do mundo."
     m_Metadata:
       m_Items: []
   - m_Id: 191045091328
@@ -34,7 +34,8 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 212469596160
     m_Localized: "S\xE3o necess\xE1rios exatos 2 bilh\xF5es de MA\xC7\xC3S e 2 bilh\xF5es
-      de P\xC3ES para que o melhor P\xC3O DE MA\xC7\xC3 do mundo seja feito."
+      de P\xC3ES para que o melhor <lore>P\xC3O DE MA\xC7\xC3</lore> do mundo seja
+      feito."
     m_Metadata:
       m_Items: []
   - m_Id: 3230220992512
@@ -42,8 +43,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 3145340862464
-    m_Localized: "Na verdade, o melhor P\xC3O DE MA\xC7\xC3 do mundo s\xE3o os momentos
-      junto com voc\xEA <3"
+    m_Localized: "Na verdade, o melhor <lore>P\xC3O DE MA\xC7\xC3</lore> do mundo
+      s\xE3o os momentos junto com voc\xEA <3"
     m_Metadata:
       m_Items: []
   references:

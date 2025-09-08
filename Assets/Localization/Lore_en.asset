@@ -19,13 +19,13 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 32026443776
-    m_Localized: "With the goal of making the best APPLE BREAD in the world, Jo\xE3o
-      and Yasmim set out on an adventure in search of the ingredients."
+    m_Localized: "With the goal of making the best <lore>APPLE BREAD</lore> in the
+      world, Jo\xE3o and Yasmim set out on an adventure in search of the ingredients."
     m_Metadata:
       m_Items: []
   - m_Id: 153069862912
-    m_Localized: They need to collect all the ingredients to make the best APPLE
-      BREAD in the world.
+    m_Localized: They need to collect all the ingredients to make the best <lore>APPLE
+      BREAD</lore> in the world.
     m_Metadata:
       m_Items: []
   - m_Id: 191045091328
@@ -34,12 +34,12 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 212469596160
     m_Localized: Exactly 2 billion APPLES and 2 billion BREADS are needed for the
-      best APPLE BREAD in the world to be made.
+      best <lore>APPLE BREAD</lore> in the world to be made.
     m_Metadata:
       m_Items: []
   - m_Id: 3145340862464
-    m_Localized: In truth, the best APPLE BREAD in the world is the moments together
-      with you <3
+    m_Localized: In truth, the best <lore>APPLE BREAD</lore> in the world is the
+      moments together with you <3
     m_Metadata:
       m_Items: []
   - m_Id: 3230220992512
