@@ -1,6 +1,6 @@
 {
-    "name": "KeceK.EditorWindow",
-    "rootNamespace": "KeceK.EditorWindow",
+    "name": "KeceK.EditorWindows",
+    "rootNamespace": "KeceK.EditorWindows",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
